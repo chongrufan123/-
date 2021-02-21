@@ -16,6 +16,8 @@
         * [常量](#常量)
         * [变量](#变量)
         * [运算符](#运算符)
+    * [句法](#句法)
+        * [语句](#语句)
 
 <!-- vim-markdown-toc -->
 ## 基本信息
@@ -121,3 +123,30 @@ endmodule
 - 移位运算符  
 - 条件运算符  
 - 连接运算符
+
+### 句法
+#### 语句
+- 赋值语句
+> 连续赋值语句  
+过程赋值语句
+
+- 条件语句
+> if-else  
+case
+- 循环语句
+> forever语句  
+repeat语句  
+while语句   
+for语句     
+
+- 结构说明语句
+> initial语句  
+always语句  
+task语句  
+function语句  
+
+- 编译预处理语句
+> `define语句  
+`include语句  
+`tiomescale语句  
+

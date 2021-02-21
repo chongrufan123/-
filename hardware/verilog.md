@@ -1,5 +1,23 @@
 # verilog
 
+<!-- vim-markdown-toc Marked -->
+
+* [基本信息](#基本信息)
+    * [verilog的主要运用](#verilog的主要运用)
+    * [ip核](#ip核)
+        * [软核](#软核)
+        * [硬核](#硬核)
+    * [自顶而下的设计流程](#自顶而下的设计流程)
+* [语法](#语法)
+    * [电路抽象级别](#电路抽象级别)
+    * [基本概念](#基本概念)
+    * [数据类型及常量变量](#数据类型及常量变量)
+        * [常用词法](#常用词法)
+        * [常量](#常量)
+        * [变量](#变量)
+        * [运算符](#运算符)
+
+<!-- vim-markdown-toc -->
 ## 基本信息
 ### verilog的主要运用
 - ASCI FPGA工程师编写可综合的RTL代码
@@ -44,26 +62,61 @@ verilog适合系统级、算法级、寄存器传输级、逻辑、门级和电�
         input sel;      #一位表达式
         assign out = sel?in1:in0;   #逻辑功能描述-描述内部特征
     endmodule   #module开始，endmodule结束表示一个模块
-
+以进行不同级别的描述
 > wire类型  导线类型，没有存储功能，只能参与到组合逻辑的设计中来
 > reg类型    寄存器类型，有存储功能，可以参与到时序逻辑的运算
     
 ```
-    # 以下module表示一个16位加法器
-    module counter(q, cont, reset, cin, clk);
-        parameter N = 4;
-        output [N:1]q;
-        output cont;
-        input reset, cin, clk;
-        reg [N:1]q;
-        always @(posedge clk)   #posedge表示上升沿， negedge表示下降沿
-            begin
-                if (reset) q<=0;
-                else
-                    q<=q + cin;
-            end
-        assign cout= &q && cin;  #&q表示q的所有位相与，&&表示与
-    endmodule
+# 以下module表示一个16位加法器
+module counter(q, cont, reset, cin, clk);
+    parameter N = 4;
+    output [N:1]q;
+    output cont;
+    input reset, cin, clk;
+    reg [N:1]q;
+    always @(posedge clk)   #posedge表示上升沿， negedge表示下降沿
+        begin
+            if (reset) q<=0;
+            else
+                q<=q + cin;
+        end
+    assign cout= &q && cin;  #&q表示q的所有位相与，&&表示与
+endmodule
 ```    
+### 数据类型及常量变量
+#### 常用词法
+- verilog区分大小写
+- 关键字都采用小写
+#### 常量
+- 数字 <位宽> '<进制><数值>
+> 二进制    b
+> 八进制    o
+> 十进制    d
+> 十六进制  h
+>> *二,八十六进制可以使用x(不定),z(高阻)*
 
+- 定义
+> parameter 参数名=表达式
 
+#### 变量
+> 网络型
+>> wire类型
+1. 最常用的net型变量
+2. 常用来表示assign
+3. 取值为0,1,x,z
+4. 模块的输入输出缺省是默认是wire
+5. 可以显示位宽
+> 寄存器型
+>> reg类型
+1. 可以设置位宽
+
+#### 运算符
+- 算数运算符
+- 逻辑运算符
+- 位运算符
+- 关系运算符
+- 等式运算符
+- 缩减运算符
+- 移位运算符
+    条件运算符
+    连接运算符

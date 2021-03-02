@@ -81,6 +81,8 @@
         * [多分支if条件语句](#多分支if条件语句)
         * [多分支if条件语句](#多分支if条件语句)
     * [case语句](#case语句)
+    * [for循环](#for循环)
+    * [while循环和until循环](#while循环和until循环)
 
 <!-- vim-markdown-toc -->
 
@@ -784,3 +786,47 @@ case $变量名 in
         ;;
 esac
 ```
+
+### for循环
+```
+语法1:不知道循环次数
+for 变量 in 值1 值2 值3...
+    do
+        程序
+    done
+
+语法2:知道循环次数
+for ((初始值;循环控制条件;变量变化))
+    do
+        程序
+    done
+```
+例子
+```
+批量解压缩脚本
+cd/lamp
+ls *.tar.gz > ls.log
+for i in $(cat ls.log)
+    do
+        tar -zxf $i &>/dev/null
+    done
+rm -rf /lamp/ls.log
+```
+
+### while循环和until循环
+while是不定循环, 只要条件成立, 循环就会一直继续
+```
+while [ 条件判断式 ]
+    do
+        程序
+    done
+```
+
+until循环, 只要条件不成立, 循环就会一直继续
+```
+until [ 条件判断式 ]
+    do
+        程序
+    done
+```
+

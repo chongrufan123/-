@@ -43,6 +43,9 @@
     * [文件和目录的默认权限和隐藏权限](#文件和目录的默认权限和隐藏权限)
     * [观察文件类型:file](#观察文件类型:file)
     * [指令与文件的搜寻](#指令与文件的搜寻)
+* [linux磁盘与文件系统管理](#linux磁盘与文件系统管理)
+    * [认识linux文件系统](#认识linux文件系统)
+        * [磁盘组成和分区](#磁盘组成和分区)
 
 <!-- vim-markdown-toc -->
 
@@ -462,4 +465,90 @@ file 文件   //可以告诉这个文件的类型
         -i:忽略大小写的差异
         -c:不输出文件名, 仅输出找到的文件数量
         -l:仅输出n行
-        -S:
+        -S:输出locate所使用的数据库文件的相关信息, 包括数据库记录的文件/目录数目等
+        -r:后面可以接正则表达式的显示方式
+        ```
+        在数据库中寻找文件, 数据库可能一段时间更新一次, 可以手动更新数据库
+        ```
+        updatedb
+        ```
+    -   find
+        ```
+        find [PATH] [option] [action]  
+        选项和参数:
+        1, 和时间有关的选项:
+        -mtime n:n天之前的一天之内被修改过的文件
+        -mtime +n:n天的之前被修改过的文件
+        -mtime -n:n天之内被修改过的文件
+        -newer file:file是一个已经存在的文件, 列出比file新的文件
+        2,与使用者和群组名称有关的参数
+        -uid n:数字是使用者的ID
+        -gid n:群组名称的id
+        -user name:使用者账号的名称
+        -group name:群组名称
+        -nouser:寻找文件的所有者不存在于/etc/passwd的人
+        -nogroup:寻找文件的所有者不存在于/etx/group的人
+        3, 与文件权限和名称有关的参数
+        -name filename:搜寻文件名为filename的文件
+        -size [+-]SIZE:搜寻比SIZE大[+]或小[-]的文件
+        -type TYPE:搜索文件类型是TYPE的文件
+        -perm mode:搜索文件权限刚好等于mode的文件
+        -perm -mode:搜索文件权限囊括mode的文件
+        -perm /mode:搜索文件权限包含任一mode的权限的文件
+        4, 额外可进行的动作
+        -exec command:-exec后接其他指令处理搜寻到的结果
+        -print:将结果打印到屏幕上
+        ```
+## linux磁盘与文件系统管理
+### 认识linux文件系统
+#### 磁盘组成和分区
+磁盘组成
+-   圆形的盘片(记录数据)
+-   机械手臂, 和在机械手臂上的磁头(读写盘片)
+-   主轴马达, 可以转动盘片, 让机械手臂读写数据
+
+盘片的物理组成
+-   扇区, 最小的物理储存单位, 目前主要有521Bytes和4K两个格式
+-   柱面, 扇区组成一个圆
+-   扇区作为最小的分区单位
+-   磁盘分区的格式
+    -   MBR分区:第一个扇区最重要, 限制比较多
+    -   GPT分区:较新, 限制较少, 分区数量扩充较多
+-   /dev/sd[a-p][1-128] 实体磁盘的磁盘文件名
+-   /dev/vd[a-d][1-128] 虚拟磁盘的磁盘文件名
+
+-   索引式文件系统(indexed allocation)  
+        一个文件系统的一些属性会存放在不同的区块
+        -   superblock:记录整体信息, 包括inode/block的总量, 使用量, 剩余量以及文件系统格式与相关信息等
+        -   inode:记录文件的属性, 一个文件占用一个inode, 同时记录此文件的数据所在的block的号码
+        -   block:实际记录文件内容, 太大会占据多个block  
+        文件找到他的inode, 然后就可以找到他的所有的block, 就可以都读取出来
+
+-   FAT格式
+        每个block号码记录在前一个block中, 然后依次读取, 类似于链条
+
+inode table  
+    inode table记录的文件数据有以下这些
+    -   文件的存取模式(read/write/excute)
+    -   该文件的拥有者与群组(owner/group)
+    -   该文件的容量
+    -   改文件创建或状态改变的时间(ctime)
+    -   最近一次读取时间(atime)
+    -   最近修改的时间(mtime)
+    -   定义文件特性的旗帜(flag)
+    -   该文件真正的指向(pointer)  
+    inode的特点有这些
+    -   每个inode大小固定是128Bytes
+    -   每个文件仅仅占用一个inode
+    -   文件系统能够创建的文件数量和inode有关
+    -   读取文件要先找到inode
+
+superblock  
+    记录整个filesystem相关信息的地方, 记录的信息有
+    -   block和inode的总量
+    -   未使用与已使用的inode/block数量
+    -   block和inode的大小(block:1, 2, 4k, inode:128Bytes或256Bytes)
+    -   filesystem的挂载时间, 最近一次写入数据的时间, 最近一次检验硬盘的时间等
+    -   一个valid bit数值, 若文件挂载, 则valid bit为0, 否则为1
+    ```
+    dumpe2fs [-bh] 

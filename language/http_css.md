@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------
-File Name: httpcss.md
-	 Author: Fan Chongru
-	 Mail: chongrufan123@gmail.com
-	 Created Time: 2021年03月07日 星期日 14时05分08秒
-	 notes: do not repeat yourself DRY
+File Name: httcss.md  
+	 Author: Fan Chongru  
+	 Mail: chongrufan123@gmail.com  
+	 Created Time: 2021年03月07日 星期日 14时05分08秒  
+	 notes: do not repeat yourself DRY  
  --------------------------------------------------------------------------
 
 # http_css

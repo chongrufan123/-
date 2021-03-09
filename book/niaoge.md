@@ -70,6 +70,10 @@
 * [认识和学习BASH](#认识和学习bash)
     * [认识BASH这个shell](#认识bash这个shell)
         * [硬件, 核心和shell](#硬件,-核心和shell)
+    * [shell的变量功能](#shell的变量功能)
+        * [环境变量](#环境变量)
+        * [影响显示结果的语系变量](#影响显示结果的语系变量)
+        * [变量的键盘读取, 阵列与宣告](#变量的键盘读取,-阵列与宣告)
 
 <!-- vim-markdown-toc -->
 
@@ -890,7 +894,98 @@ bash是GNU计划中重要的工具软件之一, 也是Linux distributions的标�
 -   工作控制, 前景背景控制  
 -   程序化脚本(shell script)
 -   万用字符(Wildcard)
+通过type可以查询指令是否是bash内置指令
+```
+type [-tpa] name
+选项和参数:
+ :不加选项时, 会显示出是外部指令还是内部指令
+-t: 以以下字眼显示出他的含义
+    -   file:外部指令
+    -   alias:别名
+    -   builtin:内置指令
+-p: 如果后面的name是外部指令时才会显示完整文件名
+-a: 如果由PATH变量定义的路径中, 将所有含有name的指令都列出来
+```
+### shell的变量功能
+变量设置规则
+-   等号两边不能接空白字符
+-   变量名称只能是英文字母和数字, 开头不能是数字
+-   双引号里面可以引用特殊字符, 单引号里面不可以
+-   若要变量在其他子程序中执行, 要转化为环境变量
+    ```
+    export PATH
+    ```
+-   通常大写字符是系统默认变量, 用户的变量的话就小写就好(非强制)
+-   取消变量的方法
+    ```
+    unset myname
+    ```
+#### 环境变量
+-   env
+    ```
+    env     列出目前环境下所有环境变量和内容
+    本机执行, 得到如下信息:
 
-
-
+    SHELL=/bin/bash                                         :目前使用的是哪个shell
+    no_proxy=127.0.0.1,localhost                            
+    LANGUAGE=zh_CN.UTF-8                                    :语系编码 
+    NO_AT_BRIDGE=1
+    PWD=/home/pi/Desktop/study/notes/book                   :目前工作目录
+    LOGNAME=pi                                              :登录者的登录账号
+    XDG_SESSION_TYPE=tty
+    _=/usr/bin/env                                          :上一个使用指令的最后一个参数
+    HOME=/home/pi                                           :使用者的主文件夹
+    LANG=zh_CN.UTF-8
+    LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=...           :颜色显示
+    VIMRUNTIME=/usr/share/vim/vim82                         
+    SSH_CONNECTION=192.168.137.1 11524 192.168.137.168 22
+    VIM=/usr/share/vim
+    XDG_SESSION_CLASS=user
+    TERM=xterm                                              :终端使用的环境是什么类型
+    USER=pi                                                 :使用者名称
+    SHLVL=1
+    LC_MESSAGES=zh_CN.UTF-8
+    XDG_SESSION_ID=14
+    XDG_RUNTIME_DIR=/run/user/1000
+    MYVIMRC=/home/pi/.vimrc
+    SSH_CLIENT=192.168.137.1 11524 22
+    LC_ALL=
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/home/pi/scrpt
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+    MAIL=/var/mail/pi
+    SSH_TTY=/dev/pts/1
+    OLDPWD=/home/pi/Desktop/study                           :上一个工作目录
+    TEXTDOMAIN=Linux-PAM
+    ```
+-   set :观察所有变量  
+    几个重要的变量
+    -   PS1 : 命令符变量, 有下面一些符号
+        [命令符变量的符号](../laungage/shell)
+    -   \$  :本shell的PID
+    -   ?   :上一个指令的回传值
+    -   OSTYPE, HOSTTYPE, MACHTYPR  : 主机硬件和核心等级
+-   export  :自定变量成为环境变量, 当只有export时会列出当前所有的环境变量
+#### 影响显示结果的语系变量
+-   locale
+    ```
+    locale -a   查询当前linux支持的编码语言
+    locale      显示语系相关的环境变量
+    下面是本机locale之后的结果:
+    LANG=zh_CN.UTF-8            :主语言环境
+    LANGUAGE=zh_CN.UTF-8        
+    LC_CTYPE="zh_CN.UTF-8"      :字符辨识编码
+    LC_NUMERIC="zh_CN.UTF-8"    :数字讯息显示编码
+    LC_TIME="zh_CN.UTF-8"       :时间系统显示数据
+    LC_COLLATE="zh_CN.UTF-8"    :字符比较和排序
+    LC_MONETARY="zh_CN.UTF-8"
+    LC_MESSAGES=zh_CN.UTF-8     :讯息显示内容
+    LC_PAPER="zh_CN.UTF-8"
+    LC_NAME="zh_CN.UTF-8"
+    LC_ADDRESS="zh_CN.UTF-8"
+    LC_TELEPHONE="zh_CN.UTF-8"
+    LC_MEASUREMENT="zh_CN.UTF-8"
+    LC_IDENTIFICATION="zh_CN.UTF-8"
+    LC_ALL=                     :整体语系环境
+    ```
+#### 变量的键盘读取, 阵列与宣告
 

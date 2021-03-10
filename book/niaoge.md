@@ -74,6 +74,18 @@
         * [环境变量](#环境变量)
         * [影响显示结果的语系变量](#影响显示结果的语系变量)
         * [变量的键盘读取, 阵列与宣告](#变量的键盘读取,-阵列与宣告)
+        * [与文件系统及程序的限制关系:ulimit](#与文件系统及程序的限制关系:ulimit)
+        * [变量内容的删除, 取代和替换](#变量内容的删除,-取代和替换)
+    * [命名别名与历史命令](#命名别名与历史命令)
+        * [命名别名设置](#命名别名设置)
+        * [历史命令:history](#历史命令:history)
+    * [Bash Shell的操作环境](#bash-shell的操作环境)
+        * [路径和指令的搜寻顺序](#路径和指令的搜寻顺序)
+        * [进站与欢迎讯息](#进站与欢迎讯息)
+        * [环境配置](#环境配置)
+        * [终端机环境设置](#终端机环境设置)
+    * [数据流重导向](#数据流重导向)
+    * [管线命令](#管线命令)
 
 <!-- vim-markdown-toc -->
 
@@ -988,4 +1000,155 @@ type [-tpa] name
     LC_ALL=                     :整体语系环境
     ```
 #### 变量的键盘读取, 阵列与宣告
+-   read    读取来自键盘的输入
+    ```
+    read [-pt] variable
+    选项和参数:
+    -p : 后面接提示字符
+    -t : 表示等待的时间
+    ```
+-   declare/typeset     宣告变量类型(两个用法没有什么不同)
+    ```
+    declare [-aixr] variable
+    选项和参数:
+    -a : 将后面变量定义为阵列(array)类型
+    -i : 将后面变量定义为整数类型(interger)
+    -x : 用法和export一样, 将后面的变量变成环境变量
+    -r : 将变量设置为redonly类型, 该变量不可被更改, 也不能unset
+    ```
+    变量类型默认是字串, 数值运算默认最多达到整数形态
+    -   阵列(array)变量类型
+        设置方式
+        ```
+        var[index]=content
+        ```
+#### 与文件系统及程序的限制关系:ulimit
+-   ulimit  设置用户的配额
+    ```
+    ulimit [-SHacdfltu] [配额]
+    选项和参数:
+    -H:hard limit, 严格的警告, 完全不能超过这个数值
+    -S:soft limit, 警告的设置, 超过这个值会有警告
+    -a:后面不接任何选项和参数, 可列出所有的限制额度
+    -c:限制每个核心文件的最大容量
+    -f:此shell可以创建的最大的文件大小, 单位是kb
+    -d:程序可使用的最大断裂内存容量
+    -l:可用于锁定的内存量
+    -t:可使用的最大cpu
+    -u:单一使用者可以使用的最大程序数量
+    ```
+#### 变量内容的删除, 取代和替换
+-   删除变量的内容
+    ```
+    ${variable#/*local/bin:}    //$是关键字, 必须存在, variable是操作的变量, #表示从前面开始查找并删除, 后面是字符
+    ```
+    -   #   表示不贪心
+    -   ##  表示贪心
+    -   %   从最后面开始删除, 不贪心
+    -   %%  从最后面开始删除, 贪心
+-   替代
+    ```
+    ${variable/oldname/newname}     表示最开始的旧字符变成新字符
+    ${variable//oldname/newname}     表示所有的的旧字符变成新字符
+    ```
+-   测试和内容替换
+    ```
+    new_var=${old_var-content}      用新变量取代旧字符, 如果旧变量不存在就赋值content
+    new_var=${old_var:content}      用新变量取代旧字符, 如果旧变量不存在或为空就赋值content
+    ```
+    下面是一个很复杂的表格
+    |变量设置方式|str没有设置|str是空|str以设置为非空|
+    |:----|:----|:----|:----|
+    |var=\${str-expr}|var=expr|var=|var=\$str|
+    |var=\${str:-expr}|var=expr|var=expr|var=\$str|
+    |var=\${str+expr}|var=|var=expr|var=expr|
+    |var=\${str:+expr}|var=|str不变 var=|var=expr|
+    |var=\${str=expr}|str=expr var=expr|var=|str不变 var=\$str|
+    |var=\${str:=expr}|str=expr var=expr|str不变 var=\$str|
+    |var=\${str?expr}|expr输出至stderr|var=|var=\$str|
+    |var=\${str:?expr}|expr输出至stderr|var=\$str|
+
+### 命名别名与历史命令
+
+#### 命名别名设置
+-   alias
+    ```
+    alias 别名='命令'   设置别名
+    unalias 别名        拿掉别名
+    ```
+#### 历史命令:history
+-   history
+    ```
+    history [n] [-c] [-raw histfiles]
+    选项和参数:
+    n : 数字, 列出距离现在最近的n个命令
+    -c : 将目前shell的history全部删除
+    -a : 将新增的history写入histfiles中, 如果没有加参数, 默认写入到~/.bath_history
+    -r : 将histfiles的内容读入到本shell的history中
+    -w : 将目前的history写入到histfiles中
+    ```
+-   执行命令
+    ```
+    !number     执行第几个命令
+    !command    由最近的指令向前搜索执行command开头的指令
+    !!          执行上一个指令
+    ```
+
+### Bash Shell的操作环境
+#### 路径和指令的搜寻顺序
+1.  以相对, 绝对路径执行命令
+2.  有alias找到该指令执行
+3.  由bash内置指令执行
+4.  由PATH变量搜寻到的第一个指令执行
+
+#### 进站与欢迎讯息
+[详见shell](../laungage/shell.md)
+
+#### 环境配置
+[详见shell](../laungage/shell.md)
+
+#### 终端机环境设置
+-   stty 查看shell里面默认字符设置功能
+    ```
+    stty [-a]   将目前所有的stty参数列出来
+    ```
+    几个重要的代表意义
+    |字符|意义|
+    |:---|:---|
+    |intr|终端|
+    |quit|给一个退出讯号|
+    |erase|向后删除字符|
+    |kill|删除目前命令行所有文字|
+    |eof|结束输入|
+    |start|某个程序停止后重新启动|
+    |stop|停止目前屏幕输出|
+    |susp|给一个terminal stop讯号|
+
+-   set 设置终端机设置值
+    ```
+    set [-uvCHhmBx]
+    选项和参数:
+    -u:默认不启用, 当启用后, 在使用未设置变量会显示错误信息
+    -v:默认不启用, 当启用后当讯息被输出前显示讯息原始内容
+    -x:默认不启用, 当启用后在指令执行前, 显示指令内容
+    -h:默认启用, 和历史命令有关
+    -H:默认启用, 和历史命令有关
+    -m:默认启用, 与工作管理有关
+    -B:默认启用, 与[]有关
+    -C:默认不启用 
+```
+-   万用符号    可以在bash中用
+    |符号|意义|
+    |---:---|:-------|
+    |*|表示0到多个任意字符|
+    |?|一定有一个任意字符|
+    |[]|一定有一个在括号内的字符|
+    |[ - ]|一定有一个编码顺序内的任意字符|
+    |[^]|取非|
+
+### 数据流重导向
+[详见shell](../laungage/shell.md)
+
+### 管线命令
+
 

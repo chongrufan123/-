@@ -1,0 +1,1305 @@
+
+鸟哥linux私房菜
+* 第0章, 计算机概论
+** 电脑:辅助人脑的好工具
+*** 计算机硬件的五大单元
+电脑由五大单元组成:输入单元, 输出单元, CPU内部控制单元, 算数逻辑单元, 内存
+
+*** 一切设计的起点:CPU架构 
+-   精简指令集(RISC)  
+    比较精简, 单个指令完成的事情很少, 执行时间短, 执行性能佳
+     - 甲骨文公司的SPARC系列  
+     - IBM公司的PowerPC系列  
+     - 安谋公司的ARM系列
+-   复杂指令集(CISC)  
+    指令多且复杂, 运行时间长, 但是单个指令可以解决的事情多
+     - AMD, Intel, VIA
+
+*** 其他单元的设备
+其他单元的重要设备主要有
+-   系统单元:包括CPU与内存还有主板相关元件
+-   存储单元:包括内存和辅助内存(储存设备)
+-   输入输出单元:屏幕等
+
+*** 电脑按用途分类
+1.  超级计算机:运行速度最快的电脑
+2.  大型计算机:用来处理大量数据与复杂的运算
+3.  迷你电脑:用来进行一般的工作
+4.  工作站:针对特殊用途设计的电脑
+5.  微电脑:个人电脑, 体积小, 价格低
+
+*** 电脑上常用的计算单位(容量, 速度等)
+-   容量单位   
+    1byte = 8bits
+| 进位制 | Kilo | Mega | Giga | Tera | Peta |  Exa | Zetta |
+|--------+------+------+------+------+------+------+-------|
+| 二进制 | 1024 | 1024 | 1024 | 1024 | 1024 | 1024 |  1024 |
+| 十进制 | 1000 | 1000 | 1000 | 1000 | 1000 | 1000 |  1000 |
+
+- 存储用二进制  
+- 速度单位用十进制
+
+* 第一章, linux是什么与如何学习
+
+** linux是什么
+    linux是一套操作系统
+
+    每种操作系统都是在他专门的硬件机器上运行的, 但是linux由于是开源的,
+
+    所以他的程序码可以被修改成适合在各种硬件运行, 所以linux具有可移植性  
+
+    由于linux的架构稳定而强大, 可以在个人计算机上跑, 所以很多软件开发者将工作心血转移到其中, 有很多应用软件
+
+*** linux distributions
+一些常见的linux distributions
+|          | RPM软件管理              | DPKG软件管理 | 其他未分类 |
+|----------+--------------------------+--------------+------------|
+| 商业公司 | RHEL, SuSE(Micro Focus)  | Ubuntu       |            |
+| 社群     | Fedora, CentOS, OpenSuSE | Debian, B2D  | Gentoo     |
+
+* 第二章, 主机规划与磁盘分区
+
+** 主机规划
+
+*** 各硬件设备在linux中的文件名
+在Linux中几乎所有的硬件设备都会在/dev这个目录中
+| 设备              | 设备在/dev中的文件名                                       |
+|-------------------+------------------------------------------------------------|
+| SCSI/SATA/USB硬盘 | sd[a-d]                                                    |
+| USB闪存盘         | sd[a-p]                                                    |
+| Virtl/O界面       | vd[a-p]                                                    |
+| 软盘机            | fd[0-7]                                                    |
+| 打印机            | lp\[0-2](25针打印机) ./usb/lp\[0-15](USB接口)              |
+| 鼠标              | ./input/mouse\[0-15](通用) psaux(PS/2界面) mouse(当前鼠标) |
+| CDROM/DVDROM      | scd\[0-1](通用) st0(SATA/SCSI界面) tape(当前磁带)          |
+| IDE磁盘机         | hd\[a-d](旧式系统才有)                                     |
+
+** 磁盘分区
+
+* 第四章, 首次登陆与线上求助
+
+*** 基础指令操作
+-   显示日期和时间:date  
+-   显示日历:cal  
+-   计算器:bc
+
+*** 重要的几个热键
+#+BEGIN_SRC shell
+<c-d>   键盘输入结束
+<shift-{[page-up], [page-down]} 上下翻页
+#+END_SRC
+
+
+
+*** man page
+| NAME        | 这个指令的完整全名                     |
+|-------------+----------------------------------------|
+| SYNOPSIS    | 这个指令的基本语法                     |
+| DESCRIPTION | 详细说明刚刚语法谈到的选项和参数的用法 |
+| ENVIRONMENT | 与这个指令有关的环境参数说明           |
+| EXAMPLES    | 可用的范本                             |
+| DATE STRING | 格式说明                               |
+| AUTHOR      | 作者                                   |
+| COPERIGHT   | 著作权说明                             |
+| SEE ALSO    | 其他相关说明                           |
+
+第一行括号里面数字的意义
+|  代号 | 代表内容                                      |
+|-------+-----------------------------------------------|
+| **1* | **使用者在shell中可以操作的指令或可执行文件* |
+|     2 | 系统核心可以调用的函数与工具                  |
+|     3 | 一些常用的函数或库                            |
+|     4 | 设备文件的说明, 一般在\dev下                  |
+| **5* | **配置文件或某些文件的格式*                  |
+|     6 | games                                         |
+|     7 | 惯例和协定                                    |
+| **8* | **系统管理员可用的管理指令*                  |
+|     9 | 和kernel有关的文件                            |
+
+** 正确的关机方法
+#+BEGIN_SRC shell
+who     查看当前谁在线
+netstat -a  查看网络连线状态
+ps -aix     背景执行的程序
+sync    将数据同步到硬盘
+shutdown    关机
+reboot, halt, poweroff  重新开机, 关机
+#+END_SRC
+* 第五章, linux的文件权限和目录配置
+
+** 使用者与群组
+1.  文件拥有者(user)
+2.  群组(group):每个群组中有若干组员, 群组中的文件可以由所有该组的组员共享, 其他组的成员无法共享
+3.  其他人(others)
+|---+---+---+---+---|
+- 一般情况下, 所有系统账号和使用者还有root的信息是记录在/etc/passwd中的  
+
+- 个人密码是记录在/etc/shadow文件中  
+
+- 所有的群组名称记录在/etc/group中
+** linux文件权限概念
+当查看文件详细信息时, 查看到的属性依次是
+**|权限|链接|拥有者|群组|文件大小|修改日期|文件名|**
+-   权限  
+
+    第一个字符代表文件类型
+    | 选项 | 类型             |
+    |------+------------------|
+    | d    | 目录             |
+    | \-   | 文件             |
+    | l    | 链接文件         |
+    | b    | 可存储的周边文件 |
+    | c    | 序列设备文件     |
+
+    接下来的字符中, 三个为一组, r:可读, w:可写, x:可执行  
+    - 第一组是文件拥有者可具备的权限  
+    - 第二组是群组的权限  
+    - 第三组是其他人的权限  
+-   第二栏表示有多少文件名链接到此节点
+-   第三栏表示这个文件拥有者账号
+-   第四栏表示文件所属群组
+-   第五栏表示容量大小
+-   第六栏表示修改日期
+-   第七组是文件名
+
+|  root是不受文件权限限制的|
+
+*** 如何改变文件属性与权限
+-   chgrp:改变文件所属的群组  
+-   chown:改变文件拥有者  
+-   chmod:改变文件的权限
+#+BEGIN_SRC shell
+chgrp 选项 群组名 dirname/filename
+选项:
+-R  递回改变
+
+chown 选项 账号名[:群组名] 文件/目录名
+选项
+-R  递回改变
+
+chmod 选项 xyz 文件/目录名
+选项:
+-R  递回改变
+xyz:
+r:4, w:2, x:1
+#+END_SRC
+
+
+*** 目录和文件的权限的意义
+目录:  
+- r:表示拥有读取这个目录下的文件名称的权力
+- w:表示拥有改变这个目录的结构清单的权力
+- x:表示拥有进入这个目录的权力
+
+*** linux文件种类和拓展名
+1.  文件种类
+    -   正规文件:  
+        -   纯文本文件:可以直接读取的文件  
+        -   二进制文件:可以执行的文件
+        -   数据格式文件:某些储存数据的特定格式的文件
+    -   目录
+    -   链接文件
+    -   设备与设备文件:
+        -   区块设备文件:可以存储数据设备的文件
+        -   字符设备文件:一次性读取的设备的文件, 如键盘鼠标等
+    -   数据接口文件:被用在网络上用来数据承接
+    -   数据传送文件:
+2.  文件拓展名
+   拓展名对于linux来说没有什么意义, 旨在让用户可以区分
+    -   *.sh:脚本和批处理文件
+    -   Z, .tar, .tar.gz, .zip, *.tgz:经打包的压缩文件
+    -   .html, .php:网页相关文件
+
+** linux目录配置
+linux目录配置的依据是FHS标准(Filesystem Hierarchy Standard)
+|          | 可分享的                  | 不可分享的            |
+|----------+---------------------------+-----------------------|
+| 不变的   | /usr(软件放置处)          | /etc(配置文件)        |
+|          | /opt(第三方协力软件)      | /boot(开机与核心文件) |
+| 可变动的 | /var/mail(使用者邮件信箱) | /var/run(程序相关)    |
+|          | /var/spool/news(新闻群组) | /var/lock(程序相关)   |
+
+-   根目录的意义和内容  
+    根目录下应该有这些文件存在  
+    | 目录                  | 应放置文件内容                                                                                          |
+    |-----------------------+---------------------------------------------------------------------------------------------------------|
+    | FHS要求必须存在的   |                                                                                                         |
+    | /bin                  | 放置一些可执行文件, 主要是指令                                                                          |
+    | /boot                 | 放置开机后会使用到的文件                                                                                |
+    | /dev                  | 放置连接的一些设备                                                                                      |
+    | /etc                  | 放置几乎所有的配置文件                                                                                  |
+    | /lib                  | 放置开机时会用到的函数库还有/bin和/sbin指令中会调用的函数库                                             |
+    | /media                | 放置可移除的设备                                                                                        |
+    | /mnt                  | 暂时挂载某个设备                                                                                        |
+    | /opt                  | 第三方协力软件存放的目录                                                                                |
+    | /run                  | 存放开机后会产生的各项信息                                                                              |
+    | /sbin                 | 开机过程中所需要的命令, 包括开机, 修复, 还原系统等                                                      |
+    | /srv                  | 一些网络服务启动后, 这些服务所需要取用的数据目录                                                        |
+    | /tmp                  | 让一般使用者或正在执行的程序暂时放置文件的地方, 任何人都可以存取, FHS建议开机时将这个目录下的数据都删除 |
+    | FHS建议可以存在       |                                                                                                         |
+    | /home                 | 系统默认使用者的文件夹                                                                                  |
+    | /lib\<qual>           | 存放与/lib不同的格式的二进制函数库                                                                      |
+    | /root                 | root的主文件夹                                                                                          |
+    | 一些其他的目录        |                                                                                                         |
+    | /lost+found           | 当文件系统发生错误时, 将一些遗失的片段放在这个里面                                                      |
+    | /proc                 | 虚拟文件系统, 放置的数据都是在内存当中                                                                  |
+    | /sys                  | 虚拟的文件系统, 主要记录核心和系统硬件信息相关的信息                                                    |
+
+-   /usr的意义与内容  
+
+    Unix Software Resource的缩写, 也就是Unix操作系统软件资源, 所有软件数据都应该在该目录的次目录有序排放  
+
+    /usr的次目录建议有下面这些  
+    | 目录            | 应放置文件内容                                         |
+    |-----------------+--------------------------------------------------------|
+    | FHS要求必须存在 |                                                         |
+    | ./bin           | 所有一般用户可以使用的指令, 另外此目录下不应该有子目录 |
+    | ./lib           | 与/lib功能相似, /lib链接到此目录                       |
+    | ./local         | 系统管理员在本机自行安装的软件建议安装在此目录         |
+    | ./sbin          | 非系统正常运行所需要的系统指令                         |
+    | ./share         | 主要放置只读架构的数据文件, 也包括共享文件             |
+    | FHS建议可以存在|                                                          |
+    | ./games         | 游戏相关的数据放置处                                   |
+    | ./include       | 程序语言header和include放置处                          |
+    | ./libexec       | 某些不被一般使用者惯用的可执行文件或脚本               |
+    | ./src           | 一般源代码                                             |
+    | ./lib\<qual>/   | 与lib\<qual>功能相同, 后者链接到此                     |
+
+-   /var的意义与内容
+
+    主要针对常态化变动的文件, 包括高速缓存, 登陆文件以及某些软件运行产生的文件等
+    | 目录                  | 应放置文件内容                                               |
+    |-----------------------+--------------------------------------------------------------|
+    | FHS要求必须存在    |                                                              |
+    | ./cache               | 应用程序本身运行过程会产生的一些暂存盘                       |
+    | ./lib                 | 程序本身执行的过程中, 需要用到的数据文件放置的目录           |
+    | **./log*             | 登录文件放置的目录, 里面有重要的信息                         |
+    | ./lock                | 确保该设备只能给单一软件使用                                 |
+    | ./mail                | 放置个人邮件信箱                                             |
+    | ./run                 | 某些程序或服务启动后, 会将他们的PID放置在此目录              |
+    | ./spool               | 放一些伫列数据(排队等待其他程序使用的数据), 数据被使用后删除 |
+
+* 第六章, linux文件与目录管理
+
+** 目录与路径
+
+-   一些特殊的目录
+    #+BEGIN_SRC shell
+    .   此目录
+    ..  上一层目录
+    -   前一个工作目录
+    ~   目前使用者身份所在的主文件夹
+    ~account    account使用者的主文件夹    
+    #+END_SRC
+
+-   一些目录的命令  
+    #+BEGIN_SRC shell
+    cd  跳转
+    pwd 打印当前所在目录
+    mkdir -p    递回创建目录
+    rmdir -p    删除空目录
+    #+END_SRC
+
+** 文件与目录管理
+
+*** 取得路径的文件名与目录名称
+#+BEGIN_SRC shell
+basename    取得最后的文件名或目录名
+dirname     取得目录名
+#+END_SRC
+
+** 文件内容查阅
+1.  直接检视文件内容
+
+  -   cat
+    #+BEGIN_SRC 
+        cat [-AbEnTv]
+        选项:
+        -A:列出特殊字符
+        -b:列出非空白行的行号
+        -E:将结尾换行符显示
+        -n:列出所有行行号
+        -T:将tab显示
+        -v:列出看不见的特殊字符
+    #+END_SRC
+  -   tac
+        反向显示
+  -   nl:添加行号打印
+  -   more:一页一页翻动  
+        -   空白键:向下翻一页
+        -   Enter:向下翻一行
+        -   /str:搜索
+        -   :f显示文件名和当前行数
+        -   q:离开
+        -   b:往回翻
+  -   less:一页一页翻动
+2.  数据获取
+
+    -   head:取出前面几行
+      #+BEGIN_SRC 
+        head [-n number] 文件
+        显示前number行, 默认10行
+      #+END_SRC
+    -   tail:取出后面几行
+      #+BEGIN_SRC 
+        tail [-n number] 文件
+      #+END_SRC
+3.  非纯文本文件
+    -   od
+      #+BEGIN_SRC 
+        od [-t TYPE] 文件
+        TYPE:
+        a:默认字符输出
+        c:ascll输出
+        d[size]:十进制输出
+        f[size]:浮点数输出
+        o[size]:八进制输出
+        x[size]:十六进制输出      
+      #+END_SRC
+
+** 文件和目录的默认权限和隐藏权限
+-   文件默认权限:umask  
+
+    umask指的是默认剪掉的权限, 后三个数字是user, group, others  
+
+    如0022, 指的就是rwxr-xr-x  
+
+    也可以加-S选项看详细的值  
+
+    如果要设置umask, 直接在后面输入三位数字就好
+
+    #+BEGIN_SRC shell
+    umask 002
+    #+END_SRC
+-   文件隐藏属性
+    -   chattr(设置文件隐藏属性)
+      #+BEGIN_SRC shell
+        chattr [+-=][ASacdistu] 文件或目录名
+        选项和参数:
+        +:增加某个特殊参数
+        -:移除某个特殊参数
+        =:设置一定且仅有后面接的参数
+
+        A:当有存取此文件或目录时, 存取时间atime不会被修改
+        S:当进行文件修改时, 会同步写到硬盘中
+        a:只能增加数据, 不能删除或修改数据
+        c:自动将文件压缩, 当读取时再解压缩
+        d:当dump程序执行时, 不会被备份
+        i:让一个文件不能被删除, 改名, 设置链接, 不能写入和新增数据
+        s:如果被删除, 会被永久移除硬盘
+        u:如果被删除, 数据内容还在硬盘      
+      #+END_SRC
+    -   lsattr(显示文件隐藏属性)
+      #+BEGIN_SRC shell
+        lsattr [-adR] 文件或目录
+        选项:
+        -a:将隐藏文件的属性也列出
+        -d:列出目录本身而非下属文件的信息
+        -R:连同子目录的数据也一并列出      
+      #+END_SRC
+** 观察文件类型:file
+   #+BEGIN_SRC 
+file 文件   //可以告诉这个文件的类型   
+   #+END_SRC
+** 指令与文件的搜寻
+
+-   指令文件名的搜寻
+    -   which(寻找"可执行文件")
+      #+BEGIN_SRC shell
+        which [-a] command
+        选项:
+        -a:将所有再PATH中可以找到的指令列出, 而不是第一个      
+      #+END_SRC
+        内置函数没有办法被找到
+-   文件文件名的搜寻
+    -   whereis
+      #+BEGIN_SRC shell
+        whereis [-bmsu] 文件或目录名
+        选项:
+        -l:可以列出whereis会去查询的几个主要目录
+        -b:只找binary格式的文件
+        -m:只能在说明文档manual路径下的文件
+        -s:只找到source来源文件
+        -u:搜寻不在上述三个项目当中的其他特殊文件      
+      #+END_SRC
+    -   locate/updatedb
+      #+BEGIN_SRC 
+        locate [-ir] keyword
+        选项:
+        -i:忽略大小写的差异
+        -c:不输出文件名, 仅输出找到的文件数量
+        -l:仅输出n行
+        -S:输出locate所使用的数据库文件的相关信息, 包括数据库记录的文件/目录数目等
+        -r:后面可以接正则表达式的显示方式      
+      #+END_SRC
+        在数据库中寻找文件, 数据库可能一段时间更新一次, 可以手动更新数据库
+        #+BEGIN_SRC shell
+        updatedb
+        #+END_SRC
+
+    -   find
+      #+BEGIN_SRC 
+        find [PATH] [option] [action]  
+        选项和参数:
+        1, 和时间有关的选项:
+        -mtime n:n天之前的一天之内被修改过的文件
+        -mtime +n:n天的之前被修改过的文件
+        -mtime -n:n天之内被修改过的文件
+        -newer file:file是一个已经存在的文件, 列出比file新的文件
+
+        2,与使用者和群组名称有关的参数
+        -uid n:数字是使用者的ID
+        -gid n:群组名称的id
+        -user name:使用者账号的名称
+        -group name:群组名称
+        -nouser:寻找文件的所有者不存在于/etc/passwd的人
+        -nogroup:寻找文件的所有者不存在于/etx/group的人
+
+        3, 与文件权限和名称有关的参数
+        -name filename:搜寻文件名为filename的文件
+        -size [+-]SIZE:搜寻比SIZE大[+]或小[-]的文件
+        -type TYPE:搜索文件类型是TYPE的文件
+        -perm mode:搜索文件权限刚好等于mode的文件
+        -perm -mode:搜索文件权限囊括mode的文件
+        -perm /mode:搜索文件权限包含任一mode的权限的文件
+
+        4, 额外可进行的动作
+        -exec command:-exec后接其他指令处理搜寻到的结果
+        -print:将结果打印到屏幕上      
+      #+END_SRC
+
+* 第七章, linux磁盘与文件系统管理
+** 认识linux文件系统
+*** 磁盘组成和分区
+- 磁盘组成
+  - 圆形的盘片(记录数据)
+  - 机械手臂, 和在机械手臂上的磁头(读写盘片)
+  - 主轴马达, 可以转动盘片, 让机械手臂读写数据
+
+- 盘片的物理组成
+  - 扇区, 最小的物理储存单位, 目前主要有521Bytes和4K两个格式
+  - 柱面, 扇区组成一个圆
+  - 扇区作为最小的分区单位
+  - 磁盘分区的格式
+    - MBR分区:第一个扇区最重要, 限制比较多
+    - GPT分区:较新, 限制较少, 分区数量扩充较多
+  - /dev/sd[a-p][1-128] 实体磁盘的磁盘文件名
+  - /dev/vd[a-d][1-128] 虚拟磁盘的磁盘文件名
+  - 索引式文件系统(indexed allocation)   
+
+        一个文件系统的一些属性会存放在不同的区块
+    - superblock:记录整体信息, 包括inode/block的总量, 使用量, 剩余量以及文件系统格式与相关信息等
+    - inode:记录文件的属性, 一个文件占用一个inode, 同时记录此文件的数据所在的block的号码
+    - block:实际记录文件内容, 太大会占据多个block  
+    文件找到他的inode, 然后就可以找到他的所有的block, 就可以都读取出来
+
+  - FAT格式
+
+        每个block号码记录在前一个block中, 然后依次读取, 类似于链条
+
+- inode table  
+
+  - inode table记录的文件数据有以下这些
+    -   文件的存取模式(read/write/excute)
+    -   该文件的拥有者与群组(owner/group)
+    -   该文件的容量
+    -   改文件创建或状态改变的时间(ctime)
+    -   最近一次读取时间(atime)
+    -   最近修改的时间(mtime)
+    -   定义文件特性的旗帜(flag)
+    -   该文件真正的指向(pointer)  
+  - inode的特点有这些
+    -   每个inode大小固定是128Bytes
+    -   每个文件仅仅占用一个inode
+    -   文件系统能够创建的文件数量和inode有关
+    -   读取文件要先找到inode
+- superblock  
+
+  - 记录整个filesystem相关信息的地方, 记录的信息有
+    -   block和inode的总量
+    -   未使用与已使用的inode/block数量
+    -   block和inode的大小(block:1, 2, 4k, inode:128Bytes或256Bytes)
+    -   filesystem的挂载时间, 最近一次写入数据的时间, 最近一次检验硬盘的时间等
+    -   一个valid bit数值, 若文件挂载, 则valid bit为0, 否则为1
+      #+BEGIN_SRC shell
+    dumpe2fs [-bh] 设备文件名
+    选项和参数:
+    -b: 列出保留为坏轨的部分
+    -h: 仅列出superblock的数据, 不会列出其他区段内容
+
+    列出来的信息:
+    Filesystem volume name: //文件系统的名称
+    Last monted on:         //上一次挂载的目录位置
+    Filesystem UUID:        //linux对设备的定义码
+    Filesystem features     //文件系统的特征数据
+    Defaule mount options   //默认挂载时主动加上挂载参数
+    Filesystem state:       //文件系统的状态
+    Inode count:            //inode的总数
+    Block count:            //block的总数
+    Reserved block count:   //保留的block总数
+    Free block              //剩余的block数量
+    Free inode              //inode可用数量
+    Block size              //单个Block容量大小
+    Inode size              //Inode的容量大小
+    Journal size            //日志式数据可供记录的总容量
+    Group0:                 //第一个group group的位置
+    Primary .               //主要superblock的所在
+    Inode table at          //inode table所在
+    free blocks             //剩余的容量      
+      #+END_SRC
+
+*** linux文件系统的运行
+linux使用非同步处理(asynchronously), 即当系统载入一个文件到内存后, 如果文件没有变动, 则内存区段文件数据被认为是clean,
+否则被认为是Dirty的, 系统会不时的将Dirty的数据写入磁盘
+
+*** 挂载点的意义(mount point)
+每一个filesystem都有自己独立的inode/block/superblock, 并且他要链接到目录树才能被我们使用,
+将文件系统和目录数的结合被称为挂载
+
+*** XFS文件系统简介
+默认的文件系统由EXT4变为XFS, EXT家族虽然支持度最广, 但是格式化非常慢
+
+- XFS文件系统的配置  
+
+  - 是一个日志式文件系统, 有以下三个规划的部分
+    - 数据区
+    - 文件系统活动登录区
+    - 实时运行区
+
+** 文件系统的简单操作
+*** 磁盘和目录的容量
+-   df  
+
+    列出文件系统的整体磁盘使用量
+    #+BEGIN_SRC shell
+    df [-ahikHTm] [目录或文件名]
+    选项和参数:
+    -a:列出所有的文件系统
+    -k:以KB显示各文件系统
+    -m:以MB显示文件系统
+    -h:自行决定格式显示
+    -H:以M=1000K来代替M=1024K
+    -T:连同partition的filesystem也列出
+    -i:不用磁盘容量, 用inode数量来显示
+    #+END_SRC
+
+-   du  
+    评估文件系统的磁盘使用量(常用在推估目录所占容量)
+    #+BEGIN_SRC shell
+    du [-ahskm] 文件或目录名称
+    选项和参数:
+    -a:列出所有文件和目录容量
+    -h:自由决定size单位
+    -s:列出总量, 不必列出各个类别的占用量
+    -S:不包括子目录下的总计
+    -k:单位KB
+    -m:单位MB    
+    #+END_SRC
+*** 实体链接与符号链接
+两种链接
+-   Hard Link(硬链接)  
+
+    将某个文件硬链接到另一个文件, 他们的文件名可以不同, 且不占额外的block, 当其中一个文件的内容改变,
+    硬链接的另一个内容跟着改变, 当其中一个文件删除, 另一个不会有改变
+-   Symbolic Link(符号链接)  
+
+    创建一个指向目标文件inode的inode, 基本不占block, 当实际的文件删除, 创建的符号链接也会不可以使用
+-   ln
+  #+BEGIN_SRC shell
+    ln [-sf] 来源文件 目标文件
+    选项和参数:
+    -s:默认硬链接, 加上-s是符号链接
+    -f:强制执行  
+  #+END_SRC
+** 磁盘的分区, 格式化, 检验与挂载
+*** 观察磁盘分区状态
+-   lsblk(lisk block device)  
+
+    列出系统上的所有的磁盘列表
+    #+BEGIN_SRC shell
+    lsblk [-dfimpt] [device]
+    选项与参数:
+    -d:仅列出磁盘本身, 并不会列出磁盘的分区数据
+    -f:同时列出该磁盘内的文件系统的名称
+    -i:使用ascii编码输出
+    -m:同时输出该设备在/dev下面的权限数据
+    -p:列出该设备的完整文件名, 默认只列出最后的名字
+    -t:列出该磁盘设备的详细数据, 包括磁盘伫列机制, 预读写的数据量大小
+    其中列出的数据:
+    MAJ:MIN 主要:次要设备代码
+    RM:     是否是可卸载设备
+    RO      是否是只读设备
+    TYPE    是磁盘(disk), 分区(partition)还是只读存储器(ROM)    
+    #+END_SRC
+
+-   blkid  
+    找出设备的UUID(全域单一识别码, 所有设备独一无二)
+    #+BEGIN_SRC shell
+    blkid    
+    #+END_SRC
+
+-   parted  
+    列出磁盘的分区表类型与分区信息
+    #+BEGIN_SRC shell
+    parted device_name print
+    得到:
+    model   //磁盘的模块名称
+    Disk    //磁盘的总容量
+    Sector size     //磁盘的每个逻辑/物理扇区容量
+    Partition       //分区表格式    
+    #+END_SRC
+*** 磁盘分区
+-   gdisk  
+
+    GPT分区方法
+    #+BEGIN_SRC shell
+    gdisk 设备名称    
+    #+END_SRC
+
+-   fdisk  
+
+    MBR分区方法
+    #+BEGIN_SRC 
+    fdisk 设备名称    
+    #+END_SRC
+
+** 设置开机挂载
+挂载的一些限制:
+-   根目录必须挂载, 且要先于其他的mount point
+-   其他mount point必须为已创建的目录
+-   所有的mount point在同一时间内只能挂载一次
+-   所有的partition在同一时间内只能挂载一次
+-   如要卸载, 要先将工作目录转移到mount point之外
+
+** 内存交换空间(swap)之创建
+
+** 文件系统的特殊观察与操作
+
+* 第八章, 文件与文件系统的压缩, 打包与备份
+** 压缩文件的用途和技术
+-   压缩文件的技术  
+    将一个Byte中添0的地方丢出去, 或是重复的数据进行统计记录
+** linux系统常见的压缩指令
+-   一些常用的压缩文件的拓展名
+    -   .Z      compress程序压缩的文件
+    -   .zip    zip程序压缩的文件
+    -   .gz     gzip程序压缩的文件
+    -   .bz2    bzip2程序压缩的文件
+    -   .xz     xz程序压缩的文件
+    -   .tar    tar程序打包的文件, 并没有压缩过
+    -   .tar.gz     tar程序打包的文件, 经过gzip的压缩
+    -   .tar.bz2    tar程序打包的文件, 并且经过bzip2的压缩
+    -   .tar.xz     tar程序打包的文件, 并且经过xz的压缩
+-   基本压缩指令
+    -   gzip    应用最广的压缩指令, 可以解开compress, zip, gzip等压缩的文件
+      #+BEGIN_SRC shell
+        gzip [-cdtv*] 文件名
+        zcat 文件名.gz      //查询压缩文件的内容
+        egrep               //相当于grep
+        选项和参数:
+        -c: 将压缩的数据输出到屏幕上, 可通过数据流重导向来处理
+        -d: 解压缩的参数
+        -t: 可以用来检验一个压缩文件的一致性, 看文件有无错误
+        -v: 可以显示出原文件/压缩文件的压缩比等信息
+        -*: *是数字的意思, 表示压缩等级, -1最快, 但是压缩比最差, -9反之, 默认是-6      
+      #+END_SRC
+        ***waring:文件被压缩之后, 原始文件就不存在了***
+    -   bzip2   提供最佳的压缩比
+      #+BEGIN_SRC shell
+        bzip2 [-cdkzv*] 文件名
+        bzcat 文件名.bz2    查看压缩文件的内容
+        选项和参数:
+        -c: 将压缩的数据输出到屏幕上, 可通过数据流重导向来处理
+        -d: 解压缩的参数
+        -v: 可以显示出原文件/压缩文件的压缩比等信息
+        -*: *是数字的意思, 表示压缩等级, -1最快, 但是压缩比最差, -9反之, 默认是-6
+        -k: 保留源文件
+        -z: 压缩的参数      
+      #+END_SRC
+
+    -   xz      压缩比更高
+      #+BEGIN_SRC shell
+        xz [-dtlkc*] 文件名
+        xcat 文件名.xz      查看压缩文件内容
+        选项和参数:
+        -c: 将压缩的数据输出到屏幕上, 可通过数据流重导向来处理
+        -d: 解压缩的参数
+        -*: *是数字的意思, 表示压缩等级, -1最快, 但是压缩比最差, -9反之, 默认是-6
+        -k: 保留源文件
+        -t: 可以用来检验一个压缩文件的一致性, 看文件有无错误      
+      #+END_SRC
+
+-   打包指令
+    -   tar
+      #+BEGIN_SRC shell
+        tar [-z&*124;-J] [cv] [-f 待创建的新文件名] filename...  打包
+        tar [-z&*124;-J] [tv] [-f 既有的tar文件名] filename...  查看
+        tar [-z&*124;-J] [xv] [-f 既有的tar文件名] [-C 目录] filename...  解压
+        选项和参数:
+        -c: 创建打包文件, 可以搭配-v来查看过程中被打包的文件名
+        -t: 查看打包文件的内容含有哪些文件名, 重点在查看'文件名'
+        -x: 解压缩, 可以搭配-C在特定目录解开, -c -t -x不可以同时出现在一条命令中
+        -z: 通过gzip支持压缩/解压缩
+        -j: 通过bzip2的支持进行压缩/解压缩
+        -J: 通过xz的支持进行压缩/解压缩
+        waring:zjJ不能同时出现在一串命令行中
+        -v: 在压缩/解压缩过程中把正在处理的文件名答应出来
+        -f filename: -f后加立即接要被处理的文件名
+        -C 目录: 在特定目录解压缩
+        -p: 保留备份数据的原本权限和属性
+        -P: 保留绝对路径, 也就是允许备份数据中含有根目录存在
+        --exclude=FILE: 在压缩过程中, 不要把FILE打包      
+      #+END_SRC
+
+        最简单常用的tar
+        #+BEGIN_SRC shell
+        压缩: tar -jcv -f filename.tar.bz2 要被压缩的文件或目录名
+        查询: tar -jtv -f filename.tar.bz2
+        解压缩: tar -jxv -f filename.tar.bz2 -C        
+        #+END_SRC
+
+** 文件系统的备份和还原
+*** XFS文件系统备份xfsdump
+第一次进行完整备份, 之后每次只备份有所改变的那部分  
+有以下限制:
+-   不支持没有挂载的文件系统备份
+-   必须用root操作
+-   只能备份XFS文件系统
+-   备份下来的数据只能xfsrestore解析
+-   通过文件系统的UUID来分辨备份文件的, 所以不能备份两个具有相同UUID的文件系统
+
+#+BEGIN_SRC 
+xfsdump [-L S_label] [-M M_label] [-l *] [-f 备份文件] 待备份数据
+选项和参数
+-L: xfsdump会记录每次备份的session标头, 这里可以填写针对此文件系统的简单说明
+-M: xfsdump可以记录储存媒体的标头, 这里可以填写此媒体的简易说明
+-l: 指定等级, 有0-9十个等级, 默认0是完整备份
+-f: 后面接产生备份文件的filename
+-I: 从/var/lib/xfsdump/inventory列出目前备份的信息状态
+#+END_SRC
+
+***xfsdump只能备份文件系统***
+*** XFS文件系统还原xfsrestore
+#+BEGIN_SRC shell
+xfsrestore -I   用来查看备份文件数据
+xfsrestore [-f 备份文件] [-L S_label] [-s] 修复原目录, 单一文件全系统复原
+xfsrestore [-f 备份文件] -r 待复原目录  通过累积备份文件来复原系统
+xfsrestore [-f 备份文件] -i 待复原目录  进入交互模式
+选项和参数
+-I: 跟xfsdump相同, 查询相关信息
+-f: 后面接的就是备份文件
+-L: 就是session的Label name
+-s: 需要接特定目录, 只复原某一文件或目录
+-r: 如果是用文件来储存备份数据的话, 就不需要使用
+-i: 进入交互模式
+#+END_SRC
+** 光盘写入文件
+
+** 其他常见的压缩与备份工具
+-   dd      读取磁盘设备的内容, 然后将整个设备备份成一个文件
+  #+BEGIN_SRC shell
+    dd if="input_file" of="output_file" bs="block_size" count="number"
+    选项和参数
+    if: input file
+    of: output file
+    bs: 规划一个block的大小, 默认是512Bytes
+    count:多少各bs的意思  
+  #+END_SRC
+
+* 第九章, vim
+当windows程序转化为linux时换行符不一样, 此时可以用这个指令进行转化
+#+BEGIN_SRC shell
+dos2unix [-kn] file [newfile]
+unix2dos [-kn] file [newfile]
+选项与参数:
+-k: 保留该文件原来的mtime(修改时间)
+-n: 保留原来的旧文件
+#+END_SRC
+
+以下列出的指令是我本人不是很熟悉的vim指令
+| 指令              | 作用                                        |
+|-------------------+---------------------------------------------|
+| 一般模式下的命令  |                                             |
+| ctrl+f            | 向下移动一页                                |
+| ctrl+b            | 向上移动一页                                |
+| ctrl+d            | 向下移动半页                                |
+| ctrl+u            | 向上移动半页                                |
+| n<space>          | 向右平移n个字符                             |
+| H                 | 移动到这个屏幕最上方一列的第一个字符        |
+| M                 | 移动到屏幕中间一列的第一个字符              |
+| L                 | 移动到屏幕最下面一列的第一个字符            |
+| 搜寻和替代        |                                             |
+| n1, n2s/old/new/g | 将n1到n2列的old替换为new                    |
+| 1, \$s/old/new/g  | 将全文的old替换为new, 加c的话表示替换前询问 |
+| J                 | 将光标所在列和下一列合成一列                |
+| 多文件编辑        |                                             |
+| :sp [filename]    | 添加一个分区文件                            |
+| ctrl+w+j          | 下一个文件                                  |
+| ctrl+w+k          | 上一个文件                                  |
+
+* 第十章, 认识和学习BASH
+** 认识BASH这个shell
+*** 硬件, 核心和shell
+-   硬件: 声卡芯片配置
+-   核心管理:操作系统的核心可以支持这个芯片组, 提供芯片的驱动程序
+-   应用程序:用户和系统交互
+
+用户通过shell和核心进行沟通, 然后核心将用户的需求传递到硬件  
+
+bash是GNU计划中重要的工具软件之一, 也是Linux distributions的标准shell  
+
+他有以下优点
+-   命令编修能力(history):能记住之前使用的命令
+-   命令与文件补全: tab键
+-   命令别名设置功能: alias
+-   工作控制, 前景背景控制  
+-   程序化脚本(shell script)
+-   万用字符(Wildcard)
+
+通过type可以查询指令是否是bash内置指令
+#+BEGIN_SRC shell
+type [-tpa] name
+选项和参数:
+ :不加选项时, 会显示出是外部指令还是内部指令
+-t: 以以下字眼显示出他的含义
+    -   file:外部指令
+    -   alias:别名
+    -   builtin:内置指令
+-p: 如果后面的name是外部指令时才会显示完整文件名
+-a: 如果由PATH变量定义的路径中, 将所有含有name的指令都列出来
+#+END_SRC
+
+** shell的变量功能
+变量设置规则
+-   等号两边不能接空白字符
+-   变量名称只能是英文字母和数字, 开头不能是数字
+-   双引号里面可以引用特殊字符, 单引号里面不可以
+-   若要变量在其他子程序中执行, 要转化为环境变量
+  #+BEGIN_SRC shell
+    export PATH  
+  #+END_SRC
+
+-   通常大写字符是系统默认变量, 用户的变量的话就小写就好(非强制)
+-   取消变量的方法
+  #+BEGIN_SRC shell
+    unset myname  
+  #+END_SRC
+
+*** 环境变量
+-   env
+  #+BEGIN_SRC shell
+    env     列出目前环境下所有环境变量和内容
+    本机执行, 得到如下信息:
+
+    SHELL=/bin/bash                                         :目前使用的是哪个shell
+    no_proxy=127.0.0.1,localhost                            
+    LANGUAGE=zh_CN.UTF-8                                    :语系编码 
+    NO_AT_BRIDGE=1
+    PWD=/home/pi/Desktop/study/notes/book                   :目前工作目录
+    LOGNAME=pi                                              :登录者的登录账号
+    XDG_SESSION_TYPE=tty
+    _=/usr/bin/env                                          :上一个使用指令的最后一个参数
+    HOME=/home/pi                                           :使用者的主文件夹
+    LANG=zh_CN.UTF-8
+    LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=...           :颜色显示
+    VIMRUNTIME=/usr/share/vim/vim82                         
+    SSH_CONNECTION=192.168.137.1 11524 192.168.137.168 22
+    VIM=/usr/share/vim
+    XDG_SESSION_CLASS=user
+    TERM=xterm                                              :终端使用的环境是什么类型
+    USER=pi                                                 :使用者名称
+    SHLVL=1
+    LC_MESSAGES=zh_CN.UTF-8
+    XDG_SESSION_ID=14
+    XDG_RUNTIME_DIR=/run/user/1000
+    MYVIMRC=/home/pi/.vimrc
+    SSH_CLIENT=192.168.137.1 11524 22
+    LC_ALL=
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/home/pi/scrpt
+    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+    MAIL=/var/mail/pi
+    SSH_TTY=/dev/pts/1
+    OLDPWD=/home/pi/Desktop/study                           :上一个工作目录
+    TEXTDOMAIN=Linux-PAM  
+  #+END_SRC
+
+-   set :观察所有变量  
+
+    几个重要的变量
+    -   PS1 : 命令符变量, 有下面一些符号
+        [命令符变量的符号](../laungage/shell)
+    -   \$  :本shell的PID
+    -   ?   :上一个指令的回传值
+    -   OSTYPE, HOSTTYPE, MACHTYPR  : 主机硬件和核心等级
+-   export  :自定变量成为环境变量, 当只有export时会列出当前所有的环境变量
+*** 影响显示结果的语系变量
+-   locale
+  #+BEGIN_SRC shell
+    locale -a   查询当前linux支持的编码语言
+    locale      显示语系相关的环境变量
+    下面是本机locale之后的结果:
+    LANG=zh_CN.UTF-8            :主语言环境
+    LANGUAGE=zh_CN.UTF-8        
+    LC_CTYPE="zh_CN.UTF-8"      :字符辨识编码
+    LC_NUMERIC="zh_CN.UTF-8"    :数字讯息显示编码
+    LC_TIME="zh_CN.UTF-8"       :时间系统显示数据
+    LC_COLLATE="zh_CN.UTF-8"    :字符比较和排序
+    LC_MONETARY="zh_CN.UTF-8"
+    LC_MESSAGES=zh_CN.UTF-8     :讯息显示内容
+    LC_PAPER="zh_CN.UTF-8"
+    LC_NAME="zh_CN.UTF-8"
+    LC_ADDRESS="zh_CN.UTF-8"
+    LC_TELEPHONE="zh_CN.UTF-8"
+    LC_MEASUREMENT="zh_CN.UTF-8"
+    LC_IDENTIFICATION="zh_CN.UTF-8"
+    LC_ALL=                     :整体语系环境  
+  #+END_SRC
+
+*** 变量的键盘读取, 阵列与宣告
+-   read    读取来自键盘的输入
+  #+BEGIN_SRC shell
+    read [-pt] variable
+    选项和参数:
+    -p : 后面接提示字符
+    -t : 表示等待的时间  
+  #+END_SRC
+
+-   declare/typeset     宣告变量类型(两个用法没有什么不同)
+  #+BEGIN_SRC shell
+    declare [-aixr] variable
+    选项和参数:
+    -a : 将后面变量定义为阵列(array)类型
+    -i : 将后面变量定义为整数类型(interger)
+    -x : 用法和export一样, 将后面的变量变成环境变量
+    -r : 将变量设置为redonly类型, 该变量不可被更改, 也不能unset  
+  #+END_SRC
+
+    变量类型默认是字串, 数值运算默认最多达到整数形态
+    -   阵列(array)变量类型
+
+        设置方式
+        #+BEGIN_SRC shell
+        var[index]=content        
+        #+END_SRC
+*** 与文件系统及程序的限制关系:ulimit
+-   ulimit  设置用户的配额
+  #+BEGIN_SRC shell
+    ulimit [-SHacdfltu] [配额]
+    选项和参数:
+    -H:hard limit, 严格的警告, 完全不能超过这个数值
+    -S:soft limit, 警告的设置, 超过这个值会有警告
+    -a:后面不接任何选项和参数, 可列出所有的限制额度
+    -c:限制每个核心文件的最大容量
+    -f:此shell可以创建的最大的文件大小, 单位是kb
+    -d:程序可使用的最大断裂内存容量
+    -l:可用于锁定的内存量
+    -t:可使用的最大cpu
+    -u:单一使用者可以使用的最大程序数量  
+  #+END_SRC
+
+*** 变量内容的删除, 取代和替换
+-   删除变量的内容
+  #+BEGIN_SRC shell
+    ${variable*/*local/bin:}    //$是关键字, 必须存在, variable是操作的变量, *表示从前面开始查找并删除, 后面是字符  
+  #+END_SRC
+    -      表示不贪心
+    -   *  表示贪心
+    -   %   从最后面开始删除, 不贪心
+    -   %%  从最后面开始删除, 贪心
+-   替代
+  #+BEGIN_SRC shell
+    ${variable/oldname/newname}     表示最开始的旧字符变成新字符
+    ${variable//oldname/newname}     表示所有的的旧字符变成新字符  
+  #+END_SRC
+
+-   测试和内容替换
+  #+BEGIN_SRC shell
+    new_var=${old_var-content}      用新变量取代旧字符, 如果旧变量不存在就赋值content
+    new_var=${old_var:content}      用新变量取代旧字符, 如果旧变量不存在或为空就赋值content  
+  #+END_SRC
+    下面是一个很复杂的表格
+    | 变量设置方式      | str没有设置       | str是空           | str以设置为非空   |
+    |-------------------+-------------------+-------------------+-------------------|
+    | var=\${str-expr}  | var=expr          | var=              | var=\$str         |
+    | var=\${str:-expr} | var=expr          | var=expr          | var=\$str         |
+    | var=\${str+expr}  | var=              | var=expr          | var=expr          |
+    | var=\${str:+expr} | var=              | str不变 var=      | var=expr          |
+    | var=\${str=expr}  | str=expr var=expr | var=              | str不变 var=\$str |
+    | var=\${str:=expr} | str=expr var=expr | str不变 var=\$str |                   |
+    | var=\${str?expr}  | expr输出至stderr  | var=              | var=\$str         |
+    | var=\${str:?expr} | expr输出至stderr  | var=\$str         |                   |
+
+** 命名别名与历史命令
+
+*** 命名别名设置
+-   alias
+  #+BEGIN_SRC shell
+    alias 别名='命令'   设置别名
+    unalias 别名        拿掉别名  
+  #+END_SRC
+
+*** 历史命令:history
+-   history
+  #+BEGIN_SRC shell
+    history [n] [-c] [-raw histfiles]
+    选项和参数:
+    n : 数字, 列出距离现在最近的n个命令
+    -c : 将目前shell的history全部删除
+    -a : 将新增的history写入histfiles中, 如果没有加参数, 默认写入到~/.bath_history
+    -r : 将histfiles的内容读入到本shell的history中
+    -w : 将目前的history写入到histfiles中  
+  #+END_SRC
+-   执行命令
+  #+BEGIN_SRC shell
+    !number     执行第几个命令
+    !command    由最近的指令向前搜索执行command开头的指令
+    !!          执行上一个指令  
+  #+END_SRC
+** Bash Shell的操作环境
+*** 路径和指令的搜寻顺序
+1.  以相对, 绝对路径执行命令
+2.  有alias找到该指令执行
+3.  由bash内置指令执行
+4.  由PATH变量搜寻到的第一个指令执行
+
+*** 进站与欢迎讯息
+[[file:../language/shell.md::484][详细见此处]]
+
+*** 环境配置
+[[file:../language/shell.md::343][详细见此处]]
+
+*** 终端机环境设置
+-   stty 查看shell里面默认字符设置功能
+  #+BEGIN_SRC shell
+    stty [-a]   将目前所有的stty参数列出来  
+  #+END_SRC
+
+    几个重要的代表意义
+    | 字符  | 意义                    |
+    |-------+-------------------------|
+    | intr  | 终端                    |
+    | quit  | 给一个退出讯号          |
+    | erase | 向后删除字符            |
+    | kill  | 删除目前命令行所有文字  |
+    | eof   | 结束输入                |
+    | start | 某个程序停止后重新启动  |
+    | stop  | 停止目前屏幕输出        |
+    | susp  | 给一个terminal stop讯号 |
+
+-   set 设置终端机设置值
+  #+BEGIN_SRC shell
+    set [-uvCHhmBx]
+    选项和参数:
+    -u:默认不启用, 当启用后, 在使用未设置变量会显示错误信息
+    -v:默认不启用, 当启用后当讯息被输出前显示讯息原始内容
+    -x:默认不启用, 当启用后在指令执行前, 显示指令内容
+    -h:默认启用, 和历史命令有关
+    -H:默认启用, 和历史命令有关
+    -m:默认启用, 与工作管理有关
+    -B:默认启用, 与[]有关
+    -C:默认不启用   
+  #+END_SRC
+
+-   万用符号    可以在bash中用
+    | 符号  | 意义                           |
+    |-------+--------------------------------|
+    | *     | 表示0到多个任意字符            |
+    | ?     | 一定有一个任意字符             |
+    | []    | 一定有一个在括号内的字符       |
+    | [ - ] | 一定有一个编码顺序内的任意字符 |
+    | [^]   | 取非                           |
+
+** 数据流重导向
+[[file:../language/shell.md::202][详细见此处]]
+** 管线命令               
+*** 撰取命令:cut, grep
+- cut
+  #+BEGIN_SRC shell
+  cut fields
+  选项和参数:
+  -d: 后面接分割字符
+  -f: 后面接取出第几段
+  -c: 以后面的字符为单位取出固定字符区间
+  #+END_SRC
+- grep
+  #+BEGIN_SRC shell
+  grep [-acinv] [--color=auto] '搜寻字串' filename
+  选项和参数:
+  -a : 将binary文件以text的方式搜寻数据
+  -c : 计算找到'搜寻字串'的次数
+  -i : 忽略大小写
+  -n : 输出行号
+  -v : 反向选择
+  --color : 关键字添加颜色
+  #+END_SRC
+*** 排序命令:sort, wc, uniq
+- sort
+  #+BEGIN_SRC shell
+  sort [-fbMnrtuk] [file or stdin]
+  选项和参数:
+  -f : 忽略大小写差异
+  -b : 忽略最前面的空白字符
+  -M : 用月份名字排序
+  -n : 用纯数字排序
+  -r : 反向排序
+  -u : 相同的数据中仅出现一行代表
+  -t : 分割符号,默认采用[tab]分割
+  -k : 以这个区间来排序
+  #+END_SRC
+- uniq:重复的数据仅仅显示一次
+  #+BEGIN_SRC shell
+  uniq [-ic]
+  选项和参数:
+  -i : 忽略大小写的不同
+  -c : 进行记数
+  #+END_SRC
+- wc:计算输出讯息的整体数据
+  #+BEGIN_SRC shell
+  wc [-lwm]
+  选项和参数:
+  -l : 仅列出行
+  -w : 仅列出多少字
+  -m : 多少字符
+  #+END_SRC
+*** 双向重导向:tee
+tee会同时将数据流分送到文件和屏幕上
+#+BEGIN_SRC shell
+tee [-a] file
+选项和参数
+-a : 以追加的方式将数据加入file
+#+END_SRC
+*** 字符转换命令:tr, col, join, paste, expand
+- tr:用来删除一段讯息中的文字或进行替换
+  #+BEGIN_SRC shell
+  tr [-ds] SET1 [SET2]
+  选项和参数:
+  -d : 删除讯息中的SET1
+  -s : 取代掉重复的字符
+  #+END_SRC
+- col:将tab转换为空白键
+  #+BEGIN_SRC shell
+  col [-xb]
+  选项和参数:
+  -x : 将tab转换为对应的空白键
+  #+END_SRC
+- join:将两个相同的数据结合为一个
+  #+BEGIN_SRC shell
+  join [-ti12] file1 file2
+  选项和参数:
+  -t : 分割符,默认是空白字符
+  -i : 忽略大小写
+  -1 : 代表'第一个字段要用那个字段来分析'
+  -2 : 代表'第二个字段要用那个字段来分析'
+  #+END_SRC
+- paste:将两行粘到一起,中间用tab隔开
+  #+BEGIN_SRC shell
+  paste [-d] file1 file2
+  选项和参数:
+  -d : 后面接分割字符,默认是tab
+  -  : file处如果是-,表示来自之前输出的数据
+  #+END_SRC
+- expand: 将tab转换为空格
+  #+BEGIN_SRC shell
+  expand [-t] file
+  选项和参数:
+  -t : 设置一个tab是多少字符
+  #+END_SRC
+*** 分区命令:split
+将一个大文件通过文件大小或行数进行分区
+#+BEGIN_SRC shell
+split [-bl] file PREFIX
+选项和参数:
+-b : 后面可接欲分区成的大小,单位b, k, m
+-l : 行数来进行分区
+#+END_SRC
+*** 参数代换:xargs
+产生某个指令的参数
+#+BEGIN_SRC shell
+xargs [-0epn] command
+选项和参数:
+-0 : 可以将特殊字符还原为一般字符
+-e : 后面接一个字串,分析到该字串自动停止工作
+-p : 执行每个指令的argument之前,询问使用者
+-n : 后面接次数,每次command执行时要用几个参数
+#+END_SRC
+*** 关于减号的用途
+减号可以替代前一个指令的stdout
+
+* 正则表达式与文件格式化处理
+
+** 开始之前:什么是正则表达式
+正则表达式是通过一些特殊符号辅助,顺利完成删除/搜寻/取代等工作
+
+** 基础正则表达式
+
+*** 语系对正则表达式的影响
+- 有一些特殊符号的特殊意义
+  | 特殊符号   | 代表意义                 |
+  |------------+--------------------------|
+  | [:alnum:]  | 代表英文大小写字符及数字 |
+  | [:alpha:]  | 代表任何英文大小写字符   |
+  | [:blank:]  | 代表空白键和tab          |
+  | [:cntrl:]  | 代表键盘上的控制按键     |
+  | [:digit:]  | 代表数字                 |
+  | [:graph:]  | 除了空白字符外的其他字符 |
+  | [:lower:]  | 代表小写字母             |
+  | [:point:]  | 代表可以被打印出来的字符 |
+  | [:punct:]  | 代表标点符号             |
+  | [:upper:]  | 代表大写字母             |
+  | [:space:]  | 代表会产生空白的字符     |
+  | [:xdigit:] | 代表16进位的数字和字符             |
+
+*** grep的一些进阶选项
+    #+BEGIN_SRC shell
+    grep [-A] [-B] [--color=auto] '搜寻字符' filename
+    选项和参数:
+    -A : 后面可以加数字,是after的意思,除了列出该行,后面n行也列出
+    -B : 后面可加加数字,是before的意思,除了列出该行,前面n行也列出
+    
+    #+END_SRC
+
+*** 基础正则表达式练习
+
+*** 基础正则表达式字符汇整
+[[file:../lauguage/shell.md::525][查看此处]]
+
+*** sed工具
+将数据进行取代,删除,新增,赚取等
+#+BEGIN_SRC shell
+sed [-nefr] [动作]
+选项和参数:
+-n : 使用安静模式,只有采用sed处理的会被列出来
+-e : 直接在命令行进行sed动作编辑
+-f : 将sed动作写到文件内,-f filename执行文件内的动作
+-r : 支持延伸正则表达式语法
+-i : 直接修改读取文件内容,而不是屏幕输出
+
+动作说明 : [n1[,n2]]function
+function有这些
+a : 新增,a后跟字符串
+c : 取代,c后接字符串,替代n1和n2之间的行
+d : 删除
+i : 插入,后更字符串,会在新一行出现
+p : 打印,将某个选择的数据打印出来
+s : 取代,直接进行取代的动作
+#+END_SRC
+
+** 延伸正则表达式
+| RE字符 | 意义和范例                 |
+|--------+----------------------------|
+| +      | 重复一个或一个以上的RE字符 |
+| ?      | 0个或一个前一个RE字符      |
+| 竖线   | or                         |
+| ()     | 找出群组词组               |
+| () +   | 多个重复群组判别           |
+
+
+** 文件的格式化与相关处理
+
+*** 格式化打印:printf
+[[file:../language/shell.md::560][看这里]]
+
+*** awk:好用的数据处理工具
+[[file:../language/shell.md::563][看这里]]
+
+*** 文件打印准备:pr

@@ -1,0 +1,3517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-03-20 六 15:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="FAN" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6d5ba8b">1. 第0章, 计算机概论</a>
+<ul>
+<li><a href="#org77034d5">1.1. 电脑:辅助人脑的好工具</a>
+<ul>
+<li><a href="#org7571c34">1.1.1. 计算机硬件的五大单元</a></li>
+<li><a href="#org9bd0541">1.1.2. 一切设计的起点:CPU架构</a></li>
+<li><a href="#org30a8270">1.1.3. 其他单元的设备</a></li>
+<li><a href="#orgf1c1e02">1.1.4. 电脑按用途分类</a></li>
+<li><a href="#org8983c7c">1.1.5. 电脑上常用的计算单位(容量, 速度等)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgebcaeb1">2. 第一章, linux是什么与如何学习</a>
+<ul>
+<li><a href="#org68dc9df">2.1. linux是什么</a>
+<ul>
+<li><a href="#org1d786e0">2.1.1. linux distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf7dadb3">3. 第二章, 主机规划与磁盘分区</a>
+<ul>
+<li><a href="#org1c1dd4c">3.1. 主机规划</a>
+<ul>
+<li><a href="#orgf4ed4ad">3.1.1. 各硬件设备在linux中的文件名</a></li>
+</ul>
+</li>
+<li><a href="#org8a78ded">3.2. 磁盘分区</a></li>
+</ul>
+</li>
+<li><a href="#org0f9b906">4. 第四章, 首次登陆与线上求助</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org9cc8ccd">4.0.1. 基础指令操作</a></li>
+<li><a href="#orgc9c6909">4.0.2. 重要的几个热键</a></li>
+<li><a href="#org01ea358">4.0.3. man page</a></li>
+</ul>
+</li>
+<li><a href="#org85f1dd4">4.1. 正确的关机方法</a></li>
+</ul>
+</li>
+<li><a href="#org2befb9b">5. 第五章, linux的文件权限和目录配置</a>
+<ul>
+<li><a href="#org4967bb6">5.1. 使用者与群组</a></li>
+<li><a href="#org20d4b26">5.2. linux文件权限概念</a>
+<ul>
+<li><a href="#org4b7e31f">5.2.1. 如何改变文件属性与权限</a></li>
+<li><a href="#org1a51cd6">5.2.2. 目录和文件的权限的意义</a></li>
+<li><a href="#orgc3dcb52">5.2.3. linux文件种类和拓展名</a></li>
+</ul>
+</li>
+<li><a href="#orgd81440a">5.3. linux目录配置</a></li>
+</ul>
+</li>
+<li><a href="#org2ff1be3">6. 第六章, linux文件与目录管理</a>
+<ul>
+<li><a href="#org55b4455">6.1. 目录与路径</a></li>
+<li><a href="#org1703b35">6.2. 文件与目录管理</a>
+<ul>
+<li><a href="#org0ba2320">6.2.1. 取得路径的文件名与目录名称</a></li>
+</ul>
+</li>
+<li><a href="#org73fca29">6.3. 文件内容查阅</a></li>
+<li><a href="#org078eec1">6.4. 文件和目录的默认权限和隐藏权限</a></li>
+<li><a href="#org2be35cf">6.5. 观察文件类型:file</a></li>
+<li><a href="#org4b18da4">6.6. 指令与文件的搜寻</a></li>
+</ul>
+</li>
+<li><a href="#orgd94dbc3">7. 第七章, linux磁盘与文件系统管理</a>
+<ul>
+<li><a href="#org69ab8e0">7.1. 认识linux文件系统</a>
+<ul>
+<li><a href="#org2204f60">7.1.1. 磁盘组成和分区</a></li>
+<li><a href="#orgba7edb4">7.1.2. linux文件系统的运行</a></li>
+<li><a href="#org4c25a8a">7.1.3. 挂载点的意义(mount point)</a></li>
+<li><a href="#orgf790da6">7.1.4. XFS文件系统简介</a></li>
+</ul>
+</li>
+<li><a href="#org556cc43">7.2. 文件系统的简单操作</a>
+<ul>
+<li><a href="#org16e2c4e">7.2.1. 磁盘和目录的容量</a></li>
+<li><a href="#org5e1e55d">7.2.2. 实体链接与符号链接</a></li>
+</ul>
+</li>
+<li><a href="#orgd92be11">7.3. 磁盘的分区, 格式化, 检验与挂载</a>
+<ul>
+<li><a href="#org105a8ca">7.3.1. 观察磁盘分区状态</a></li>
+<li><a href="#orgc5b3152">7.3.2. 磁盘分区</a></li>
+</ul>
+</li>
+<li><a href="#orgbb145ac">7.4. 设置开机挂载</a></li>
+<li><a href="#orgf70fa09">7.5. 内存交换空间(swap)之创建</a></li>
+<li><a href="#orgd4dfafa">7.6. 文件系统的特殊观察与操作</a></li>
+</ul>
+</li>
+<li><a href="#orgc493591">8. 第八章, 文件与文件系统的压缩, 打包与备份</a>
+<ul>
+<li><a href="#org0ca5cee">8.1. 压缩文件的用途和技术</a></li>
+<li><a href="#org78940a1">8.2. linux系统常见的压缩指令</a></li>
+<li><a href="#orgc0955a4">8.3. 文件系统的备份和还原</a>
+<ul>
+<li><a href="#org2e1f70f">8.3.1. XFS文件系统备份xfsdump</a></li>
+<li><a href="#orga159e54">8.3.2. XFS文件系统还原xfsrestore</a></li>
+</ul>
+</li>
+<li><a href="#org778151a">8.4. 光盘写入文件</a></li>
+<li><a href="#org1e1c737">8.5. 其他常见的压缩与备份工具</a></li>
+</ul>
+</li>
+<li><a href="#org1d77bf8">9. 第九章, vim</a></li>
+<li><a href="#orgbad8d74">10. 第十章, 认识和学习BASH</a>
+<ul>
+<li><a href="#org1d2e72f">10.1. 认识BASH这个shell</a>
+<ul>
+<li><a href="#orga8cc37e">10.1.1. 硬件, 核心和shell</a></li>
+</ul>
+</li>
+<li><a href="#org2a8a561">10.2. shell的变量功能</a>
+<ul>
+<li><a href="#orgcded383">10.2.1. 环境变量</a></li>
+<li><a href="#org1390776">10.2.2. 影响显示结果的语系变量</a></li>
+<li><a href="#orgba1fc1e">10.2.3. 变量的键盘读取, 阵列与宣告</a></li>
+<li><a href="#org28f4816">10.2.4. 与文件系统及程序的限制关系:ulimit</a></li>
+<li><a href="#orgf58b865">10.2.5. 变量内容的删除, 取代和替换</a></li>
+</ul>
+</li>
+<li><a href="#org4130159">10.3. 命名别名与历史命令</a>
+<ul>
+<li><a href="#orgf9e7d0e">10.3.1. 命名别名设置</a></li>
+<li><a href="#org50406aa">10.3.2. 历史命令:history</a></li>
+</ul>
+</li>
+<li><a href="#orgeeec08d">10.4. Bash Shell的操作环境</a>
+<ul>
+<li><a href="#org54f7142">10.4.1. 路径和指令的搜寻顺序</a></li>
+<li><a href="#orga778035">10.4.2. 进站与欢迎讯息</a></li>
+<li><a href="#orgdc2ce02">10.4.3. 环境配置</a></li>
+<li><a href="#org143ea67">10.4.4. 终端机环境设置</a></li>
+</ul>
+</li>
+<li><a href="#org70ea4ad">10.5. 数据流重导向</a></li>
+<li><a href="#orgbc362b2">10.6. 管线命令</a>
+<ul>
+<li><a href="#orgf291f0a">10.6.1. 撰取命令:cut, grep</a></li>
+<li><a href="#org6fbc872">10.6.2. 排序命令:sort, wc, uniq</a></li>
+<li><a href="#orgd135c92">10.6.3. 双向重导向:tee</a></li>
+<li><a href="#orge146a5c">10.6.4. 字符转换命令:tr, col, join, paste, expand</a></li>
+<li><a href="#orgb550e79">10.6.5. 分区命令:split</a></li>
+<li><a href="#org8fe8155">10.6.6. 参数代换:xargs</a></li>
+<li><a href="#org776aff0">10.6.7. 关于减号的用途</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org0e41469">11. 第十一章, 正则表达式与文件格式化处理</a>
+<ul>
+<li><a href="#org57aa8ef">11.1. 开始之前:什么是正则表达式</a></li>
+<li><a href="#org1335e55">11.2. 基础正则表达式</a>
+<ul>
+<li><a href="#org5ed70b2">11.2.1. 语系对正则表达式的影响</a></li>
+<li><a href="#org3b2a2c7">11.2.2. grep的一些进阶选项</a></li>
+<li><a href="#org53cf472">11.2.3. 基础正则表达式练习</a></li>
+<li><a href="#orge5ac48d">11.2.4. 基础正则表达式字符汇整</a></li>
+<li><a href="#org687ac45">11.2.5. sed工具</a></li>
+</ul>
+</li>
+<li><a href="#org3e4eec8">11.3. 延伸正则表达式</a></li>
+<li><a href="#org73834cb">11.4. 文件的格式化与相关处理</a>
+<ul>
+<li><a href="#org7cb9082">11.4.1. 格式化打印:printf</a></li>
+<li><a href="#org7aeadef">11.4.2. awk:好用的数据处理工具</a></li>
+<li><a href="#orgbbc87a7">11.4.3. 文件打印准备:pr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga8c80fc">12. 第十二章, 学习shell scripts</a>
+<ul>
+<li><a href="#org1f7d38e">12.1. 什么是shell scripts</a>
+<ul>
+<li><a href="#org9845802">12.1.1. 干嘛学习shell scripts</a></li>
+<li><a href="#org8d0c3bd">12.1.2. 第一支script文件的撰写与执行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+鸟哥linux私房菜
+</p>
+<div id="outline-container-org6d5ba8b" class="outline-2">
+<h2 id="org6d5ba8b"><span class="section-number-2">1</span> 第0章, 计算机概论</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org77034d5" class="outline-3">
+<h3 id="org77034d5"><span class="section-number-3">1.1</span> 电脑:辅助人脑的好工具</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org7571c34" class="outline-4">
+<h4 id="org7571c34"><span class="section-number-4">1.1.1</span> 计算机硬件的五大单元</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+电脑由五大单元组成:输入单元, 输出单元, CPU内部控制单元, 算数逻辑单元, 内存
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9bd0541" class="outline-4">
+<h4 id="org9bd0541"><span class="section-number-4">1.1.2</span> 一切设计的起点:CPU架构</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>精简指令集(RISC)  
+比较精简, 单个指令完成的事情很少, 执行时间短, 执行性能佳
+<ul class="org-ul">
+<li>甲骨文公司的SPARC系列</li>
+<li>IBM公司的PowerPC系列</li>
+<li>安谋公司的ARM系列</li>
+</ul></li>
+<li>复杂指令集(CISC)  
+指令多且复杂, 运行时间长, 但是单个指令可以解决的事情多
+<ul class="org-ul">
+<li>AMD, Intel, VIA</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30a8270" class="outline-4">
+<h4 id="org30a8270"><span class="section-number-4">1.1.3</span> 其他单元的设备</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+其他单元的重要设备主要有
+</p>
+<ul class="org-ul">
+<li>系统单元:包括CPU与内存还有主板相关元件</li>
+<li>存储单元:包括内存和辅助内存(储存设备)</li>
+<li>输入输出单元:屏幕等</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf1c1e02" class="outline-4">
+<h4 id="orgf1c1e02"><span class="section-number-4">1.1.4</span> 电脑按用途分类</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ol class="org-ol">
+<li>超级计算机:运行速度最快的电脑</li>
+<li>大型计算机:用来处理大量数据与复杂的运算</li>
+<li>迷你电脑:用来进行一般的工作</li>
+<li>工作站:针对特殊用途设计的电脑</li>
+<li>微电脑:个人电脑, 体积小, 价格低</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org8983c7c" class="outline-4">
+<h4 id="org8983c7c"><span class="section-number-4">1.1.5</span> 电脑上常用的计算单位(容量, 速度等)</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li>容量单位   
+1byte = 8bits</li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">进位制</th>
+<th scope="col" class="org-right">Kilo</th>
+<th scope="col" class="org-right">Mega</th>
+<th scope="col" class="org-right">Giga</th>
+<th scope="col" class="org-right">Tera</th>
+<th scope="col" class="org-right">Peta</th>
+<th scope="col" class="org-right">Exa</th>
+<th scope="col" class="org-right">Zetta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">二进制</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+<td class="org-right">1024</td>
+</tr>
+
+<tr>
+<td class="org-left">十进制</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+<td class="org-right">1000</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>存储用二进制</li>
+<li>速度单位用十进制</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgebcaeb1" class="outline-2">
+<h2 id="orgebcaeb1"><span class="section-number-2">2</span> 第一章, linux是什么与如何学习</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org68dc9df" class="outline-3">
+<h3 id="org68dc9df"><span class="section-number-3">2.1</span> linux是什么</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+linux是一套操作系统
+</p>
+
+<p>
+每种操作系统都是在他专门的硬件机器上运行的, 但是linux由于是开源的,
+</p>
+
+<p>
+所以他的程序码可以被修改成适合在各种硬件运行, 所以linux具有可移植性  
+</p>
+
+<p>
+由于linux的架构稳定而强大, 可以在个人计算机上跑, 所以很多软件开发者将工作心血转移到其中, 有很多应用软件
+</p>
+</div>
+
+<div id="outline-container-org1d786e0" class="outline-4">
+<h4 id="org1d786e0"><span class="section-number-4">2.1.1</span> linux distributions</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+一些常见的linux distributions
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">RPM软件管理</th>
+<th scope="col" class="org-left">DPKG软件管理</th>
+<th scope="col" class="org-left">其他未分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">商业公司</td>
+<td class="org-left">RHEL, SuSE(Micro Focus)</td>
+<td class="org-left">Ubuntu</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">社群</td>
+<td class="org-left">Fedora, CentOS, OpenSuSE</td>
+<td class="org-left">Debian, B2D</td>
+<td class="org-left">Gentoo</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf7dadb3" class="outline-2">
+<h2 id="orgf7dadb3"><span class="section-number-2">3</span> 第二章, 主机规划与磁盘分区</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org1c1dd4c" class="outline-3">
+<h3 id="org1c1dd4c"><span class="section-number-3">3.1</span> 主机规划</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgf4ed4ad" class="outline-4">
+<h4 id="orgf4ed4ad"><span class="section-number-4">3.1.1</span> 各硬件设备在linux中的文件名</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+在Linux中几乎所有的硬件设备都会在/dev这个目录中
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">设备</th>
+<th scope="col" class="org-left">设备在/dev中的文件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">SCSI/SATA/USB硬盘</td>
+<td class="org-left">sd[a-d]</td>
+</tr>
+
+<tr>
+<td class="org-left">USB闪存盘</td>
+<td class="org-left">sd[a-p]</td>
+</tr>
+
+<tr>
+<td class="org-left">Virtl/O界面</td>
+<td class="org-left">vd[a-p]</td>
+</tr>
+
+<tr>
+<td class="org-left">软盘机</td>
+<td class="org-left">fd[0-7]</td>
+</tr>
+
+<tr>
+<td class="org-left">打印机</td>
+<td class="org-left">lp\[0-2](25针打印机) ./usb/lp\[0-15](USB接口)</td>
+</tr>
+
+<tr>
+<td class="org-left">鼠标</td>
+<td class="org-left">./input/mouse\[0-15](通用) psaux(PS/2界面) mouse(当前鼠标)</td>
+</tr>
+
+<tr>
+<td class="org-left">CDROM/DVDROM</td>
+<td class="org-left">scd\[0-1](通用) st0(SATA/SCSI界面) tape(当前磁带)</td>
+</tr>
+
+<tr>
+<td class="org-left">IDE磁盘机</td>
+<td class="org-left">hd\[a-d](旧式系统才有)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a78ded" class="outline-3">
+<h3 id="org8a78ded"><span class="section-number-3">3.2</span> 磁盘分区</h3>
+</div>
+</div>
+
+<div id="outline-container-org0f9b906" class="outline-2">
+<h2 id="org0f9b906"><span class="section-number-2">4</span> 第四章, 首次登陆与线上求助</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org9cc8ccd" class="outline-4">
+<h4 id="org9cc8ccd"><span class="section-number-4">4.0.1</span> 基础指令操作</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<ul class="org-ul">
+<li>显示日期和时间:date</li>
+<li>显示日历:cal</li>
+<li>计算器:bc</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc9c6909" class="outline-4">
+<h4 id="orgc9c6909"><span class="section-number-4">4.0.2</span> 重要的几个热键</h4>
+<div class="outline-text-4" id="text-4-0-2">
+<div class="org-src-container">
+<pre class="src src-shell">&lt;c-d&gt;   &#38190;&#30424;&#36755;&#20837;&#32467;&#26463;
+&lt;shift-<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #ffd700; font-weight: bold;">[</span>page-up<span style="color: #ffd700; font-weight: bold;">]</span>, <span style="color: #ffd700; font-weight: bold;">[</span>page-down<span style="color: #ffd700; font-weight: bold;">]</span><span style="color: #ff4500; font-weight: bold;">}</span> &#19978;&#19979;&#32763;&#39029;
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org01ea358" class="outline-4">
+<h4 id="org01ea358"><span class="section-number-4">4.0.3</span> man page</h4>
+<div class="outline-text-4" id="text-4-0-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">NAME</th>
+<th scope="col" class="org-left">这个指令的完整全名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">SYNOPSIS</td>
+<td class="org-left">这个指令的基本语法</td>
+</tr>
+
+<tr>
+<td class="org-left">DESCRIPTION</td>
+<td class="org-left">详细说明刚刚语法谈到的选项和参数的用法</td>
+</tr>
+
+<tr>
+<td class="org-left">ENVIRONMENT</td>
+<td class="org-left">与这个指令有关的环境参数说明</td>
+</tr>
+
+<tr>
+<td class="org-left">EXAMPLES</td>
+<td class="org-left">可用的范本</td>
+</tr>
+
+<tr>
+<td class="org-left">DATE STRING</td>
+<td class="org-left">格式说明</td>
+</tr>
+
+<tr>
+<td class="org-left">AUTHOR</td>
+<td class="org-left">作者</td>
+</tr>
+
+<tr>
+<td class="org-left">COPERIGHT</td>
+<td class="org-left">著作权说明</td>
+</tr>
+
+<tr>
+<td class="org-left">SEE ALSO</td>
+<td class="org-left">其他相关说明</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+第一行括号里面数字的意义
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">代号</th>
+<th scope="col" class="org-left">代表内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right"><b>*1</b></td>
+<td class="org-left"><b>*使用者在shell中可以操作的指令或可执行文件</b></td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">系统核心可以调用的函数与工具</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">一些常用的函数或库</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">设备文件的说明, 一般在\dev下</td>
+</tr>
+
+<tr>
+<td class="org-right"><b>*5</b></td>
+<td class="org-left"><b>*配置文件或某些文件的格式</b></td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">games</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">惯例和协定</td>
+</tr>
+
+<tr>
+<td class="org-right"><b>*8</b></td>
+<td class="org-left"><b>*系统管理员可用的管理指令</b></td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-left">和kernel有关的文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org85f1dd4" class="outline-3">
+<h3 id="org85f1dd4"><span class="section-number-3">4.1</span> 正确的关机方法</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-src-container">
+<pre class="src src-shell">who     &#26597;&#30475;&#24403;&#21069;&#35841;&#22312;&#32447;
+netstat -a  &#26597;&#30475;&#32593;&#32476;&#36830;&#32447;&#29366;&#24577;
+ps -aix     &#32972;&#26223;&#25191;&#34892;&#30340;&#31243;&#24207;
+sync    &#23558;&#25968;&#25454;&#21516;&#27493;&#21040;&#30828;&#30424;
+shutdown    &#20851;&#26426;
+reboot, halt, poweroff  &#37325;&#26032;&#24320;&#26426;, &#20851;&#26426;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2befb9b" class="outline-2">
+<h2 id="org2befb9b"><span class="section-number-2">5</span> 第五章, linux的文件权限和目录配置</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org4967bb6" class="outline-3">
+<h3 id="org4967bb6"><span class="section-number-3">5.1</span> 使用者与群组</h3>
+<div class="outline-text-3" id="text-5-1">
+<ol class="org-ol">
+<li>文件拥有者(user)</li>
+<li>群组(group):每个群组中有若干组员, 群组中的文件可以由所有该组的组员共享, 其他组的成员无法共享</li>
+<li>其他人(others)</li>
+</ol>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+</table>
+<ul class="org-ul">
+<li>一般情况下, 所有系统账号和使用者还有root的信息是记录在/etc/passwd中的</li>
+
+<li>个人密码是记录在/etc/shadow文件中</li>
+
+<li>所有的群组名称记录在/etc/group中</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org20d4b26" class="outline-3">
+<h3 id="org20d4b26"><span class="section-number-3">5.2</span> linux文件权限概念</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+当查看文件详细信息时, 查看到的属性依次是
+<b><b>|权限|链接|拥有者|群组|文件大小|修改日期|文件名|</b></b>
+</p>
+<ul class="org-ul">
+<li><p>
+权限  
+</p>
+
+<p>
+第一个字符代表文件类型
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">选项</th>
+<th scope="col" class="org-left">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">d</td>
+<td class="org-left">目录</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x00ad;</td>
+<td class="org-left">文件</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-left">链接文件</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">可存储的周边文件</td>
+</tr>
+
+<tr>
+<td class="org-left">c</td>
+<td class="org-left">序列设备文件</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+接下来的字符中, 三个为一组, r:可读, w:可写, x:可执行  
+</p>
+<ul class="org-ul">
+<li>第一组是文件拥有者可具备的权限</li>
+<li>第二组是群组的权限</li>
+<li>第三组是其他人的权限</li>
+</ul></li>
+<li>第二栏表示有多少文件名链接到此节点</li>
+<li>第三栏表示这个文件拥有者账号</li>
+<li>第四栏表示文件所属群组</li>
+<li>第五栏表示容量大小</li>
+<li>第六栏表示修改日期</li>
+<li>第七组是文件名</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">root是不受文件权限限制的</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org4b7e31f" class="outline-4">
+<h4 id="org4b7e31f"><span class="section-number-4">5.2.1</span> 如何改变文件属性与权限</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li>chgrp:改变文件所属的群组</li>
+<li>chown:改变文件拥有者</li>
+<li>chmod:改变文件的权限</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-shell">chgrp &#36873;&#39033; &#32676;&#32452;&#21517; dirname/filename
+&#36873;&#39033;:
+-R  &#36882;&#22238;&#25913;&#21464;
+
+chown &#36873;&#39033; &#36134;&#21495;&#21517;<span style="color: #ff4500; font-weight: bold;">[</span>:&#32676;&#32452;&#21517;<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;/&#30446;&#24405;&#21517;
+&#36873;&#39033;
+-R  &#36882;&#22238;&#25913;&#21464;
+
+chmod &#36873;&#39033; xyz &#25991;&#20214;/&#30446;&#24405;&#21517;
+&#36873;&#39033;:
+-R  &#36882;&#22238;&#25913;&#21464;
+xyz:
+r:4, w:2, x:1
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1a51cd6" class="outline-4">
+<h4 id="org1a51cd6"><span class="section-number-4">5.2.2</span> 目录和文件的权限的意义</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+目录:  
+</p>
+<ul class="org-ul">
+<li>r:表示拥有读取这个目录下的文件名称的权力</li>
+<li>w:表示拥有改变这个目录的结构清单的权力</li>
+<li>x:表示拥有进入这个目录的权力</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc3dcb52" class="outline-4">
+<h4 id="orgc3dcb52"><span class="section-number-4">5.2.3</span> linux文件种类和拓展名</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<ol class="org-ol">
+<li>文件种类
+<ul class="org-ul">
+<li>正规文件:  
+<ul class="org-ul">
+<li>纯文本文件:可以直接读取的文件</li>
+<li>二进制文件:可以执行的文件</li>
+<li>数据格式文件:某些储存数据的特定格式的文件</li>
+</ul></li>
+<li>目录</li>
+<li>链接文件</li>
+<li>设备与设备文件:
+<ul class="org-ul">
+<li>区块设备文件:可以存储数据设备的文件</li>
+<li>字符设备文件:一次性读取的设备的文件, 如键盘鼠标等</li>
+</ul></li>
+<li>数据接口文件:被用在网络上用来数据承接</li>
+<li>数据传送文件:</li>
+</ul></li>
+<li>文件拓展名
+拓展名对于linux来说没有什么意义, 旨在让用户可以区分
+<ul class="org-ul">
+<li>*.sh:脚本和批处理文件</li>
+<li>Z, .tar, .tar.gz, .zip, *.tgz:经打包的压缩文件</li>
+<li>.html, .php:网页相关文件</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd81440a" class="outline-3">
+<h3 id="orgd81440a"><span class="section-number-3">5.3</span> linux目录配置</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+linux目录配置的依据是FHS标准(Filesystem Hierarchy Standard)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">可分享的</th>
+<th scope="col" class="org-left">不可分享的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">不变的</td>
+<td class="org-left">/usr(软件放置处)</td>
+<td class="org-left">/etc(配置文件)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">/opt(第三方协力软件)</td>
+<td class="org-left">/boot(开机与核心文件)</td>
+</tr>
+
+<tr>
+<td class="org-left">可变动的</td>
+<td class="org-left">/var/mail(使用者邮件信箱)</td>
+<td class="org-left">/var/run(程序相关)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">/var/spool/news(新闻群组)</td>
+<td class="org-left">/var/lock(程序相关)</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li><p>
+根目录的意义和内容  
+根目录下应该有这些文件存在  
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">目录</th>
+<th scope="col" class="org-left">应放置文件内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">FHS要求必须存在的</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/bin</td>
+<td class="org-left">放置一些可执行文件, 主要是指令</td>
+</tr>
+
+<tr>
+<td class="org-left">/boot</td>
+<td class="org-left">放置开机后会使用到的文件</td>
+</tr>
+
+<tr>
+<td class="org-left">/dev</td>
+<td class="org-left">放置连接的一些设备</td>
+</tr>
+
+<tr>
+<td class="org-left">/etc</td>
+<td class="org-left">放置几乎所有的配置文件</td>
+</tr>
+
+<tr>
+<td class="org-left">/lib</td>
+<td class="org-left">放置开机时会用到的函数库还有/bin和/sbin指令中会调用的函数库</td>
+</tr>
+
+<tr>
+<td class="org-left">/media</td>
+<td class="org-left">放置可移除的设备</td>
+</tr>
+
+<tr>
+<td class="org-left">/mnt</td>
+<td class="org-left">暂时挂载某个设备</td>
+</tr>
+
+<tr>
+<td class="org-left">/opt</td>
+<td class="org-left">第三方协力软件存放的目录</td>
+</tr>
+
+<tr>
+<td class="org-left">/run</td>
+<td class="org-left">存放开机后会产生的各项信息</td>
+</tr>
+
+<tr>
+<td class="org-left">/sbin</td>
+<td class="org-left">开机过程中所需要的命令, 包括开机, 修复, 还原系统等</td>
+</tr>
+
+<tr>
+<td class="org-left">/srv</td>
+<td class="org-left">一些网络服务启动后, 这些服务所需要取用的数据目录</td>
+</tr>
+
+<tr>
+<td class="org-left">/tmp</td>
+<td class="org-left">让一般使用者或正在执行的程序暂时放置文件的地方, 任何人都可以存取, FHS建议开机时将这个目录下的数据都删除</td>
+</tr>
+
+<tr>
+<td class="org-left">FHS建议可以存在</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/home</td>
+<td class="org-left">系统默认使用者的文件夹</td>
+</tr>
+
+<tr>
+<td class="org-left">/lib\&lt;qual&gt;</td>
+<td class="org-left">存放与/lib不同的格式的二进制函数库</td>
+</tr>
+
+<tr>
+<td class="org-left">/root</td>
+<td class="org-left">root的主文件夹</td>
+</tr>
+
+<tr>
+<td class="org-left">一些其他的目录</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">/lost+found</td>
+<td class="org-left">当文件系统发生错误时, 将一些遗失的片段放在这个里面</td>
+</tr>
+
+<tr>
+<td class="org-left">/proc</td>
+<td class="org-left">虚拟文件系统, 放置的数据都是在内存当中</td>
+</tr>
+
+<tr>
+<td class="org-left">/sys</td>
+<td class="org-left">虚拟的文件系统, 主要记录核心和系统硬件信息相关的信息</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+/usr的意义与内容  
+</p>
+
+<p>
+Unix Software Resource的缩写, 也就是Unix操作系统软件资源, 所有软件数据都应该在该目录的次目录有序排放  
+</p>
+
+<p>
+/usr的次目录建议有下面这些  
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">目录</th>
+<th scope="col" class="org-left">应放置文件内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">FHS要求必须存在</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">./bin</td>
+<td class="org-left">所有一般用户可以使用的指令, 另外此目录下不应该有子目录</td>
+</tr>
+
+<tr>
+<td class="org-left">./lib</td>
+<td class="org-left">与/lib功能相似, /lib链接到此目录</td>
+</tr>
+
+<tr>
+<td class="org-left">./local</td>
+<td class="org-left">系统管理员在本机自行安装的软件建议安装在此目录</td>
+</tr>
+
+<tr>
+<td class="org-left">./sbin</td>
+<td class="org-left">非系统正常运行所需要的系统指令</td>
+</tr>
+
+<tr>
+<td class="org-left">./share</td>
+<td class="org-left">主要放置只读架构的数据文件, 也包括共享文件</td>
+</tr>
+
+<tr>
+<td class="org-left">FHS建议可以存在</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">./games</td>
+<td class="org-left">游戏相关的数据放置处</td>
+</tr>
+
+<tr>
+<td class="org-left">./include</td>
+<td class="org-left">程序语言header和include放置处</td>
+</tr>
+
+<tr>
+<td class="org-left">./libexec</td>
+<td class="org-left">某些不被一般使用者惯用的可执行文件或脚本</td>
+</tr>
+
+<tr>
+<td class="org-left">./src</td>
+<td class="org-left">一般源代码</td>
+</tr>
+
+<tr>
+<td class="org-left">./lib\&lt;qual&gt;/</td>
+<td class="org-left">与lib\&lt;qual&gt;功能相同, 后者链接到此</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+/var的意义与内容
+</p>
+
+<p>
+主要针对常态化变动的文件, 包括高速缓存, 登陆文件以及某些软件运行产生的文件等
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">目录</th>
+<th scope="col" class="org-left">应放置文件内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">FHS要求必须存在</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">./cache</td>
+<td class="org-left">应用程序本身运行过程会产生的一些暂存盘</td>
+</tr>
+
+<tr>
+<td class="org-left">./lib</td>
+<td class="org-left">程序本身执行的过程中, 需要用到的数据文件放置的目录</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>*./log</b></td>
+<td class="org-left">登录文件放置的目录, 里面有重要的信息</td>
+</tr>
+
+<tr>
+<td class="org-left">./lock</td>
+<td class="org-left">确保该设备只能给单一软件使用</td>
+</tr>
+
+<tr>
+<td class="org-left">./mail</td>
+<td class="org-left">放置个人邮件信箱</td>
+</tr>
+
+<tr>
+<td class="org-left">./run</td>
+<td class="org-left">某些程序或服务启动后, 会将他们的PID放置在此目录</td>
+</tr>
+
+<tr>
+<td class="org-left">./spool</td>
+<td class="org-left">放一些伫列数据(排队等待其他程序使用的数据), 数据被使用后删除</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ff1be3" class="outline-2">
+<h2 id="org2ff1be3"><span class="section-number-2">6</span> 第六章, linux文件与目录管理</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org55b4455" class="outline-3">
+<h3 id="org55b4455"><span class="section-number-3">6.1</span> 目录与路径</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><p>
+一些特殊的目录
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">.</span>   &#27492;&#30446;&#24405;
+..  &#19978;&#19968;&#23618;&#30446;&#24405;
+-   &#21069;&#19968;&#20010;&#24037;&#20316;&#30446;&#24405;
+~   &#30446;&#21069;&#20351;&#29992;&#32773;&#36523;&#20221;&#25152;&#22312;&#30340;&#20027;&#25991;&#20214;&#22841;
+~account    account&#20351;&#29992;&#32773;&#30340;&#20027;&#25991;&#20214;&#22841;    
+</pre>
+</div></li>
+
+<li><p>
+一些目录的命令  
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">cd</span>  &#36339;&#36716;
+<span style="color: #ab9df2;">pwd</span> &#25171;&#21360;&#24403;&#21069;&#25152;&#22312;&#30446;&#24405;
+mkdir -p    &#36882;&#22238;&#21019;&#24314;&#30446;&#24405;
+rmdir -p    &#21024;&#38500;&#31354;&#30446;&#24405;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1703b35" class="outline-3">
+<h3 id="org1703b35"><span class="section-number-3">6.2</span> 文件与目录管理</h3>
+<div class="outline-text-3" id="text-6-2">
+</div>
+<div id="outline-container-org0ba2320" class="outline-4">
+<h4 id="org0ba2320"><span class="section-number-4">6.2.1</span> 取得路径的文件名与目录名称</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<div class="org-src-container">
+<pre class="src src-shell">basename    &#21462;&#24471;&#26368;&#21518;&#30340;&#25991;&#20214;&#21517;&#25110;&#30446;&#24405;&#21517;
+dirname     &#21462;&#24471;&#30446;&#24405;&#21517;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73fca29" class="outline-3">
+<h3 id="org73fca29"><span class="section-number-3">6.3</span> 文件内容查阅</h3>
+<div class="outline-text-3" id="text-6-3">
+<ol class="org-ol">
+<li>直接检视文件内容
+
+<ul class="org-ul">
+<li><p>
+cat
+</p>
+<pre class="example">
+cat [-AbEnTv]
+选项:
+-A:列出特殊字符
+-b:列出非空白行的行号
+-E:将结尾换行符显示
+-n:列出所有行行号
+-T:将tab显示
+-v:列出看不见的特殊字符
+</pre></li>
+<li>tac
+反向显示</li>
+<li>nl:添加行号打印</li>
+<li>more:一页一页翻动  
+<ul class="org-ul">
+<li>空白键:向下翻一页</li>
+<li>Enter:向下翻一行</li>
+<li>/str:搜索</li>
+<li>:f显示文件名和当前行数</li>
+<li>q:离开</li>
+<li>b:往回翻</li>
+</ul></li>
+<li>less:一页一页翻动</li>
+</ul></li>
+<li>数据获取
+
+<ul class="org-ul">
+<li><p>
+head:取出前面几行
+</p>
+<pre class="example">
+head [-n number] 文件
+显示前number行, 默认10行
+</pre></li>
+<li><p>
+tail:取出后面几行
+</p>
+<pre class="example">
+tail [-n number] 文件
+</pre></li>
+</ul></li>
+<li>非纯文本文件
+<ul class="org-ul">
+<li><p>
+od
+</p>
+<pre class="example">
+od [-t TYPE] 文件
+TYPE:
+a:默认字符输出
+c:ascll输出
+d[size]:十进制输出
+f[size]:浮点数输出
+o[size]:八进制输出
+x[size]:十六进制输出      
+</pre></li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org078eec1" class="outline-3">
+<h3 id="org078eec1"><span class="section-number-3">6.4</span> 文件和目录的默认权限和隐藏权限</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li><p>
+文件默认权限:umask  
+</p>
+
+<p>
+umask指的是默认剪掉的权限, 后三个数字是user, group, others  
+</p>
+
+<p>
+如0022, 指的就是rwxr-xr-x  
+</p>
+
+<p>
+也可以加-S选项看详细的值  
+</p>
+
+<p>
+如果要设置umask, 直接在后面输入三位数字就好
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">umask</span> 002
+</pre>
+</div></li>
+<li>文件隐藏属性
+<ul class="org-ul">
+<li><p>
+chattr(设置文件隐藏属性)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">chattr <span style="color: #ff4500; font-weight: bold;">[</span>+-=<span style="color: #ff4500; font-weight: bold;">][</span>ASacdistu<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#25110;&#30446;&#24405;&#21517;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
++:&#22686;&#21152;&#26576;&#20010;&#29305;&#27530;&#21442;&#25968;
+-:&#31227;&#38500;&#26576;&#20010;&#29305;&#27530;&#21442;&#25968;
+=:&#35774;&#32622;&#19968;&#23450;&#19988;&#20165;&#26377;&#21518;&#38754;&#25509;&#30340;&#21442;&#25968;
+
+A:&#24403;&#26377;&#23384;&#21462;&#27492;&#25991;&#20214;&#25110;&#30446;&#24405;&#26102;, &#23384;&#21462;&#26102;&#38388;atime&#19981;&#20250;&#34987;&#20462;&#25913;
+S:&#24403;&#36827;&#34892;&#25991;&#20214;&#20462;&#25913;&#26102;, &#20250;&#21516;&#27493;&#20889;&#21040;&#30828;&#30424;&#20013;
+a:&#21482;&#33021;&#22686;&#21152;&#25968;&#25454;, &#19981;&#33021;&#21024;&#38500;&#25110;&#20462;&#25913;&#25968;&#25454;
+c:&#33258;&#21160;&#23558;&#25991;&#20214;&#21387;&#32553;, &#24403;&#35835;&#21462;&#26102;&#20877;&#35299;&#21387;&#32553;
+d:&#24403;dump&#31243;&#24207;&#25191;&#34892;&#26102;, &#19981;&#20250;&#34987;&#22791;&#20221;
+i:&#35753;&#19968;&#20010;&#25991;&#20214;&#19981;&#33021;&#34987;&#21024;&#38500;, &#25913;&#21517;, &#35774;&#32622;&#38142;&#25509;, &#19981;&#33021;&#20889;&#20837;&#21644;&#26032;&#22686;&#25968;&#25454;
+s:&#22914;&#26524;&#34987;&#21024;&#38500;, &#20250;&#34987;&#27704;&#20037;&#31227;&#38500;&#30828;&#30424;
+u:&#22914;&#26524;&#34987;&#21024;&#38500;, &#25968;&#25454;&#20869;&#23481;&#36824;&#22312;&#30828;&#30424;      
+</pre>
+</div></li>
+<li><p>
+lsattr(显示文件隐藏属性)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">lsattr <span style="color: #ff4500; font-weight: bold;">[</span>-adR<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#25110;&#30446;&#24405;
+&#36873;&#39033;:
+-a:&#23558;&#38544;&#34255;&#25991;&#20214;&#30340;&#23646;&#24615;&#20063;&#21015;&#20986;
+-d:&#21015;&#20986;&#30446;&#24405;&#26412;&#36523;&#32780;&#38750;&#19979;&#23646;&#25991;&#20214;&#30340;&#20449;&#24687;
+-R:&#36830;&#21516;&#23376;&#30446;&#24405;&#30340;&#25968;&#25454;&#20063;&#19968;&#24182;&#21015;&#20986;      
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2be35cf" class="outline-3">
+<h3 id="org2be35cf"><span class="section-number-3">6.5</span> 观察文件类型:file</h3>
+<div class="outline-text-3" id="text-6-5">
+<pre class="example">
+file 文件   //可以告诉这个文件的类型   
+</pre>
+</div>
+</div>
+<div id="outline-container-org4b18da4" class="outline-3">
+<h3 id="org4b18da4"><span class="section-number-3">6.6</span> 指令与文件的搜寻</h3>
+<div class="outline-text-3" id="text-6-6">
+<ul class="org-ul">
+<li>指令文件名的搜寻
+<ul class="org-ul">
+<li><p>
+which(寻找"可执行文件")
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">which <span style="color: #ff4500; font-weight: bold;">[</span>-a<span style="color: #ff4500; font-weight: bold;">]</span> command
+&#36873;&#39033;:
+-a:&#23558;&#25152;&#26377;&#20877;PATH&#20013;&#21487;&#20197;&#25214;&#21040;&#30340;&#25351;&#20196;&#21015;&#20986;, &#32780;&#19981;&#26159;&#31532;&#19968;&#20010;      
+</pre>
+</div>
+<p>
+内置函数没有办法被找到
+</p></li>
+</ul></li>
+<li>文件文件名的搜寻
+<ul class="org-ul">
+<li><p>
+whereis
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">whereis <span style="color: #ff4500; font-weight: bold;">[</span>-bmsu<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#25110;&#30446;&#24405;&#21517;
+&#36873;&#39033;:
+-l:&#21487;&#20197;&#21015;&#20986;whereis&#20250;&#21435;&#26597;&#35810;&#30340;&#20960;&#20010;&#20027;&#35201;&#30446;&#24405;
+-b:&#21482;&#25214;binary&#26684;&#24335;&#30340;&#25991;&#20214;
+-m:&#21482;&#33021;&#22312;&#35828;&#26126;&#25991;&#26723;manual&#36335;&#24452;&#19979;&#30340;&#25991;&#20214;
+-s:&#21482;&#25214;&#21040;source&#26469;&#28304;&#25991;&#20214;
+-u:&#25628;&#23547;&#19981;&#22312;&#19978;&#36848;&#19977;&#20010;&#39033;&#30446;&#24403;&#20013;&#30340;&#20854;&#20182;&#29305;&#27530;&#25991;&#20214;      
+</pre>
+</div></li>
+<li><p>
+locate/updatedb
+</p>
+<pre class="example">
+locate [-ir] keyword
+选项:
+-i:忽略大小写的差异
+-c:不输出文件名, 仅输出找到的文件数量
+-l:仅输出n行
+-S:输出locate所使用的数据库文件的相关信息, 包括数据库记录的文件/目录数目等
+-r:后面可以接正则表达式的显示方式      
+</pre>
+<p>
+在数据库中寻找文件, 数据库可能一段时间更新一次, 可以手动更新数据库
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">updatedb
+</pre>
+</div></li>
+
+<li><p>
+find
+</p>
+<pre class="example">
+find [PATH] [option] [action]  
+选项和参数:
+1, 和时间有关的选项:
+-mtime n:n天之前的一天之内被修改过的文件
+-mtime +n:n天的之前被修改过的文件
+-mtime -n:n天之内被修改过的文件
+-newer file:file是一个已经存在的文件, 列出比file新的文件
+
+2,与使用者和群组名称有关的参数
+-uid n:数字是使用者的ID
+-gid n:群组名称的id
+-user name:使用者账号的名称
+-group name:群组名称
+-nouser:寻找文件的所有者不存在于/etc/passwd的人
+-nogroup:寻找文件的所有者不存在于/etx/group的人
+
+3, 与文件权限和名称有关的参数
+-name filename:搜寻文件名为filename的文件
+-size [+-]SIZE:搜寻比SIZE大[+]或小[-]的文件
+-type TYPE:搜索文件类型是TYPE的文件
+-perm mode:搜索文件权限刚好等于mode的文件
+-perm -mode:搜索文件权限囊括mode的文件
+-perm /mode:搜索文件权限包含任一mode的权限的文件
+
+4, 额外可进行的动作
+-exec command:-exec后接其他指令处理搜寻到的结果
+-print:将结果打印到屏幕上      
+</pre></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd94dbc3" class="outline-2">
+<h2 id="orgd94dbc3"><span class="section-number-2">7</span> 第七章, linux磁盘与文件系统管理</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org69ab8e0" class="outline-3">
+<h3 id="org69ab8e0"><span class="section-number-3">7.1</span> 认识linux文件系统</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-org2204f60" class="outline-4">
+<h4 id="org2204f60"><span class="section-number-4">7.1.1</span> 磁盘组成和分区</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<ul class="org-ul">
+<li>磁盘组成
+<ul class="org-ul">
+<li>圆形的盘片(记录数据)</li>
+<li>机械手臂, 和在机械手臂上的磁头(读写盘片)</li>
+<li>主轴马达, 可以转动盘片, 让机械手臂读写数据</li>
+</ul></li>
+
+<li>盘片的物理组成
+<ul class="org-ul">
+<li>扇区, 最小的物理储存单位, 目前主要有521Bytes和4K两个格式</li>
+<li>柱面, 扇区组成一个圆</li>
+<li>扇区作为最小的分区单位</li>
+<li>磁盘分区的格式
+<ul class="org-ul">
+<li>MBR分区:第一个扇区最重要, 限制比较多</li>
+<li>GPT分区:较新, 限制较少, 分区数量扩充较多</li>
+</ul></li>
+<li>/dev/sd[a-p][1-128] 实体磁盘的磁盘文件名</li>
+<li>/dev/vd[a-d][1-128] 虚拟磁盘的磁盘文件名</li>
+<li><p>
+索引式文件系统(indexed allocation)   
+</p>
+
+<p>
+一个文件系统的一些属性会存放在不同的区块
+</p>
+<ul class="org-ul">
+<li>superblock:记录整体信息, 包括inode/block的总量, 使用量, 剩余量以及文件系统格式与相关信息等</li>
+<li>inode:记录文件的属性, 一个文件占用一个inode, 同时记录此文件的数据所在的block的号码</li>
+<li>block:实际记录文件内容, 太大会占据多个block</li>
+</ul>
+<p>
+文件找到他的inode, 然后就可以找到他的所有的block, 就可以都读取出来
+</p></li>
+
+<li><p>
+FAT格式
+</p>
+
+<p>
+每个block号码记录在前一个block中, 然后依次读取, 类似于链条
+</p></li>
+</ul></li>
+
+<li>inode table  
+
+<ul class="org-ul">
+<li>inode table记录的文件数据有以下这些
+<ul class="org-ul">
+<li>文件的存取模式(read/write/excute)</li>
+<li>该文件的拥有者与群组(owner/group)</li>
+<li>该文件的容量</li>
+<li>改文件创建或状态改变的时间(ctime)</li>
+<li>最近一次读取时间(atime)</li>
+<li>最近修改的时间(mtime)</li>
+<li>定义文件特性的旗帜(flag)</li>
+<li>该文件真正的指向(pointer)</li>
+</ul></li>
+<li>inode的特点有这些
+<ul class="org-ul">
+<li>每个inode大小固定是128Bytes</li>
+<li>每个文件仅仅占用一个inode</li>
+<li>文件系统能够创建的文件数量和inode有关</li>
+<li>读取文件要先找到inode</li>
+</ul></li>
+</ul></li>
+<li>superblock  
+
+<ul class="org-ul">
+<li>记录整个filesystem相关信息的地方, 记录的信息有
+<ul class="org-ul">
+<li>block和inode的总量</li>
+<li>未使用与已使用的inode/block数量</li>
+<li>block和inode的大小(block:1, 2, 4k, inode:128Bytes或256Bytes)</li>
+<li>filesystem的挂载时间, 最近一次写入数据的时间, 最近一次检验硬盘的时间等</li>
+<li><p>
+一个valid bit数值, 若文件挂载, 则valid bit为0, 否则为1
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">dumpe2fs <span style="color: #ff4500; font-weight: bold;">[</span>-bh<span style="color: #ff4500; font-weight: bold;">]</span> &#35774;&#22791;&#25991;&#20214;&#21517;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-b: &#21015;&#20986;&#20445;&#30041;&#20026;&#22351;&#36712;&#30340;&#37096;&#20998;
+-h: &#20165;&#21015;&#20986;superblock&#30340;&#25968;&#25454;, &#19981;&#20250;&#21015;&#20986;&#20854;&#20182;&#21306;&#27573;&#20869;&#23481;
+
+&#21015;&#20986;&#26469;&#30340;&#20449;&#24687;:
+Filesystem volume name: //&#25991;&#20214;&#31995;&#32479;&#30340;&#21517;&#31216;
+Last monted on:         //&#19978;&#19968;&#27425;&#25346;&#36733;&#30340;&#30446;&#24405;&#20301;&#32622;
+Filesystem UUID:        //linux&#23545;&#35774;&#22791;&#30340;&#23450;&#20041;&#30721;
+Filesystem features     //&#25991;&#20214;&#31995;&#32479;&#30340;&#29305;&#24449;&#25968;&#25454;
+Defaule mount options   //&#40664;&#35748;&#25346;&#36733;&#26102;&#20027;&#21160;&#21152;&#19978;&#25346;&#36733;&#21442;&#25968;
+Filesystem state:       //&#25991;&#20214;&#31995;&#32479;&#30340;&#29366;&#24577;
+Inode count:            //inode&#30340;&#24635;&#25968;
+Block count:            //block&#30340;&#24635;&#25968;
+Reserved block count:   //&#20445;&#30041;&#30340;block&#24635;&#25968;
+Free block              //&#21097;&#20313;&#30340;block&#25968;&#37327;
+Free inode              //inode&#21487;&#29992;&#25968;&#37327;
+Block size              //&#21333;&#20010;Block&#23481;&#37327;&#22823;&#23567;
+Inode size              //Inode&#30340;&#23481;&#37327;&#22823;&#23567;
+Journal size            //&#26085;&#24535;&#24335;&#25968;&#25454;&#21487;&#20379;&#35760;&#24405;&#30340;&#24635;&#23481;&#37327;
+Group0:                 //&#31532;&#19968;&#20010;group group&#30340;&#20301;&#32622;
+Primary .               //&#20027;&#35201;superblock&#30340;&#25152;&#22312;
+Inode table at          //inode table&#25152;&#22312;
+free blocks             //&#21097;&#20313;&#30340;&#23481;&#37327;      
+</pre>
+</div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgba7edb4" class="outline-4">
+<h4 id="orgba7edb4"><span class="section-number-4">7.1.2</span> linux文件系统的运行</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<p>
+linux使用非同步处理(asynchronously), 即当系统载入一个文件到内存后, 如果文件没有变动, 则内存区段文件数据被认为是clean,
+否则被认为是Dirty的, 系统会不时的将Dirty的数据写入磁盘
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4c25a8a" class="outline-4">
+<h4 id="org4c25a8a"><span class="section-number-4">7.1.3</span> 挂载点的意义(mount point)</h4>
+<div class="outline-text-4" id="text-7-1-3">
+<p>
+每一个filesystem都有自己独立的inode/block/superblock, 并且他要链接到目录树才能被我们使用,
+将文件系统和目录数的结合被称为挂载
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf790da6" class="outline-4">
+<h4 id="orgf790da6"><span class="section-number-4">7.1.4</span> XFS文件系统简介</h4>
+<div class="outline-text-4" id="text-7-1-4">
+<p>
+默认的文件系统由EXT4变为XFS, EXT家族虽然支持度最广, 但是格式化非常慢
+</p>
+
+<ul class="org-ul">
+<li>XFS文件系统的配置  
+
+<ul class="org-ul">
+<li>是一个日志式文件系统, 有以下三个规划的部分
+<ul class="org-ul">
+<li>数据区</li>
+<li>文件系统活动登录区</li>
+<li>实时运行区</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org556cc43" class="outline-3">
+<h3 id="org556cc43"><span class="section-number-3">7.2</span> 文件系统的简单操作</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org16e2c4e" class="outline-4">
+<h4 id="org16e2c4e"><span class="section-number-4">7.2.1</span> 磁盘和目录的容量</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<ul class="org-ul">
+<li><p>
+df  
+</p>
+
+<p>
+列出文件系统的整体磁盘使用量
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">df <span style="color: #ff4500; font-weight: bold;">[</span>-ahikHTm<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>&#30446;&#24405;&#25110;&#25991;&#20214;&#21517;<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-a:&#21015;&#20986;&#25152;&#26377;&#30340;&#25991;&#20214;&#31995;&#32479;
+-k:&#20197;KB&#26174;&#31034;&#21508;&#25991;&#20214;&#31995;&#32479;
+-m:&#20197;MB&#26174;&#31034;&#25991;&#20214;&#31995;&#32479;
+-h:&#33258;&#34892;&#20915;&#23450;&#26684;&#24335;&#26174;&#31034;
+-H:<span style="color: #fcfcfa;">&#20197;M</span>=<span style="color: #fcfcfa;">1000K&#26469;&#20195;&#26367;M</span>=1024K
+-T:&#36830;&#21516;partition&#30340;filesystem&#20063;&#21015;&#20986;
+-i:&#19981;&#29992;&#30913;&#30424;&#23481;&#37327;, &#29992;inode&#25968;&#37327;&#26469;&#26174;&#31034;
+</pre>
+</div></li>
+
+<li><p>
+du  
+评估文件系统的磁盘使用量(常用在推估目录所占容量)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">du <span style="color: #ff4500; font-weight: bold;">[</span>-ahskm<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#25110;&#30446;&#24405;&#21517;&#31216;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-a:&#21015;&#20986;&#25152;&#26377;&#25991;&#20214;&#21644;&#30446;&#24405;&#23481;&#37327;
+-h:&#33258;&#30001;&#20915;&#23450;size&#21333;&#20301;
+-s:&#21015;&#20986;&#24635;&#37327;, &#19981;&#24517;&#21015;&#20986;&#21508;&#20010;&#31867;&#21035;&#30340;&#21344;&#29992;&#37327;
+-S:&#19981;&#21253;&#25324;&#23376;&#30446;&#24405;&#19979;&#30340;&#24635;&#35745;
+-k:&#21333;&#20301;KB
+-m:&#21333;&#20301;MB    
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5e1e55d" class="outline-4">
+<h4 id="org5e1e55d"><span class="section-number-4">7.2.2</span> 实体链接与符号链接</h4>
+<div class="outline-text-4" id="text-7-2-2">
+<p>
+两种链接
+</p>
+<ul class="org-ul">
+<li><p>
+Hard Link(硬链接)  
+</p>
+
+<p>
+将某个文件硬链接到另一个文件, 他们的文件名可以不同, 且不占额外的block, 当其中一个文件的内容改变,
+硬链接的另一个内容跟着改变, 当其中一个文件删除, 另一个不会有改变
+</p></li>
+<li><p>
+Symbolic Link(符号链接)  
+</p>
+
+<p>
+创建一个指向目标文件inode的inode, 基本不占block, 当实际的文件删除, 创建的符号链接也会不可以使用
+</p></li>
+<li><p>
+ln
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">ln <span style="color: #ff4500; font-weight: bold;">[</span>-sf<span style="color: #ff4500; font-weight: bold;">]</span> &#26469;&#28304;&#25991;&#20214; &#30446;&#26631;&#25991;&#20214;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-s:&#40664;&#35748;&#30828;&#38142;&#25509;, &#21152;&#19978;-s&#26159;&#31526;&#21495;&#38142;&#25509;
+-f:&#24378;&#21046;&#25191;&#34892;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd92be11" class="outline-3">
+<h3 id="orgd92be11"><span class="section-number-3">7.3</span> 磁盘的分区, 格式化, 检验与挂载</h3>
+<div class="outline-text-3" id="text-7-3">
+</div>
+<div id="outline-container-org105a8ca" class="outline-4">
+<h4 id="org105a8ca"><span class="section-number-4">7.3.1</span> 观察磁盘分区状态</h4>
+<div class="outline-text-4" id="text-7-3-1">
+<ul class="org-ul">
+<li><p>
+lsblk(lisk block device)  
+</p>
+
+<p>
+列出系统上的所有的磁盘列表
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">lsblk <span style="color: #ff4500; font-weight: bold;">[</span>-dfimpt<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>device<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#19982;&#21442;&#25968;:
+-d:&#20165;&#21015;&#20986;&#30913;&#30424;&#26412;&#36523;, &#24182;&#19981;&#20250;&#21015;&#20986;&#30913;&#30424;&#30340;&#20998;&#21306;&#25968;&#25454;
+-f:&#21516;&#26102;&#21015;&#20986;&#35813;&#30913;&#30424;&#20869;&#30340;&#25991;&#20214;&#31995;&#32479;&#30340;&#21517;&#31216;
+-i:&#20351;&#29992;ascii&#32534;&#30721;&#36755;&#20986;
+-m:&#21516;&#26102;&#36755;&#20986;&#35813;&#35774;&#22791;&#22312;/dev&#19979;&#38754;&#30340;&#26435;&#38480;&#25968;&#25454;
+-p:&#21015;&#20986;&#35813;&#35774;&#22791;&#30340;&#23436;&#25972;&#25991;&#20214;&#21517;, &#40664;&#35748;&#21482;&#21015;&#20986;&#26368;&#21518;&#30340;&#21517;&#23383;
+-t:&#21015;&#20986;&#35813;&#30913;&#30424;&#35774;&#22791;&#30340;&#35814;&#32454;&#25968;&#25454;, &#21253;&#25324;&#30913;&#30424;&#20267;&#21015;&#26426;&#21046;, &#39044;&#35835;&#20889;&#30340;&#25968;&#25454;&#37327;&#22823;&#23567;
+&#20854;&#20013;&#21015;&#20986;&#30340;&#25968;&#25454;:
+MAJ:MIN &#20027;&#35201;:&#27425;&#35201;&#35774;&#22791;&#20195;&#30721;
+RM:     &#26159;&#21542;&#26159;&#21487;&#21368;&#36733;&#35774;&#22791;
+RO      &#26159;&#21542;&#26159;&#21482;&#35835;&#35774;&#22791;
+TYPE    &#26159;&#30913;&#30424;<span style="color: #ff4500; font-weight: bold;">(</span>disk<span style="color: #ff4500; font-weight: bold;">)</span>, &#20998;&#21306;<span style="color: #ff4500; font-weight: bold;">(</span>partition<span style="color: #ff4500; font-weight: bold;">)</span>&#36824;&#26159;&#21482;&#35835;&#23384;&#20648;&#22120;<span style="color: #ff4500; font-weight: bold;">(</span>ROM<span style="color: #ff4500; font-weight: bold;">)</span>    
+</pre>
+</div></li>
+
+<li><p>
+blkid  
+找出设备的UUID(全域单一识别码, 所有设备独一无二)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">blkid    
+</pre>
+</div></li>
+
+<li><p>
+parted  
+列出磁盘的分区表类型与分区信息
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">parted device_name print
+&#24471;&#21040;:
+model   //&#30913;&#30424;&#30340;&#27169;&#22359;&#21517;&#31216;
+Disk    //&#30913;&#30424;&#30340;&#24635;&#23481;&#37327;
+Sector size     //&#30913;&#30424;&#30340;&#27599;&#20010;&#36923;&#36753;/&#29289;&#29702;&#25159;&#21306;&#23481;&#37327;
+Partition       //&#20998;&#21306;&#34920;&#26684;&#24335;    
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc5b3152" class="outline-4">
+<h4 id="orgc5b3152"><span class="section-number-4">7.3.2</span> 磁盘分区</h4>
+<div class="outline-text-4" id="text-7-3-2">
+<ul class="org-ul">
+<li><p>
+gdisk  
+</p>
+
+<p>
+GPT分区方法
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">gdisk &#35774;&#22791;&#21517;&#31216;    
+</pre>
+</div></li>
+
+<li><p>
+fdisk  
+</p>
+
+<p>
+MBR分区方法
+</p>
+<pre class="example">
+fdisk 设备名称    
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb145ac" class="outline-3">
+<h3 id="orgbb145ac"><span class="section-number-3">7.4</span> 设置开机挂载</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+挂载的一些限制:
+</p>
+<ul class="org-ul">
+<li>根目录必须挂载, 且要先于其他的mount point</li>
+<li>其他mount point必须为已创建的目录</li>
+<li>所有的mount point在同一时间内只能挂载一次</li>
+<li>所有的partition在同一时间内只能挂载一次</li>
+<li>如要卸载, 要先将工作目录转移到mount point之外</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf70fa09" class="outline-3">
+<h3 id="orgf70fa09"><span class="section-number-3">7.5</span> 内存交换空间(swap)之创建</h3>
+</div>
+
+<div id="outline-container-orgd4dfafa" class="outline-3">
+<h3 id="orgd4dfafa"><span class="section-number-3">7.6</span> 文件系统的特殊观察与操作</h3>
+</div>
+</div>
+
+<div id="outline-container-orgc493591" class="outline-2">
+<h2 id="orgc493591"><span class="section-number-2">8</span> 第八章, 文件与文件系统的压缩, 打包与备份</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org0ca5cee" class="outline-3">
+<h3 id="org0ca5cee"><span class="section-number-3">8.1</span> 压缩文件的用途和技术</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>压缩文件的技术  
+将一个Byte中添0的地方丢出去, 或是重复的数据进行统计记录</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78940a1" class="outline-3">
+<h3 id="org78940a1"><span class="section-number-3">8.2</span> linux系统常见的压缩指令</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>一些常用的压缩文件的拓展名
+<ul class="org-ul">
+<li>.Z      compress程序压缩的文件</li>
+<li>.zip    zip程序压缩的文件</li>
+<li>.gz     gzip程序压缩的文件</li>
+<li>.bz2    bzip2程序压缩的文件</li>
+<li>.xz     xz程序压缩的文件</li>
+<li>.tar    tar程序打包的文件, 并没有压缩过</li>
+<li>.tar.gz     tar程序打包的文件, 经过gzip的压缩</li>
+<li>.tar.bz2    tar程序打包的文件, 并且经过bzip2的压缩</li>
+<li>.tar.xz     tar程序打包的文件, 并且经过xz的压缩</li>
+</ul></li>
+<li>基本压缩指令
+<ul class="org-ul">
+<li><p>
+gzip    应用最广的压缩指令, 可以解开compress, zip, gzip等压缩的文件
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">gzip <span style="color: #ff4500; font-weight: bold;">[</span>-cdtv*<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#21517;
+zcat &#25991;&#20214;&#21517;.gz      //&#26597;&#35810;&#21387;&#32553;&#25991;&#20214;&#30340;&#20869;&#23481;
+egrep               //&#30456;&#24403;&#20110;grep
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-c: &#23558;&#21387;&#32553;&#30340;&#25968;&#25454;&#36755;&#20986;&#21040;&#23631;&#24149;&#19978;, &#21487;&#36890;&#36807;&#25968;&#25454;&#27969;&#37325;&#23548;&#21521;&#26469;&#22788;&#29702;
+-d: &#35299;&#21387;&#32553;&#30340;&#21442;&#25968;
+-t: &#21487;&#20197;&#29992;&#26469;&#26816;&#39564;&#19968;&#20010;&#21387;&#32553;&#25991;&#20214;&#30340;&#19968;&#33268;&#24615;, &#30475;&#25991;&#20214;&#26377;&#26080;&#38169;&#35823;
+-v: &#21487;&#20197;&#26174;&#31034;&#20986;&#21407;&#25991;&#20214;/&#21387;&#32553;&#25991;&#20214;&#30340;&#21387;&#32553;&#27604;&#31561;&#20449;&#24687;
+-*: *&#26159;&#25968;&#23383;&#30340;&#24847;&#24605;, &#34920;&#31034;&#21387;&#32553;&#31561;&#32423;, -1&#26368;&#24555;, &#20294;&#26159;&#21387;&#32553;&#27604;&#26368;&#24046;, -9&#21453;&#20043;, &#40664;&#35748;&#26159;-6      
+</pre>
+</div>
+<p>
+<b><b><b>waring:文件被压缩之后, 原始文件就不存在了</b></b></b>
+</p></li>
+<li><p>
+bzip2   提供最佳的压缩比
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">bzip2 <span style="color: #ff4500; font-weight: bold;">[</span>-cdkzv*<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#21517;
+bzcat &#25991;&#20214;&#21517;.bz2    &#26597;&#30475;&#21387;&#32553;&#25991;&#20214;&#30340;&#20869;&#23481;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-c: &#23558;&#21387;&#32553;&#30340;&#25968;&#25454;&#36755;&#20986;&#21040;&#23631;&#24149;&#19978;, &#21487;&#36890;&#36807;&#25968;&#25454;&#27969;&#37325;&#23548;&#21521;&#26469;&#22788;&#29702;
+-d: &#35299;&#21387;&#32553;&#30340;&#21442;&#25968;
+-v: &#21487;&#20197;&#26174;&#31034;&#20986;&#21407;&#25991;&#20214;/&#21387;&#32553;&#25991;&#20214;&#30340;&#21387;&#32553;&#27604;&#31561;&#20449;&#24687;
+-*: *&#26159;&#25968;&#23383;&#30340;&#24847;&#24605;, &#34920;&#31034;&#21387;&#32553;&#31561;&#32423;, -1&#26368;&#24555;, &#20294;&#26159;&#21387;&#32553;&#27604;&#26368;&#24046;, -9&#21453;&#20043;, &#40664;&#35748;&#26159;-6
+-k: &#20445;&#30041;&#28304;&#25991;&#20214;
+-z: &#21387;&#32553;&#30340;&#21442;&#25968;      
+</pre>
+</div></li>
+
+<li><p>
+xz      压缩比更高
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">xz <span style="color: #ff4500; font-weight: bold;">[</span>-dtlkc*<span style="color: #ff4500; font-weight: bold;">]</span> &#25991;&#20214;&#21517;
+xcat &#25991;&#20214;&#21517;.xz      &#26597;&#30475;&#21387;&#32553;&#25991;&#20214;&#20869;&#23481;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-c: &#23558;&#21387;&#32553;&#30340;&#25968;&#25454;&#36755;&#20986;&#21040;&#23631;&#24149;&#19978;, &#21487;&#36890;&#36807;&#25968;&#25454;&#27969;&#37325;&#23548;&#21521;&#26469;&#22788;&#29702;
+-d: &#35299;&#21387;&#32553;&#30340;&#21442;&#25968;
+-*: *&#26159;&#25968;&#23383;&#30340;&#24847;&#24605;, &#34920;&#31034;&#21387;&#32553;&#31561;&#32423;, -1&#26368;&#24555;, &#20294;&#26159;&#21387;&#32553;&#27604;&#26368;&#24046;, -9&#21453;&#20043;, &#40664;&#35748;&#26159;-6
+-k: &#20445;&#30041;&#28304;&#25991;&#20214;
+-t: &#21487;&#20197;&#29992;&#26469;&#26816;&#39564;&#19968;&#20010;&#21387;&#32553;&#25991;&#20214;&#30340;&#19968;&#33268;&#24615;, &#30475;&#25991;&#20214;&#26377;&#26080;&#38169;&#35823;      
+</pre>
+</div></li>
+</ul></li>
+
+<li>打包指令
+<ul class="org-ul">
+<li><p>
+tar
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tar <span style="color: #ff4500; font-weight: bold;">[</span>-z&amp;*124;-J<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>cv<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-f &#24453;&#21019;&#24314;&#30340;&#26032;&#25991;&#20214;&#21517;<span style="color: #ff4500; font-weight: bold;">]</span> filename...  &#25171;&#21253;
+tar <span style="color: #ff4500; font-weight: bold;">[</span>-z&amp;*124;-J<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>tv<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-f &#26082;&#26377;&#30340;tar&#25991;&#20214;&#21517;<span style="color: #ff4500; font-weight: bold;">]</span> filename...  &#26597;&#30475;
+tar <span style="color: #ff4500; font-weight: bold;">[</span>-z&amp;*124;-J<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>xv<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-f &#26082;&#26377;&#30340;tar&#25991;&#20214;&#21517;<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-C &#30446;&#24405;<span style="color: #ff4500; font-weight: bold;">]</span> filename...  &#35299;&#21387;
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-c: &#21019;&#24314;&#25171;&#21253;&#25991;&#20214;, &#21487;&#20197;&#25645;&#37197;-v&#26469;&#26597;&#30475;&#36807;&#31243;&#20013;&#34987;&#25171;&#21253;&#30340;&#25991;&#20214;&#21517;
+-t: &#26597;&#30475;&#25171;&#21253;&#25991;&#20214;&#30340;&#20869;&#23481;&#21547;&#26377;&#21738;&#20123;&#25991;&#20214;&#21517;, &#37325;&#28857;&#22312;&#26597;&#30475;<span style="color: #ffd866;">'&#25991;&#20214;&#21517;'</span>
+-x: &#35299;&#21387;&#32553;, &#21487;&#20197;&#25645;&#37197;-C&#22312;&#29305;&#23450;&#30446;&#24405;&#35299;&#24320;, -c -t -x&#19981;&#21487;&#20197;&#21516;&#26102;&#20986;&#29616;&#22312;&#19968;&#26465;&#21629;&#20196;&#20013;
+-z: &#36890;&#36807;gzip&#25903;&#25345;&#21387;&#32553;/&#35299;&#21387;&#32553;
+-j: &#36890;&#36807;bzip2&#30340;&#25903;&#25345;&#36827;&#34892;&#21387;&#32553;/&#35299;&#21387;&#32553;
+-J: &#36890;&#36807;xz&#30340;&#25903;&#25345;&#36827;&#34892;&#21387;&#32553;/&#35299;&#21387;&#32553;
+waring:zjJ&#19981;&#33021;&#21516;&#26102;&#20986;&#29616;&#22312;&#19968;&#20018;&#21629;&#20196;&#34892;&#20013;
+-v: &#22312;&#21387;&#32553;/&#35299;&#21387;&#32553;&#36807;&#31243;&#20013;&#25226;&#27491;&#22312;&#22788;&#29702;&#30340;&#25991;&#20214;&#21517;&#31572;&#24212;&#20986;&#26469;
+-f filename: -f&#21518;&#21152;&#31435;&#21363;&#25509;&#35201;&#34987;&#22788;&#29702;&#30340;&#25991;&#20214;&#21517;
+-C &#30446;&#24405;: &#22312;&#29305;&#23450;&#30446;&#24405;&#35299;&#21387;&#32553;
+-p: &#20445;&#30041;&#22791;&#20221;&#25968;&#25454;&#30340;&#21407;&#26412;&#26435;&#38480;&#21644;&#23646;&#24615;
+-P: &#20445;&#30041;&#32477;&#23545;&#36335;&#24452;, &#20063;&#23601;&#26159;&#20801;&#35768;&#22791;&#20221;&#25968;&#25454;&#20013;&#21547;&#26377;&#26681;&#30446;&#24405;&#23384;&#22312;
+--exclude=FILE: &#22312;&#21387;&#32553;&#36807;&#31243;&#20013;, &#19981;&#35201;&#25226;FILE&#25171;&#21253;      
+</pre>
+</div>
+
+<p>
+最简单常用的tar
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">&#21387;&#32553;: tar -jcv -f filename.tar.bz2 &#35201;&#34987;&#21387;&#32553;&#30340;&#25991;&#20214;&#25110;&#30446;&#24405;&#21517;
+&#26597;&#35810;: tar -jtv -f filename.tar.bz2
+&#35299;&#21387;&#32553;: tar -jxv -f filename.tar.bz2 -C        
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc0955a4" class="outline-3">
+<h3 id="orgc0955a4"><span class="section-number-3">8.3</span> 文件系统的备份和还原</h3>
+<div class="outline-text-3" id="text-8-3">
+</div>
+<div id="outline-container-org2e1f70f" class="outline-4">
+<h4 id="org2e1f70f"><span class="section-number-4">8.3.1</span> XFS文件系统备份xfsdump</h4>
+<div class="outline-text-4" id="text-8-3-1">
+<p>
+第一次进行完整备份, 之后每次只备份有所改变的那部分  
+有以下限制:
+</p>
+<ul class="org-ul">
+<li>不支持没有挂载的文件系统备份</li>
+<li>必须用root操作</li>
+<li>只能备份XFS文件系统</li>
+<li>备份下来的数据只能xfsrestore解析</li>
+<li>通过文件系统的UUID来分辨备份文件的, 所以不能备份两个具有相同UUID的文件系统</li>
+</ul>
+
+<pre class="example">
+xfsdump [-L S_label] [-M M_label] [-l *] [-f 备份文件] 待备份数据
+选项和参数
+-L: xfsdump会记录每次备份的session标头, 这里可以填写针对此文件系统的简单说明
+-M: xfsdump可以记录储存媒体的标头, 这里可以填写此媒体的简易说明
+-l: 指定等级, 有0-9十个等级, 默认0是完整备份
+-f: 后面接产生备份文件的filename
+-I: 从/var/lib/xfsdump/inventory列出目前备份的信息状态
+</pre>
+
+<p>
+<b><b><b>xfsdump只能备份文件系统</b></b></b>
+</p>
+</div>
+</div>
+<div id="outline-container-orga159e54" class="outline-4">
+<h4 id="orga159e54"><span class="section-number-4">8.3.2</span> XFS文件系统还原xfsrestore</h4>
+<div class="outline-text-4" id="text-8-3-2">
+<div class="org-src-container">
+<pre class="src src-shell">xfsrestore -I   &#29992;&#26469;&#26597;&#30475;&#22791;&#20221;&#25991;&#20214;&#25968;&#25454;
+xfsrestore <span style="color: #ff4500; font-weight: bold;">[</span>-f &#22791;&#20221;&#25991;&#20214;<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-L S_label<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-s<span style="color: #ff4500; font-weight: bold;">]</span> &#20462;&#22797;&#21407;&#30446;&#24405;, &#21333;&#19968;&#25991;&#20214;&#20840;&#31995;&#32479;&#22797;&#21407;
+xfsrestore <span style="color: #ff4500; font-weight: bold;">[</span>-f &#22791;&#20221;&#25991;&#20214;<span style="color: #ff4500; font-weight: bold;">]</span> -r &#24453;&#22797;&#21407;&#30446;&#24405;  &#36890;&#36807;&#32047;&#31215;&#22791;&#20221;&#25991;&#20214;&#26469;&#22797;&#21407;&#31995;&#32479;
+xfsrestore <span style="color: #ff4500; font-weight: bold;">[</span>-f &#22791;&#20221;&#25991;&#20214;<span style="color: #ff4500; font-weight: bold;">]</span> -i &#24453;&#22797;&#21407;&#30446;&#24405;  &#36827;&#20837;&#20132;&#20114;&#27169;&#24335;
+&#36873;&#39033;&#21644;&#21442;&#25968;
+-I: &#36319;xfsdump&#30456;&#21516;, &#26597;&#35810;&#30456;&#20851;&#20449;&#24687;
+-f: &#21518;&#38754;&#25509;&#30340;&#23601;&#26159;&#22791;&#20221;&#25991;&#20214;
+-L: &#23601;&#26159;session&#30340;Label name
+-s: &#38656;&#35201;&#25509;&#29305;&#23450;&#30446;&#24405;, &#21482;&#22797;&#21407;&#26576;&#19968;&#25991;&#20214;&#25110;&#30446;&#24405;
+-r: &#22914;&#26524;&#26159;&#29992;&#25991;&#20214;&#26469;&#20648;&#23384;&#22791;&#20221;&#25968;&#25454;&#30340;&#35805;, &#23601;&#19981;&#38656;&#35201;&#20351;&#29992;
+-i: &#36827;&#20837;&#20132;&#20114;&#27169;&#24335;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org778151a" class="outline-3">
+<h3 id="org778151a"><span class="section-number-3">8.4</span> 光盘写入文件</h3>
+</div>
+
+<div id="outline-container-org1e1c737" class="outline-3">
+<h3 id="org1e1c737"><span class="section-number-3">8.5</span> 其他常见的压缩与备份工具</h3>
+<div class="outline-text-3" id="text-8-5">
+<ul class="org-ul">
+<li><p>
+dd      读取磁盘设备的内容, 然后将整个设备备份成一个文件
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">dd <span style="color: #fcfcfa;">if</span>=<span style="color: #ffd866;">"input_file"</span> <span style="color: #fcfcfa;">of</span>=<span style="color: #ffd866;">"output_file"</span> <span style="color: #fcfcfa;">bs</span>=<span style="color: #ffd866;">"block_size"</span> <span style="color: #fcfcfa;">count</span>=<span style="color: #ffd866;">"number"</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;
+<span style="color: #ff6188;">if</span>: input file
+of: output file
+bs: &#35268;&#21010;&#19968;&#20010;block&#30340;&#22823;&#23567;, &#40664;&#35748;&#26159;512Bytes
+count:&#22810;&#23569;&#21508;bs&#30340;&#24847;&#24605;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1d77bf8" class="outline-2">
+<h2 id="org1d77bf8"><span class="section-number-2">9</span> 第九章, vim</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+当windows程序转化为linux时换行符不一样, 此时可以用这个指令进行转化
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">dos2unix <span style="color: #ff4500; font-weight: bold;">[</span>-kn<span style="color: #ff4500; font-weight: bold;">]</span> file <span style="color: #ff4500; font-weight: bold;">[</span>newfile<span style="color: #ff4500; font-weight: bold;">]</span>
+unix2dos <span style="color: #ff4500; font-weight: bold;">[</span>-kn<span style="color: #ff4500; font-weight: bold;">]</span> file <span style="color: #ff4500; font-weight: bold;">[</span>newfile<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#19982;&#21442;&#25968;:
+-k: &#20445;&#30041;&#35813;&#25991;&#20214;&#21407;&#26469;&#30340;mtime<span style="color: #ff4500; font-weight: bold;">(</span>&#20462;&#25913;&#26102;&#38388;<span style="color: #ff4500; font-weight: bold;">)</span>
+-n: &#20445;&#30041;&#21407;&#26469;&#30340;&#26087;&#25991;&#20214;
+</pre>
+</div>
+
+<p>
+以下列出的指令是我本人不是很熟悉的vim指令
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">指令</th>
+<th scope="col" class="org-left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">一般模式下的命令</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+f</td>
+<td class="org-left">向下移动一页</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+b</td>
+<td class="org-left">向上移动一页</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+d</td>
+<td class="org-left">向下移动半页</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+u</td>
+<td class="org-left">向上移动半页</td>
+</tr>
+
+<tr>
+<td class="org-left">n&lt;space&gt;</td>
+<td class="org-left">向右平移n个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">H</td>
+<td class="org-left">移动到这个屏幕最上方一列的第一个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">M</td>
+<td class="org-left">移动到屏幕中间一列的第一个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">L</td>
+<td class="org-left">移动到屏幕最下面一列的第一个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">搜寻和替代</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n1, n2s/old/new/g</td>
+<td class="org-left">将n1到n2列的old替换为new</td>
+</tr>
+
+<tr>
+<td class="org-left">1, \$s/old/new/g</td>
+<td class="org-left">将全文的old替换为new, 加c的话表示替换前询问</td>
+</tr>
+
+<tr>
+<td class="org-left">J</td>
+<td class="org-left">将光标所在列和下一列合成一列</td>
+</tr>
+
+<tr>
+<td class="org-left">多文件编辑</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">:sp [filename]</td>
+<td class="org-left">添加一个分区文件</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+w+j</td>
+<td class="org-left">下一个文件</td>
+</tr>
+
+<tr>
+<td class="org-left">ctrl+w+k</td>
+<td class="org-left">上一个文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbad8d74" class="outline-2">
+<h2 id="orgbad8d74"><span class="section-number-2">10</span> 第十章, 认识和学习BASH</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org1d2e72f" class="outline-3">
+<h3 id="org1d2e72f"><span class="section-number-3">10.1</span> 认识BASH这个shell</h3>
+<div class="outline-text-3" id="text-10-1">
+</div>
+<div id="outline-container-orga8cc37e" class="outline-4">
+<h4 id="orga8cc37e"><span class="section-number-4">10.1.1</span> 硬件, 核心和shell</h4>
+<div class="outline-text-4" id="text-10-1-1">
+<ul class="org-ul">
+<li>硬件: 声卡芯片配置</li>
+<li>核心管理:操作系统的核心可以支持这个芯片组, 提供芯片的驱动程序</li>
+<li>应用程序:用户和系统交互</li>
+</ul>
+
+<p>
+用户通过shell和核心进行沟通, 然后核心将用户的需求传递到硬件  
+</p>
+
+<p>
+bash是GNU计划中重要的工具软件之一, 也是Linux distributions的标准shell  
+</p>
+
+<p>
+他有以下优点
+</p>
+<ul class="org-ul">
+<li>命令编修能力(history):能记住之前使用的命令</li>
+<li>命令与文件补全: tab键</li>
+<li>命令别名设置功能: alias</li>
+<li>工作控制, 前景背景控制</li>
+<li>程序化脚本(shell script)</li>
+<li>万用字符(Wildcard)</li>
+</ul>
+
+<p>
+通过type可以查询指令是否是bash内置指令
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">type</span> <span style="color: #ff4500; font-weight: bold;">[</span>-tpa<span style="color: #ff4500; font-weight: bold;">]</span> name
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+ :&#19981;&#21152;&#36873;&#39033;&#26102;, &#20250;&#26174;&#31034;&#20986;&#26159;&#22806;&#37096;&#25351;&#20196;&#36824;&#26159;&#20869;&#37096;&#25351;&#20196;
+-t: &#20197;&#20197;&#19979;&#23383;&#30524;&#26174;&#31034;&#20986;&#20182;&#30340;&#21547;&#20041;
+    -   file:&#22806;&#37096;&#25351;&#20196;
+    -   alias:&#21035;&#21517;
+    -   builtin:&#20869;&#32622;&#25351;&#20196;
+-p: &#22914;&#26524;&#21518;&#38754;&#30340;name&#26159;&#22806;&#37096;&#25351;&#20196;&#26102;&#25165;&#20250;&#26174;&#31034;&#23436;&#25972;&#25991;&#20214;&#21517;
+-a: &#22914;&#26524;&#30001;PATH&#21464;&#37327;&#23450;&#20041;&#30340;&#36335;&#24452;&#20013;, &#23558;&#25152;&#26377;&#21547;&#26377;name&#30340;&#25351;&#20196;&#37117;&#21015;&#20986;&#26469;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a8a561" class="outline-3">
+<h3 id="org2a8a561"><span class="section-number-3">10.2</span> shell的变量功能</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+变量设置规则
+</p>
+<ul class="org-ul">
+<li>等号两边不能接空白字符</li>
+<li>变量名称只能是英文字母和数字, 开头不能是数字</li>
+<li>双引号里面可以引用特殊字符, 单引号里面不可以</li>
+<li><p>
+若要变量在其他子程序中执行, 要转化为环境变量
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">export</span> PATH  
+</pre>
+</div></li>
+
+<li>通常大写字符是系统默认变量, 用户的变量的话就小写就好(非强制)</li>
+<li><p>
+取消变量的方法
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">unset</span> myname  
+</pre>
+</div></li>
+</ul>
+</div>
+
+<div id="outline-container-orgcded383" class="outline-4">
+<h4 id="orgcded383"><span class="section-number-4">10.2.1</span> 环境变量</h4>
+<div class="outline-text-4" id="text-10-2-1">
+<ul class="org-ul">
+<li><p>
+env
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">env     &#21015;&#20986;&#30446;&#21069;&#29615;&#22659;&#19979;&#25152;&#26377;&#29615;&#22659;&#21464;&#37327;&#21644;&#20869;&#23481;
+&#26412;&#26426;&#25191;&#34892;, &#24471;&#21040;&#22914;&#19979;&#20449;&#24687;:
+
+<span style="color: #fcfcfa;">SHELL</span>=/bin/bash                                         :&#30446;&#21069;&#20351;&#29992;&#30340;&#26159;&#21738;&#20010;shell
+<span style="color: #fcfcfa;">no_proxy</span>=127.0.0.1,localhost                            
+<span style="color: #fcfcfa;">LANGUAGE</span>=zh_CN.UTF-8                                    :&#35821;&#31995;&#32534;&#30721; 
+<span style="color: #fcfcfa;">NO_AT_BRIDGE</span>=1
+<span style="color: #fcfcfa;">PWD</span>=/home/pi/Desktop/study/notes/book                   :&#30446;&#21069;&#24037;&#20316;&#30446;&#24405;
+<span style="color: #fcfcfa;">LOGNAME</span>=pi                                              :&#30331;&#24405;&#32773;&#30340;&#30331;&#24405;&#36134;&#21495;
+<span style="color: #fcfcfa;">XDG_SESSION_TYPE</span>=tty
+<span style="color: #fcfcfa;">_</span>=/usr/bin/env                                          :&#19978;&#19968;&#20010;&#20351;&#29992;&#25351;&#20196;&#30340;&#26368;&#21518;&#19968;&#20010;&#21442;&#25968;
+<span style="color: #fcfcfa;">HOME</span>=/home/pi                                           :&#20351;&#29992;&#32773;&#30340;&#20027;&#25991;&#20214;&#22841;
+<span style="color: #fcfcfa;">LANG</span>=zh_CN.UTF-8
+<span style="color: #fcfcfa;">LS_COLORS</span>=<span style="color: #fcfcfa;">rs</span>=0:<span style="color: #fcfcfa;">di</span>=01;34:<span style="color: #fcfcfa;">ln</span>=01;36:<span style="color: #fcfcfa;">mh</span>=00:<span style="color: #fcfcfa;">pi</span>=...           :&#39068;&#33394;&#26174;&#31034;
+<span style="color: #fcfcfa;">VIMRUNTIME</span>=/usr/share/vim/vim82                         
+<span style="color: #fcfcfa;">SSH_CONNECTION</span>=192.168.137.1 11524 192.168.137.168 22
+<span style="color: #fcfcfa;">VIM</span>=/usr/share/vim
+<span style="color: #fcfcfa;">XDG_SESSION_CLASS</span>=user
+<span style="color: #fcfcfa;">TERM</span>=xterm                                              :&#32456;&#31471;&#20351;&#29992;&#30340;&#29615;&#22659;&#26159;&#20160;&#20040;&#31867;&#22411;
+<span style="color: #fcfcfa;">USER</span>=pi                                                 :&#20351;&#29992;&#32773;&#21517;&#31216;
+<span style="color: #fcfcfa;">SHLVL</span>=1
+<span style="color: #fcfcfa;">LC_MESSAGES</span>=zh_CN.UTF-8
+<span style="color: #fcfcfa;">XDG_SESSION_ID</span>=14
+<span style="color: #fcfcfa;">XDG_RUNTIME_DIR</span>=/run/user/1000
+<span style="color: #fcfcfa;">MYVIMRC</span>=/home/pi/.vimrc
+<span style="color: #fcfcfa;">SSH_CLIENT</span>=192.168.137.1 11524 22
+<span style="color: #fcfcfa;">LC_ALL</span>=
+<span style="color: #fcfcfa;">PATH</span>=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games:/home/pi/scrpt
+<span style="color: #fcfcfa;">DBUS_SESSION_BUS_ADDRESS</span>=unix:<span style="color: #fcfcfa;">path</span>=/run/user/1000/bus
+<span style="color: #fcfcfa;">MAIL</span>=/var/mail/pi
+<span style="color: #fcfcfa;">SSH_TTY</span>=/dev/pts/1
+<span style="color: #fcfcfa;">OLDPWD</span>=/home/pi/Desktop/study                           :&#19978;&#19968;&#20010;&#24037;&#20316;&#30446;&#24405;
+<span style="color: #fcfcfa;">TEXTDOMAIN</span>=Linux-PAM  
+</pre>
+</div></li>
+
+<li><p>
+set :观察所有变量  
+</p>
+
+<p>
+几个重要的变量
+</p>
+<ul class="org-ul">
+<li>PS1 : 命令符变量, 有下面一些符号
+[命令符变量的符号](../laungage/shell)</li>
+<li>\$  :本shell的PID</li>
+<li>?   :上一个指令的回传值</li>
+<li>OSTYPE, HOSTTYPE, MACHTYPR  : 主机硬件和核心等级</li>
+</ul></li>
+<li>export  :自定变量成为环境变量, 当只有export时会列出当前所有的环境变量</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1390776" class="outline-4">
+<h4 id="org1390776"><span class="section-number-4">10.2.2</span> 影响显示结果的语系变量</h4>
+<div class="outline-text-4" id="text-10-2-2">
+<ul class="org-ul">
+<li><p>
+locale
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">locale -a   &#26597;&#35810;&#24403;&#21069;linux&#25903;&#25345;&#30340;&#32534;&#30721;&#35821;&#35328;
+locale      &#26174;&#31034;&#35821;&#31995;&#30456;&#20851;&#30340;&#29615;&#22659;&#21464;&#37327;
+&#19979;&#38754;&#26159;&#26412;&#26426;locale&#20043;&#21518;&#30340;&#32467;&#26524;:
+<span style="color: #fcfcfa;">LANG</span>=zh_CN.UTF-8            :&#20027;&#35821;&#35328;&#29615;&#22659;
+<span style="color: #fcfcfa;">LANGUAGE</span>=zh_CN.UTF-8        
+<span style="color: #fcfcfa;">LC_CTYPE</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>      :&#23383;&#31526;&#36776;&#35782;&#32534;&#30721;
+<span style="color: #fcfcfa;">LC_NUMERIC</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>    :&#25968;&#23383;&#35759;&#24687;&#26174;&#31034;&#32534;&#30721;
+<span style="color: #fcfcfa;">LC_TIME</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>       :&#26102;&#38388;&#31995;&#32479;&#26174;&#31034;&#25968;&#25454;
+<span style="color: #fcfcfa;">LC_COLLATE</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>    :&#23383;&#31526;&#27604;&#36739;&#21644;&#25490;&#24207;
+<span style="color: #fcfcfa;">LC_MONETARY</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_MESSAGES</span>=zh_CN.UTF-8     :&#35759;&#24687;&#26174;&#31034;&#20869;&#23481;
+<span style="color: #fcfcfa;">LC_PAPER</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_NAME</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_ADDRESS</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_TELEPHONE</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_MEASUREMENT</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_IDENTIFICATION</span>=<span style="color: #ffd866;">"zh_CN.UTF-8"</span>
+<span style="color: #fcfcfa;">LC_ALL</span>=                     :&#25972;&#20307;&#35821;&#31995;&#29615;&#22659;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgba1fc1e" class="outline-4">
+<h4 id="orgba1fc1e"><span class="section-number-4">10.2.3</span> 变量的键盘读取, 阵列与宣告</h4>
+<div class="outline-text-4" id="text-10-2-3">
+<ul class="org-ul">
+<li><p>
+read    读取来自键盘的输入
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">read</span> <span style="color: #ff4500; font-weight: bold;">[</span>-pt<span style="color: #ff4500; font-weight: bold;">]</span> variable
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-p : &#21518;&#38754;&#25509;&#25552;&#31034;&#23383;&#31526;
+-t : &#34920;&#31034;&#31561;&#24453;&#30340;&#26102;&#38388;  
+</pre>
+</div></li>
+
+<li><p>
+declare/typeset     宣告变量类型(两个用法没有什么不同)
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">declare</span> <span style="color: #ff4500; font-weight: bold;">[</span>-aixr<span style="color: #ff4500; font-weight: bold;">]</span> variable
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-a : &#23558;&#21518;&#38754;&#21464;&#37327;&#23450;&#20041;&#20026;&#38453;&#21015;<span style="color: #ff4500; font-weight: bold;">(</span>array<span style="color: #ff4500; font-weight: bold;">)</span>&#31867;&#22411;
+-i : &#23558;&#21518;&#38754;&#21464;&#37327;&#23450;&#20041;&#20026;&#25972;&#25968;&#31867;&#22411;<span style="color: #ff4500; font-weight: bold;">(</span>interger<span style="color: #ff4500; font-weight: bold;">)</span>
+-x : &#29992;&#27861;&#21644;export&#19968;&#26679;, &#23558;&#21518;&#38754;&#30340;&#21464;&#37327;&#21464;&#25104;&#29615;&#22659;&#21464;&#37327;
+-r : &#23558;&#21464;&#37327;&#35774;&#32622;&#20026;redonly&#31867;&#22411;, &#35813;&#21464;&#37327;&#19981;&#21487;&#34987;&#26356;&#25913;, &#20063;&#19981;&#33021;unset  
+</pre>
+</div>
+
+<p>
+变量类型默认是字串, 数值运算默认最多达到整数形态
+</p>
+<ul class="org-ul">
+<li><p>
+阵列(array)变量类型
+</p>
+
+<p>
+设置方式
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #fcfcfa;">var</span><span style="color: #ff4500; font-weight: bold;">[</span>index<span style="color: #ff4500; font-weight: bold;">]</span>=content        
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org28f4816" class="outline-4">
+<h4 id="org28f4816"><span class="section-number-4">10.2.4</span> 与文件系统及程序的限制关系:ulimit</h4>
+<div class="outline-text-4" id="text-10-2-4">
+<ul class="org-ul">
+<li><p>
+ulimit  设置用户的配额
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">ulimit</span> <span style="color: #ff4500; font-weight: bold;">[</span>-SHacdfltu<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>&#37197;&#39069;<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-H:hard limit, &#20005;&#26684;&#30340;&#35686;&#21578;, &#23436;&#20840;&#19981;&#33021;&#36229;&#36807;&#36825;&#20010;&#25968;&#20540;
+-S:soft limit, &#35686;&#21578;&#30340;&#35774;&#32622;, &#36229;&#36807;&#36825;&#20010;&#20540;&#20250;&#26377;&#35686;&#21578;
+-a:&#21518;&#38754;&#19981;&#25509;&#20219;&#20309;&#36873;&#39033;&#21644;&#21442;&#25968;, &#21487;&#21015;&#20986;&#25152;&#26377;&#30340;&#38480;&#21046;&#39069;&#24230;
+-c:&#38480;&#21046;&#27599;&#20010;&#26680;&#24515;&#25991;&#20214;&#30340;&#26368;&#22823;&#23481;&#37327;
+-f:&#27492;shell&#21487;&#20197;&#21019;&#24314;&#30340;&#26368;&#22823;&#30340;&#25991;&#20214;&#22823;&#23567;, &#21333;&#20301;&#26159;kb
+-d:&#31243;&#24207;&#21487;&#20351;&#29992;&#30340;&#26368;&#22823;&#26029;&#35010;&#20869;&#23384;&#23481;&#37327;
+-l:&#21487;&#29992;&#20110;&#38145;&#23450;&#30340;&#20869;&#23384;&#37327;
+-t:&#21487;&#20351;&#29992;&#30340;&#26368;&#22823;cpu
+-u:&#21333;&#19968;&#20351;&#29992;&#32773;&#21487;&#20197;&#20351;&#29992;&#30340;&#26368;&#22823;&#31243;&#24207;&#25968;&#37327;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf58b865" class="outline-4">
+<h4 id="orgf58b865"><span class="section-number-4">10.2.5</span> 变量内容的删除, 取代和替换</h4>
+<div class="outline-text-4" id="text-10-2-5">
+<ul class="org-ul">
+<li><p>
+删除变量的内容
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #fcfcfa;">variable</span>*/*local/bin:<span style="color: #ff4500; font-weight: bold;">}</span>    //$<span style="color: #fcfcfa;">&#26159;&#20851;&#38190;&#23383;</span>, &#24517;&#39035;&#23384;&#22312;, variable&#26159;&#25805;&#20316;&#30340;&#21464;&#37327;, *&#34920;&#31034;&#20174;&#21069;&#38754;&#24320;&#22987;&#26597;&#25214;&#24182;&#21024;&#38500;, &#21518;&#38754;&#26159;&#23383;&#31526;  
+</pre>
+</div>
+<ul class="org-ul">
+<li>表示不贪心</li>
+<li>*  表示贪心</li>
+<li>%   从最后面开始删除, 不贪心</li>
+<li>%%  从最后面开始删除, 贪心</li>
+</ul></li>
+<li><p>
+替代
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">$<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #fcfcfa;">variable</span>/oldname/newname<span style="color: #ff4500; font-weight: bold;">}</span>     &#34920;&#31034;&#26368;&#24320;&#22987;&#30340;&#26087;&#23383;&#31526;&#21464;&#25104;&#26032;&#23383;&#31526;
+$<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #fcfcfa;">variable</span>//oldname/newname<span style="color: #ff4500; font-weight: bold;">}</span>     &#34920;&#31034;&#25152;&#26377;&#30340;&#30340;&#26087;&#23383;&#31526;&#21464;&#25104;&#26032;&#23383;&#31526;  
+</pre>
+</div></li>
+
+<li><p>
+测试和内容替换
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #fcfcfa;">new_var</span>=$<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #fcfcfa;">old_var</span>-content<span style="color: #ff4500; font-weight: bold;">}</span>      &#29992;&#26032;&#21464;&#37327;&#21462;&#20195;&#26087;&#23383;&#31526;, &#22914;&#26524;&#26087;&#21464;&#37327;&#19981;&#23384;&#22312;&#23601;&#36171;&#20540;content
+<span style="color: #fcfcfa;">new_var</span>=$<span style="color: #ff4500; font-weight: bold;">{</span><span style="color: #fcfcfa;">old_var</span>:content<span style="color: #ff4500; font-weight: bold;">}</span>      &#29992;&#26032;&#21464;&#37327;&#21462;&#20195;&#26087;&#23383;&#31526;, &#22914;&#26524;&#26087;&#21464;&#37327;&#19981;&#23384;&#22312;&#25110;&#20026;&#31354;&#23601;&#36171;&#20540;content  
+</pre>
+</div>
+<p>
+下面是一个很复杂的表格
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">变量设置方式</th>
+<th scope="col" class="org-left">str没有设置</th>
+<th scope="col" class="org-left">str是空</th>
+<th scope="col" class="org-left">str以设置为非空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">var=\${str-expr}</td>
+<td class="org-left">var=expr</td>
+<td class="org-left">var=</td>
+<td class="org-left">var=\$str</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str:-expr}</td>
+<td class="org-left">var=expr</td>
+<td class="org-left">var=expr</td>
+<td class="org-left">var=\$str</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str+expr}</td>
+<td class="org-left">var=</td>
+<td class="org-left">var=expr</td>
+<td class="org-left">var=expr</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str:+expr}</td>
+<td class="org-left">var=</td>
+<td class="org-left">str不变 var=</td>
+<td class="org-left">var=expr</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str=expr}</td>
+<td class="org-left">str=expr var=expr</td>
+<td class="org-left">var=</td>
+<td class="org-left">str不变 var=\$str</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str:=expr}</td>
+<td class="org-left">str=expr var=expr</td>
+<td class="org-left">str不变 var=\$str</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str?expr}</td>
+<td class="org-left">expr输出至stderr</td>
+<td class="org-left">var=</td>
+<td class="org-left">var=\$str</td>
+</tr>
+
+<tr>
+<td class="org-left">var=\${str:?expr}</td>
+<td class="org-left">expr输出至stderr</td>
+<td class="org-left">var=\$str</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4130159" class="outline-3">
+<h3 id="org4130159"><span class="section-number-3">10.3</span> 命名别名与历史命令</h3>
+<div class="outline-text-3" id="text-10-3">
+</div>
+<div id="outline-container-orgf9e7d0e" class="outline-4">
+<h4 id="orgf9e7d0e"><span class="section-number-4">10.3.1</span> 命名别名设置</h4>
+<div class="outline-text-4" id="text-10-3-1">
+<ul class="org-ul">
+<li><p>
+alias
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">alias</span> <span style="color: #fcfcfa;">&#21035;&#21517;</span>=<span style="color: #ffd866;">'&#21629;&#20196;'</span>   &#35774;&#32622;&#21035;&#21517;
+<span style="color: #ab9df2;">unalias</span> &#21035;&#21517;        &#25343;&#25481;&#21035;&#21517;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org50406aa" class="outline-4">
+<h4 id="org50406aa"><span class="section-number-4">10.3.2</span> 历史命令:history</h4>
+<div class="outline-text-4" id="text-10-3-2">
+<ul class="org-ul">
+<li><p>
+history
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">history</span> <span style="color: #ff4500; font-weight: bold;">[</span>n<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-c<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-raw histfiles<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+n : &#25968;&#23383;, &#21015;&#20986;&#36317;&#31163;&#29616;&#22312;&#26368;&#36817;&#30340;n&#20010;&#21629;&#20196;
+-c : &#23558;&#30446;&#21069;shell&#30340;history&#20840;&#37096;&#21024;&#38500;
+-a : &#23558;&#26032;&#22686;&#30340;history&#20889;&#20837;histfiles&#20013;, &#22914;&#26524;&#27809;&#26377;&#21152;&#21442;&#25968;, &#40664;&#35748;&#20889;&#20837;&#21040;~/.bath_history
+-r : &#23558;histfiles&#30340;&#20869;&#23481;&#35835;&#20837;&#21040;&#26412;shell&#30340;history&#20013;
+-w : &#23558;&#30446;&#21069;&#30340;history&#20889;&#20837;&#21040;histfiles&#20013;  
+</pre>
+</div></li>
+<li><p>
+执行命令
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">!number     &#25191;&#34892;&#31532;&#20960;&#20010;&#21629;&#20196;
+!command    &#30001;&#26368;&#36817;&#30340;&#25351;&#20196;&#21521;&#21069;&#25628;&#32034;&#25191;&#34892;command&#24320;&#22836;&#30340;&#25351;&#20196;
+!!          &#25191;&#34892;&#19978;&#19968;&#20010;&#25351;&#20196;  
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeeec08d" class="outline-3">
+<h3 id="orgeeec08d"><span class="section-number-3">10.4</span> Bash Shell的操作环境</h3>
+<div class="outline-text-3" id="text-10-4">
+</div>
+<div id="outline-container-org54f7142" class="outline-4">
+<h4 id="org54f7142"><span class="section-number-4">10.4.1</span> 路径和指令的搜寻顺序</h4>
+<div class="outline-text-4" id="text-10-4-1">
+<ol class="org-ol">
+<li>以相对, 绝对路径执行命令</li>
+<li>有alias找到该指令执行</li>
+<li>由bash内置指令执行</li>
+<li>由PATH变量搜寻到的第一个指令执行</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga778035" class="outline-4">
+<h4 id="orga778035"><span class="section-number-4">10.4.2</span> 进站与欢迎讯息</h4>
+<div class="outline-text-4" id="text-10-4-2">
+<p>
+<a href="../language/shell.md">详细见此处</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdc2ce02" class="outline-4">
+<h4 id="orgdc2ce02"><span class="section-number-4">10.4.3</span> 环境配置</h4>
+<div class="outline-text-4" id="text-10-4-3">
+<p>
+<a href="../language/shell.md">详细见此处</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org143ea67" class="outline-4">
+<h4 id="org143ea67"><span class="section-number-4">10.4.4</span> 终端机环境设置</h4>
+<div class="outline-text-4" id="text-10-4-4">
+<ul class="org-ul">
+<li><p>
+stty 查看shell里面默认字符设置功能
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">stty <span style="color: #ff4500; font-weight: bold;">[</span>-a<span style="color: #ff4500; font-weight: bold;">]</span>   &#23558;&#30446;&#21069;&#25152;&#26377;&#30340;stty&#21442;&#25968;&#21015;&#20986;&#26469;  
+</pre>
+</div>
+
+<p>
+几个重要的代表意义
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">字符</th>
+<th scope="col" class="org-left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">intr</td>
+<td class="org-left">终端</td>
+</tr>
+
+<tr>
+<td class="org-left">quit</td>
+<td class="org-left">给一个退出讯号</td>
+</tr>
+
+<tr>
+<td class="org-left">erase</td>
+<td class="org-left">向后删除字符</td>
+</tr>
+
+<tr>
+<td class="org-left">kill</td>
+<td class="org-left">删除目前命令行所有文字</td>
+</tr>
+
+<tr>
+<td class="org-left">eof</td>
+<td class="org-left">结束输入</td>
+</tr>
+
+<tr>
+<td class="org-left">start</td>
+<td class="org-left">某个程序停止后重新启动</td>
+</tr>
+
+<tr>
+<td class="org-left">stop</td>
+<td class="org-left">停止目前屏幕输出</td>
+</tr>
+
+<tr>
+<td class="org-left">susp</td>
+<td class="org-left">给一个terminal stop讯号</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>
+set 设置终端机设置值
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #ab9df2;">set</span> <span style="color: #ff4500; font-weight: bold;">[</span>-uvCHhmBx<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-u:&#40664;&#35748;&#19981;&#21551;&#29992;, &#24403;&#21551;&#29992;&#21518;, &#22312;&#20351;&#29992;&#26410;&#35774;&#32622;&#21464;&#37327;&#20250;&#26174;&#31034;&#38169;&#35823;&#20449;&#24687;
+-v:&#40664;&#35748;&#19981;&#21551;&#29992;, &#24403;&#21551;&#29992;&#21518;&#24403;&#35759;&#24687;&#34987;&#36755;&#20986;&#21069;&#26174;&#31034;&#35759;&#24687;&#21407;&#22987;&#20869;&#23481;
+-x:&#40664;&#35748;&#19981;&#21551;&#29992;, &#24403;&#21551;&#29992;&#21518;&#22312;&#25351;&#20196;&#25191;&#34892;&#21069;, &#26174;&#31034;&#25351;&#20196;&#20869;&#23481;
+-h:&#40664;&#35748;&#21551;&#29992;, &#21644;&#21382;&#21490;&#21629;&#20196;&#26377;&#20851;
+-H:&#40664;&#35748;&#21551;&#29992;, &#21644;&#21382;&#21490;&#21629;&#20196;&#26377;&#20851;
+-m:&#40664;&#35748;&#21551;&#29992;, &#19982;&#24037;&#20316;&#31649;&#29702;&#26377;&#20851;
+-B:&#40664;&#35748;&#21551;&#29992;, &#19982;<span style="color: #ff4500; font-weight: bold;">[]</span>&#26377;&#20851;
+-C:&#40664;&#35748;&#19981;&#21551;&#29992;   
+</pre>
+</div></li>
+
+<li><p>
+万用符号    可以在bash中用
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">符号</th>
+<th scope="col" class="org-left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">*</td>
+<td class="org-left">表示0到多个任意字符</td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">一定有一个任意字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[]</td>
+<td class="org-left">一定有一个在括号内的字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[ - ]</td>
+<td class="org-left">一定有一个编码顺序内的任意字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[^]</td>
+<td class="org-left">取非</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org70ea4ad" class="outline-3">
+<h3 id="org70ea4ad"><span class="section-number-3">10.5</span> 数据流重导向</h3>
+<div class="outline-text-3" id="text-10-5">
+<p>
+<a href="../language/shell.md">详细见此处</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc362b2" class="outline-3">
+<h3 id="orgbc362b2"><span class="section-number-3">10.6</span> 管线命令</h3>
+<div class="outline-text-3" id="text-10-6">
+</div>
+<div id="outline-container-orgf291f0a" class="outline-4">
+<h4 id="orgf291f0a"><span class="section-number-4">10.6.1</span> 撰取命令:cut, grep</h4>
+<div class="outline-text-4" id="text-10-6-1">
+<ul class="org-ul">
+<li><p>
+cut
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">cut fields
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-d: &#21518;&#38754;&#25509;&#20998;&#21106;&#23383;&#31526;
+-f: &#21518;&#38754;&#25509;&#21462;&#20986;&#31532;&#20960;&#27573;
+-c: &#20197;&#21518;&#38754;&#30340;&#23383;&#31526;&#20026;&#21333;&#20301;&#21462;&#20986;&#22266;&#23450;&#23383;&#31526;&#21306;&#38388;
+</pre>
+</div></li>
+<li><p>
+grep
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">grep <span style="color: #ff4500; font-weight: bold;">[</span>-acinv<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>--color=auto<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ffd866;">'&#25628;&#23547;&#23383;&#20018;'</span> filename
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-a : &#23558;binary&#25991;&#20214;&#20197;text&#30340;&#26041;&#24335;&#25628;&#23547;&#25968;&#25454;
+-c : &#35745;&#31639;&#25214;&#21040;<span style="color: #ffd866;">'&#25628;&#23547;&#23383;&#20018;'</span>&#30340;&#27425;&#25968;
+-i : &#24573;&#30053;&#22823;&#23567;&#20889;
+-n : &#36755;&#20986;&#34892;&#21495;
+-v : &#21453;&#21521;&#36873;&#25321;
+--color : &#20851;&#38190;&#23383;&#28155;&#21152;&#39068;&#33394;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6fbc872" class="outline-4">
+<h4 id="org6fbc872"><span class="section-number-4">10.6.2</span> 排序命令:sort, wc, uniq</h4>
+<div class="outline-text-4" id="text-10-6-2">
+<ul class="org-ul">
+<li><p>
+sort
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sort <span style="color: #ff4500; font-weight: bold;">[</span>-fbMnrtuk<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>file or stdin<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-f : &#24573;&#30053;&#22823;&#23567;&#20889;&#24046;&#24322;
+-b : &#24573;&#30053;&#26368;&#21069;&#38754;&#30340;&#31354;&#30333;&#23383;&#31526;
+-M : &#29992;&#26376;&#20221;&#21517;&#23383;&#25490;&#24207;
+-n : &#29992;&#32431;&#25968;&#23383;&#25490;&#24207;
+-r : &#21453;&#21521;&#25490;&#24207;
+-u : &#30456;&#21516;&#30340;&#25968;&#25454;&#20013;&#20165;&#20986;&#29616;&#19968;&#34892;&#20195;&#34920;
+-t : &#20998;&#21106;&#31526;&#21495;,&#40664;&#35748;&#37319;&#29992;<span style="color: #ff4500; font-weight: bold;">[</span>tab<span style="color: #ff4500; font-weight: bold;">]</span>&#20998;&#21106;
+-k : &#20197;&#36825;&#20010;&#21306;&#38388;&#26469;&#25490;&#24207;
+</pre>
+</div></li>
+<li><p>
+uniq:重复的数据仅仅显示一次
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">uniq <span style="color: #ff4500; font-weight: bold;">[</span>-ic<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-i : &#24573;&#30053;&#22823;&#23567;&#20889;&#30340;&#19981;&#21516;
+-c : &#36827;&#34892;&#35760;&#25968;
+</pre>
+</div></li>
+<li><p>
+wc:计算输出讯息的整体数据
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wc <span style="color: #ff4500; font-weight: bold;">[</span>-lwm<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-l : &#20165;&#21015;&#20986;&#34892;
+-w : &#20165;&#21015;&#20986;&#22810;&#23569;&#23383;
+-m : &#22810;&#23569;&#23383;&#31526;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd135c92" class="outline-4">
+<h4 id="orgd135c92"><span class="section-number-4">10.6.3</span> 双向重导向:tee</h4>
+<div class="outline-text-4" id="text-10-6-3">
+<p>
+tee会同时将数据流分送到文件和屏幕上
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tee <span style="color: #ff4500; font-weight: bold;">[</span>-a<span style="color: #ff4500; font-weight: bold;">]</span> file
+&#36873;&#39033;&#21644;&#21442;&#25968;
+-a : &#20197;&#36861;&#21152;&#30340;&#26041;&#24335;&#23558;&#25968;&#25454;&#21152;&#20837;file
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge146a5c" class="outline-4">
+<h4 id="orge146a5c"><span class="section-number-4">10.6.4</span> 字符转换命令:tr, col, join, paste, expand</h4>
+<div class="outline-text-4" id="text-10-6-4">
+<ul class="org-ul">
+<li><p>
+tr:用来删除一段讯息中的文字或进行替换
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tr <span style="color: #ff4500; font-weight: bold;">[</span>-ds<span style="color: #ff4500; font-weight: bold;">]</span> SET1 <span style="color: #ff4500; font-weight: bold;">[</span>SET2<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-d : &#21024;&#38500;&#35759;&#24687;&#20013;&#30340;SET1
+-s : &#21462;&#20195;&#25481;&#37325;&#22797;&#30340;&#23383;&#31526;
+</pre>
+</div></li>
+<li><p>
+col:将tab转换为空白键
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">col <span style="color: #ff4500; font-weight: bold;">[</span>-xb<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-x : &#23558;tab&#36716;&#25442;&#20026;&#23545;&#24212;&#30340;&#31354;&#30333;&#38190;
+</pre>
+</div></li>
+<li><p>
+join:将两个相同的数据结合为一个
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">join <span style="color: #ff4500; font-weight: bold;">[</span>-ti12<span style="color: #ff4500; font-weight: bold;">]</span> file1 file2
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-t : &#20998;&#21106;&#31526;,&#40664;&#35748;&#26159;&#31354;&#30333;&#23383;&#31526;
+-i : &#24573;&#30053;&#22823;&#23567;&#20889;
+-1 : &#20195;&#34920;<span style="color: #ffd866;">'&#31532;&#19968;&#20010;&#23383;&#27573;&#35201;&#29992;&#37027;&#20010;&#23383;&#27573;&#26469;&#20998;&#26512;'</span>
+-2 : &#20195;&#34920;<span style="color: #ffd866;">'&#31532;&#20108;&#20010;&#23383;&#27573;&#35201;&#29992;&#37027;&#20010;&#23383;&#27573;&#26469;&#20998;&#26512;'</span>
+</pre>
+</div></li>
+<li><p>
+paste:将两行粘到一起,中间用tab隔开
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">paste <span style="color: #ff4500; font-weight: bold;">[</span>-d<span style="color: #ff4500; font-weight: bold;">]</span> file1 file2
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-d : &#21518;&#38754;&#25509;&#20998;&#21106;&#23383;&#31526;,&#40664;&#35748;&#26159;tab
+-  : file&#22788;&#22914;&#26524;&#26159;-,&#34920;&#31034;&#26469;&#33258;&#20043;&#21069;&#36755;&#20986;&#30340;&#25968;&#25454;
+</pre>
+</div></li>
+<li><p>
+expand: 将tab转换为空格
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">expand <span style="color: #ff4500; font-weight: bold;">[</span>-t<span style="color: #ff4500; font-weight: bold;">]</span> file
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-t : &#35774;&#32622;&#19968;&#20010;tab&#26159;&#22810;&#23569;&#23383;&#31526;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb550e79" class="outline-4">
+<h4 id="orgb550e79"><span class="section-number-4">10.6.5</span> 分区命令:split</h4>
+<div class="outline-text-4" id="text-10-6-5">
+<p>
+将一个大文件通过文件大小或行数进行分区
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">split <span style="color: #ff4500; font-weight: bold;">[</span>-bl<span style="color: #ff4500; font-weight: bold;">]</span> file PREFIX
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-b : &#21518;&#38754;&#21487;&#25509;&#27442;&#20998;&#21306;&#25104;&#30340;&#22823;&#23567;,&#21333;&#20301;b, k, m
+-l : &#34892;&#25968;&#26469;&#36827;&#34892;&#20998;&#21306;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8fe8155" class="outline-4">
+<h4 id="org8fe8155"><span class="section-number-4">10.6.6</span> 参数代换:xargs</h4>
+<div class="outline-text-4" id="text-10-6-6">
+<p>
+产生某个指令的参数
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">xargs <span style="color: #ff4500; font-weight: bold;">[</span>-0epn<span style="color: #ff4500; font-weight: bold;">]</span> command
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-0 : &#21487;&#20197;&#23558;&#29305;&#27530;&#23383;&#31526;&#36824;&#21407;&#20026;&#19968;&#33324;&#23383;&#31526;
+-e : &#21518;&#38754;&#25509;&#19968;&#20010;&#23383;&#20018;,&#20998;&#26512;&#21040;&#35813;&#23383;&#20018;&#33258;&#21160;&#20572;&#27490;&#24037;&#20316;
+-p : &#25191;&#34892;&#27599;&#20010;&#25351;&#20196;&#30340;argument&#20043;&#21069;,&#35810;&#38382;&#20351;&#29992;&#32773;
+-n : &#21518;&#38754;&#25509;&#27425;&#25968;,&#27599;&#27425;command&#25191;&#34892;&#26102;&#35201;&#29992;&#20960;&#20010;&#21442;&#25968;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org776aff0" class="outline-4">
+<h4 id="org776aff0"><span class="section-number-4">10.6.7</span> 关于减号的用途</h4>
+<div class="outline-text-4" id="text-10-6-7">
+<p>
+减号可以替代前一个指令的stdout
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e41469" class="outline-2">
+<h2 id="org0e41469"><span class="section-number-2">11</span> 第十一章, 正则表达式与文件格式化处理</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org57aa8ef" class="outline-3">
+<h3 id="org57aa8ef"><span class="section-number-3">11.1</span> 开始之前:什么是正则表达式</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+正则表达式是通过一些特殊符号辅助,顺利完成删除/搜寻/取代等工作
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1335e55" class="outline-3">
+<h3 id="org1335e55"><span class="section-number-3">11.2</span> 基础正则表达式</h3>
+<div class="outline-text-3" id="text-11-2">
+</div>
+<div id="outline-container-org5ed70b2" class="outline-4">
+<h4 id="org5ed70b2"><span class="section-number-4">11.2.1</span> 语系对正则表达式的影响</h4>
+<div class="outline-text-4" id="text-11-2-1">
+<ul class="org-ul">
+<li><p>
+有一些特殊符号的特殊意义
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">特殊符号</th>
+<th scope="col" class="org-left">代表意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">[:alnum:]</td>
+<td class="org-left">代表英文大小写字符及数字</td>
+</tr>
+
+<tr>
+<td class="org-left">[:alpha:]</td>
+<td class="org-left">代表任何英文大小写字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[:blank:]</td>
+<td class="org-left">代表空白键和tab</td>
+</tr>
+
+<tr>
+<td class="org-left">[:cntrl:]</td>
+<td class="org-left">代表键盘上的控制按键</td>
+</tr>
+
+<tr>
+<td class="org-left">[:digit:]</td>
+<td class="org-left">代表数字</td>
+</tr>
+
+<tr>
+<td class="org-left">[:graph:]</td>
+<td class="org-left">除了空白字符外的其他字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[:lower:]</td>
+<td class="org-left">代表小写字母</td>
+</tr>
+
+<tr>
+<td class="org-left">[:point:]</td>
+<td class="org-left">代表可以被打印出来的字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[:punct:]</td>
+<td class="org-left">代表标点符号</td>
+</tr>
+
+<tr>
+<td class="org-left">[:upper:]</td>
+<td class="org-left">代表大写字母</td>
+</tr>
+
+<tr>
+<td class="org-left">[:space:]</td>
+<td class="org-left">代表会产生空白的字符</td>
+</tr>
+
+<tr>
+<td class="org-left">[:xdigit:]</td>
+<td class="org-left">代表16进位的数字和字符</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3b2a2c7" class="outline-4">
+<h4 id="org3b2a2c7"><span class="section-number-4">11.2.2</span> grep的一些进阶选项</h4>
+<div class="outline-text-4" id="text-11-2-2">
+<div class="org-src-container">
+<pre class="src src-shell">grep <span style="color: #ff4500; font-weight: bold;">[</span>-A<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>-B<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>--color=auto<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ffd866;">'&#25628;&#23547;&#23383;&#31526;'</span> filename
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-A : &#21518;&#38754;&#21487;&#20197;&#21152;&#25968;&#23383;,&#26159;after&#30340;&#24847;&#24605;,&#38500;&#20102;&#21015;&#20986;&#35813;&#34892;,&#21518;&#38754;n&#34892;&#20063;&#21015;&#20986;
+-B : &#21518;&#38754;&#21487;&#21152;&#21152;&#25968;&#23383;,&#26159;before&#30340;&#24847;&#24605;,&#38500;&#20102;&#21015;&#20986;&#35813;&#34892;,&#21069;&#38754;n&#34892;&#20063;&#21015;&#20986;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org53cf472" class="outline-4">
+<h4 id="org53cf472"><span class="section-number-4">11.2.3</span> 基础正则表达式练习</h4>
+</div>
+
+<div id="outline-container-orge5ac48d" class="outline-4">
+<h4 id="orge5ac48d"><span class="section-number-4">11.2.4</span> 基础正则表达式字符汇整</h4>
+<div class="outline-text-4" id="text-11-2-4">
+<p>
+<a href="../lauguage/shell.md">查看此处</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org687ac45" class="outline-4">
+<h4 id="org687ac45"><span class="section-number-4">11.2.5</span> sed工具</h4>
+<div class="outline-text-4" id="text-11-2-5">
+<p>
+将数据进行取代,删除,新增,赚取等
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sed <span style="color: #ff4500; font-weight: bold;">[</span>-nefr<span style="color: #ff4500; font-weight: bold;">]</span> <span style="color: #ff4500; font-weight: bold;">[</span>&#21160;&#20316;<span style="color: #ff4500; font-weight: bold;">]</span>
+&#36873;&#39033;&#21644;&#21442;&#25968;:
+-n : &#20351;&#29992;&#23433;&#38745;&#27169;&#24335;,&#21482;&#26377;&#37319;&#29992;sed&#22788;&#29702;&#30340;&#20250;&#34987;&#21015;&#20986;&#26469;
+-e : &#30452;&#25509;&#22312;&#21629;&#20196;&#34892;&#36827;&#34892;sed&#21160;&#20316;&#32534;&#36753;
+-f : &#23558;sed&#21160;&#20316;&#20889;&#21040;&#25991;&#20214;&#20869;,-f filename&#25191;&#34892;&#25991;&#20214;&#20869;&#30340;&#21160;&#20316;
+-r : &#25903;&#25345;&#24310;&#20280;&#27491;&#21017;&#34920;&#36798;&#24335;&#35821;&#27861;
+-i : &#30452;&#25509;&#20462;&#25913;&#35835;&#21462;&#25991;&#20214;&#20869;&#23481;,&#32780;&#19981;&#26159;&#23631;&#24149;&#36755;&#20986;
+
+&#21160;&#20316;&#35828;&#26126; : <span style="color: #ff4500; font-weight: bold;">[</span>n1<span style="color: #ffd700; font-weight: bold;">[</span>,n2<span style="color: #ffd700; font-weight: bold;">]</span><span style="color: #ff4500; font-weight: bold;">]</span><span style="color: #ff6188;">function</span>
+<span style="color: #ff6188;">function</span><span style="color: #a9dc76;">&#26377;&#36825;&#20123;</span>
+a : &#26032;&#22686;,a&#21518;&#36319;&#23383;&#31526;&#20018;
+c : &#21462;&#20195;,c&#21518;&#25509;&#23383;&#31526;&#20018;,&#26367;&#20195;n1&#21644;n2&#20043;&#38388;&#30340;&#34892;
+d : &#21024;&#38500;
+i : &#25554;&#20837;,&#21518;&#26356;&#23383;&#31526;&#20018;,&#20250;&#22312;&#26032;&#19968;&#34892;&#20986;&#29616;
+p : &#25171;&#21360;,&#23558;&#26576;&#20010;&#36873;&#25321;&#30340;&#25968;&#25454;&#25171;&#21360;&#20986;&#26469;
+s : &#21462;&#20195;,&#30452;&#25509;&#36827;&#34892;&#21462;&#20195;&#30340;&#21160;&#20316;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e4eec8" class="outline-3">
+<h3 id="org3e4eec8"><span class="section-number-3">11.3</span> 延伸正则表达式</h3>
+<div class="outline-text-3" id="text-11-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">RE字符</th>
+<th scope="col" class="org-left">意义和范例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">重复一个或一个以上的RE字符</td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">0个或一个前一个RE字符</td>
+</tr>
+
+<tr>
+<td class="org-left">竖线</td>
+<td class="org-left">or</td>
+</tr>
+
+<tr>
+<td class="org-left">()</td>
+<td class="org-left">找出群组词组</td>
+</tr>
+
+<tr>
+<td class="org-left">() +</td>
+<td class="org-left">多个重复群组判别</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org73834cb" class="outline-3">
+<h3 id="org73834cb"><span class="section-number-3">11.4</span> 文件的格式化与相关处理</h3>
+<div class="outline-text-3" id="text-11-4">
+</div>
+<div id="outline-container-org7cb9082" class="outline-4">
+<h4 id="org7cb9082"><span class="section-number-4">11.4.1</span> 格式化打印:printf</h4>
+<div class="outline-text-4" id="text-11-4-1">
+<p>
+<a href="../language/shell.md">看这里</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7aeadef" class="outline-4">
+<h4 id="org7aeadef"><span class="section-number-4">11.4.2</span> awk:好用的数据处理工具</h4>
+<div class="outline-text-4" id="text-11-4-2">
+<p>
+<a href="../language/shell.md">看这里</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbc87a7" class="outline-4">
+<h4 id="orgbbc87a7"><span class="section-number-4">11.4.3</span> 文件打印准备:pr</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga8c80fc" class="outline-2">
+<h2 id="orga8c80fc"><span class="section-number-2">12</span> 第十二章, 学习shell scripts</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org1f7d38e" class="outline-3">
+<h3 id="org1f7d38e"><span class="section-number-3">12.1</span> 什么是shell scripts</h3>
+<div class="outline-text-3" id="text-12-1">
+<p>
+针对shell写的剧本,将一些shell的语法和指令写在里面
+</p>
+</div>
+<div id="outline-container-org9845802" class="outline-4">
+<h4 id="org9845802"><span class="section-number-4">12.1.1</span> 干嘛学习shell scripts</h4>
+<div class="outline-text-4" id="text-12-1-1">
+<ul class="org-ul">
+<li>自动化管理的重要依据</li>
+<li>追踪和管理系统的重要工作</li>
+<li>简单的入侵探测功能</li>
+<li>连续指令单一化</li>
+<li>简易的数据处理</li>
+<li>script处理时速度较慢,调用CPU资源过多,大量运算时不很适用</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8d0c3bd" class="outline-4">
+<h4 id="org8d0c3bd"><span class="section-number-4">12.1.2</span> 第一支script文件的撰写与执行</h4>
+<div class="outline-text-4" id="text-12-1-2">
+<ul class="org-ul">
+<li>有下列注意事项
+<ol class="org-ol">
+<li>指令的执行是从上到下,从左到右</li>
+<li>指令,选项和参数之间的多个空白会被忽略</li>
+<li>空白行被忽略</li>
+<li>读取到回车开始执行命令</li>
+<li>#是注释</li>
+</ol></li>
+<li>script撰写规范
+<ol class="org-ol">
+<li>开头写#!/bin/bash宣告使用script的shell名称</li>
+<li><p>
+程序内容要在注释中说明,包括
+</p>
+<ol class="org-ol">
+<li>内容和功能</li>
+<li>版本信息</li>
+<li>作者和联系方式</li>
+<li>创建日期</li>
+<li>历史记录</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Program:</span>
+<span style="color: #727072;">#      </span><span style="color: #727072; font-style: italic;">This program shows "Hello World" in the screen</span>
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">History</span>
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">2015/07/16 VBird   First release</span>
+</pre>
+</div></li>
+<li>主要环境变量宣告:将一些重要的环境变量设置好,如PATH,LANG</li>
+<li>主要程序部分</li>
+<li>执行成果告知, 定义回传值,一般在最后exit 0
+1</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: FAN</p>
+<p class="date">Created: 2021-03-20 六 15:04</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1063,10 +1063,10 @@ type [-tpa] name
 4.  由PATH变量搜寻到的第一个指令执行
 
 *** 进站与欢迎讯息
-[[file:../language/shell.md::484][详细见此处]]
+[[file:../language/shell.md][详细见此处]]
 
 *** 环境配置
-[[file:../language/shell.md::343][详细见此处]]
+[[file:../language/shell.md][详细见此处]]
 
 *** 终端机环境设置
 -   stty 查看shell里面默认字符设置功能
@@ -1110,7 +1110,7 @@ type [-tpa] name
     | [^]   | 取非                           |
 
 ** 数据流重导向
-[[file:../language/shell.md::202][详细见此处]]
+[[file:../language/shell.md][详细见此处]]
 ** 管线命令               
 *** 撰取命令:cut, grep
 - cut
@@ -1225,7 +1225,7 @@ xargs [-0epn] command
 *** 关于减号的用途
 减号可以替代前一个指令的stdout
 
-* 正则表达式与文件格式化处理
+* 第十一章, 正则表达式与文件格式化处理
 
 ** 开始之前:什么是正则表达式
 正则表达式是通过一些特殊符号辅助,顺利完成删除/搜寻/取代等工作
@@ -1261,7 +1261,7 @@ xargs [-0epn] command
 *** 基础正则表达式练习
 
 *** 基础正则表达式字符汇整
-[[file:../lauguage/shell.md::525][查看此处]]
+[[file:../lauguage/shell.md][查看此处]]
 
 *** sed工具
 将数据进行取代,删除,新增,赚取等
@@ -1297,9 +1297,45 @@ s : 取代,直接进行取代的动作
 ** 文件的格式化与相关处理
 
 *** 格式化打印:printf
-[[file:../language/shell.md::560][看这里]]
+[[file:../language/shell.md][看这里]]
 
 *** awk:好用的数据处理工具
-[[file:../language/shell.md::563][看这里]]
+[[file:../language/shell.md][看这里]]
 
-*** 文件打印准备:pr
+*** 文件打印准备:pr 
+
+* 第十二章, 学习shell scripts
+** 什么是shell scripts
+   针对shell写的剧本,将一些shell的语法和指令写在里面
+*** 干嘛学习shell scripts
+    - 自动化管理的重要依据
+    - 追踪和管理系统的重要工作
+    - 简单的入侵探测功能
+    - 连续指令单一化
+    - 简易的数据处理
+    - script处理时速度较慢,调用CPU资源过多,大量运算时不很适用
+*** 第一支script文件的撰写与执行
+    - 有下列注意事项
+      1. 指令的执行是从上到下,从左到右
+      2. 指令,选项和参数之间的多个空白会被忽略
+      3. 空白行被忽略
+      4. 读取到回车开始执行命令
+      5. #是注释
+    - script撰写规范
+      1. 开头写#!/bin/bash宣告使用script的shell名称
+      2. 程序内容要在注释中说明,包括
+         1. 内容和功能
+         2. 版本信息
+         3. 作者和联系方式
+         4. 创建日期
+         5. 历史记录
+         #+begin_src shell
+         # Program:
+         #      This program shows "Hello World" in the screen
+         # History
+         # 2015/07/16 VBird   First release
+         #+end_src
+      3. 主要环境变量宣告:将一些重要的环境变量设置好,如PATH,LANG
+      4. 主要程序部分
+      5. 执行成果告知, 定义回传值,一般在最后exit 0
+         1

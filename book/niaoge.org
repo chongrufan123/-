@@ -1338,4 +1338,144 @@ s : 取代,直接进行取代的动作
       3. 主要环境变量宣告:将一些重要的环境变量设置好,如PATH,LANG
       4. 主要程序部分
       5. 执行成果告知, 定义回传值,一般在最后exit 0
-         1
+** 简单的shell script练习
+*** script执行方式的差异
+    - 利用直接执行的方式执行script
+      - 相当于另外开一个子buffer去执行程序,所有的结果不会返回到父buffer
+    - 利用source执行指令
+      - 直接在当前的buffer中执行脚本,所有的设置还是会生效
+** 擅用判断式
+*** 利用test指令测试,有以下这些测试选项
+    有一个很常用的手段
+    #+begin_src shell
+    test -e /dmtsai && echo "exist" ; echo "not exist"
+    #+end_src
+    | 测试标志                                       | 代表意义                           |
+    | 文件类判断,test -e filename                    |                                    |
+    | -e                                             | 该文件名是否存在                   |
+    | -f                                             | 该文件名是否存在且为文件           |
+    | -d                                             | 该文件是否存在且为目录             |
+    | -b                                             | 该文件是否存在且为block device     |
+    | -c                                             | 该文件是否存在且为character device |
+    | -S                                             | 该文件名是否存在且为一个Socket文件 |
+    | -p                                             | 该文件是否存在且为FIFO文件         |
+    | -L                                             | 该文件是否存在且为链接文件         |
+    | 文件的权限侦测                                 |                                    |
+    | -r                                             | 文件是否有可读                     |
+    | -w                                             | 文件是否有可写                     |
+    | -x                                             | 文件是否可执行                     |
+    | -u                                             | 文件是否有SUID属性                 |
+    | -g                                             | 文件是否有SGID的属性               |
+    | -k                                             | 文件是否有Sticky bit属性           |
+    | -s                                             | 文件是否是非空白                   |
+    | 两个文件的比较, test file1 -nt file2           |                                    |
+    | -nt                                            | 1比2新                             |
+    | -ot                                            | 1比2旧                             |
+    | -ef                                            | 1和2是不是同一个文件               |
+    | 关于两个整数的判定,如test n1 -eq n2            |                                    |
+    | -eq                                            | 相等                               |
+    | -ne                                            | 不等                               |
+    | -gt                                            | 1大于2                             |
+    | -lt                                            | 1小于2                             |
+    | -ge                                            | 1大于等于2                         |
+    | -le                                            | 1小于等于2                         |
+    | 判断字串的数据                                 |                                    |
+    | test -z string                                 | 字串是否为0或为0                   |
+    | test -n string                                 | 字串是否非0或有东西                |
+    | test str1==str2                                | 1等于2                             |
+    | test str1!=str2                                | 1不等于2                           |
+    | 多重条件判定,如test -r filename -a -x filename |                                    |
+    | -a                                             | 两个条件同时成立                   |
+    | -o                                             | 或                                 |
+    | \!                                             | 取反                               |
+*** 利用判断符号[]
+    - 中括号里面的内容可以表示判断,有以下这些需要注意
+      - 中括号内部的每个元件都要有空白键分割
+      - 中括号内部的变量用双引号括起来
+      - 中括号内部的常数用单引号括起来
+*** shell script的默认变量
+    #+begin_src shell
+    /path/to/scriptname  opt1  opt2  opt3  opt4
+    $0                    $1    $2    $3    $4
+    #+end_src
+    - $# : 代表后面接的参数的个数
+    - $@ : 代表"$1""$2""$3""$4"每个变量独立
+    - $* : 代表"$1<u>c</u>$2<u>c</u>$3<u>c</u>$4",<u>c</u>是分割符,默认是空白
+    - shift : 后面跟数字, 造成参数变量号码偏移相当于直接移动数字,将前面的若干个参数去掉
+** 条件判断式
+*** 利用if...then
+    #+begin_src shell
+    if [ ]; then
+    # 成立时执行
+    fi
+
+    # if后面可以跟着很多的条件表达式,中间用 && 或 || 隔开
+    if []; then
+    else
+    fi
+
+    if []; then
+    elif []; then
+    else
+    fi
+    #+end_src
+*** 利用case ... esac判断
+    #+begin_src shell
+    case $变量名称 in
+      "第一个变量内容")
+        程序段
+        ;;
+      "第二个")
+        程序段
+        ;;
+      *)
+        其他的程序段
+        ;;
+    esac
+    #+end_src
+*** 利用function功能
+    #+begin_src shell
+    function fname() {
+        程序段
+    }
+    #+end_src
+    - function一定要在调用的前面
+** 循环(loop)
+*** while do done, until do done(不定循环)
+    #+begin_src shell
+    while [ condition ] 
+    do
+        程序段
+    done
+    # 当condition成立执行
+    until [ condition ]
+    do
+        程序段
+    done
+    # 当condition不成立时执行
+    #+end_src
+*** for...do...done(固定循环)
+    #+begin_src shell
+    for var in con1 con2 con3
+    do
+        程序段
+    done
+    #+end_src
+    - 上述程序意思是第一次循环, var的值是con1, 第二次是con2等等
+*** for...do...done的数值处理
+    #+begin_src shell
+    for (( 初始值; 限制值 ;执行步阶 ))
+    do
+        程序段
+    done
+    #+end_src
+*** 搭配乱数与阵列的实验
+** shell script的追踪和debug
+   #+begin_src shell
+   sh [-nvx] scripts.sh
+   选项和参数:
+   -n : 不执行script
+   -v : 在执行script之前先将script的内容输出到屏幕上
+   -x : 将使用到的script显示到屏幕上
+   #+end_src
+* linux账号管理

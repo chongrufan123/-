@@ -391,7 +391,78 @@
 
 *** agenda
 [[https://grass.show/omegat/target/Org%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C(%E5%AE%8C%E6%95%B4%E7%89%88).html][org使用手册]]
+*** latex公式 
+    参考资料:[[https://blog.csdn.net/csfreebird/article/details/43636615][org mode 使用latex]]
+    - 希腊字母等特殊字符
+      #+begin_src org
+      \alpha \beta \gamma  
+      \times    //乘号
+      #+end_src
+      - 实例:
+        \alpha \beta \gamma  
 
+        \times
+      - 用 $M-x\ \ org-entities-help$ 可以察看所有entitles
+    - 上下标
+      #+begin_src org
+      a_1   a_{1}   //下标
+      b^5   b^{5}   //上标签
+      #+end_src
+      - 实例:
+
+        a_1   a_{1}   
+
+        b^5   b^{5}   
+    - 求和符号
+      #+begin_src org
+      \begin{equation}
+      \sum_{i=1}^n(单项评分_i*权重)    //求和符号
+      \end{equation}
+      #+end_src
+      - 实例:
+        \begin{equation}
+        \sum_{i=1}^n(单项评分_i*权重)    
+        \end{equation}
+      - *注:equation和$$的区别是后面会不会有一个数字标签*
+    - 分式
+      #+begin_src org
+      \begin{equation}
+      \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  //分式
+      \end{equation}
+      #+end_src
+      - 实例:
+      \begin{equation}
+      \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  
+      \end{equation}                               
+    - 箭头上面数字
+      #+begin_src org
+      $$\stackrel{abc}{\longrightarrow}$$   //箭头上有abc
+      #+end_src
+      - 实例:
+        $$\stackrel{abc}{\longrightarrow}$$   
+    - 分段函数
+      #+begin_src org
+      \begin{equation}
+      Y=\left\{
+      \begin{aligned}
+      +1 & , & if &&X \geq \theta \\     
+      -1 & , & if && X < \theta           //分段函数
+      \end{aligned}
+      \right.
+      \end{equation}
+      #+end_src
+      - 实例:
+        \begin{equation}
+        Y=\left\{
+        \begin{aligned}
+        +1 & , & if &&X \geq \theta \\     
+        -1 & , & if && X < \theta           
+        \end{aligned}
+        \right.
+        \end{equation}
+      - 解释:
+        - $反斜杆$ 是换行的意思
+        - $&&$ 之间可以夹一些如逗号什么的东西
 ** 文件管理
 ** eaf
 - 浏览器
@@ -399,6 +470,26 @@
 |------+----------|
 | m    | 设置书签 |
 | f    | 跳转     |
+** ledger
+   参考资料:[[https://segmentfault.com/a/1190000022077344][程序员的记账工具]],[[https://c-tan.com/zh/post/ledger-org-babel-example/][使用Ledger来记账]]
+
+   - 账户划分方法
+     | *Assets*              | *表示用户的资产* |
+     |-----------------------+------------------|
+     | Assets:Checking       | 表示消费账户     |
+     | Assets:Investment     | 表示投资的账户   |
+     |-----------------------+------------------|
+     | *Expense*             | *用户的支出*     |
+     |-----------------------+------------------|
+     | Expense:Clothes       | 衣物             |
+     | Expense:Education     | 书籍文具等       |
+     | Expense:Entertainment | 电影游戏等       |
+     | Expense:Food          | 买菜就餐等       |
+     | Expense:Work          | 工作方面的            |
+     |-----------------------+------------------|
+     | *Equity*              | *初始化账户余额* |
+     | *Income*              | *收入*           |
+    
 
 * 常用的命令
 | 命令                                    | 作用               |

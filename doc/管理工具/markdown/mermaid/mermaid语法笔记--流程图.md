@@ -10,8 +10,9 @@ declare: true
 date: 2021-12-20 19:25:38
 ---
 
-> 参考内容：[](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
-> live editor: [live editor click there](https://mermaid-js.github.io/mermaid-live-editor/)
+> [参考内容](https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md)
+
+> [live editor click there](https://mermaid-js.github.io/mermaid-live-editor/)
 
 ## 概述
 Mermaid 是一个基于 Javascript 的图表绘制工具，通过解析类 Markdown 的文本语法来实现图表的创建和动态修改，可以使用这个工具来进行包括流程图，时序图等恼人的图表的绘制。可以看做是markdown的一个插件，可以直接在github中下载，也可以在一些markdown编辑器的插件中找到，这里演示是基于obsidian的[obsidian charts插件](https://github.com/phibr0/obsidian-charts)。 

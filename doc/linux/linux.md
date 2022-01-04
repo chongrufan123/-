@@ -3,9 +3,10 @@
 
 <!-- vim-markdown-toc Marked -->
 
-* [命令](#命令)
-    * [vim](#vim)
-    * [软件包管理](#软件包管理)
+- [linux](#linux)
+  - [命令](#命令)
+    - [vim](#vim)
+    - [软件包管理](#软件包管理)
 
 <!-- vim-markdown-toc -->
 ## 命令

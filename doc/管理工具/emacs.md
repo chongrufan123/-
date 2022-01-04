@@ -1,11 +1,12 @@
-#+TITLE:emacs笔记
-#+AUTHOR:FAN Chongru
-#+EMAIL:chongrufan123@gmail.com
-#+KEYWORDS:emacs
+---
+title: emacs笔记
+author: FAN Chongru
+email: chongrufan@nuaa.edu.cn
+---
 
-* 一些基本操作
+# 一些基本操作
 | 操作                   | 作用                               |
-|------------------------+------------------------------------|
+|------------------------|------------------------------------|
 | c-n                    | 下一行                             |
 | c-p                    | 前一行                             |
 | c-f                    | 前一个字符                         |
@@ -72,9 +73,9 @@
 | x                      | 删除窗口                           |
 | m                      | 移动窗口                           |
 
-** markdown-mode
+## markdown-mode
 | 命令                             | 作用                                               |
-|----------------------------------+----------------------------------------------------|
+|----------------------------------|----------------------------------------------------|
 | c-c c-a                          | 插入超链接,打开插入链接界面                        |
 | 下面是这些链接的后面的字母的意义 |                                                    |
 | l                                | 插入链接,分别输入url,名称和标题                    |
@@ -102,7 +103,7 @@
 | \!                               | 插入一级标题和分隔符                               |
 | c-c c-o                          | 打开光标所在链接                                   |
 
-** org mode相关内容 
+## org mode相关内容 
 - 基本
   - \*后面可以跟一个清单,\*后面可以跟很多个\*\*
   - s+右 加一个todo或done标签
@@ -128,16 +129,16 @@
     可以在键入S-TAB在这三种模式切换,C-u C-u C-u TAB直接切换到全局  
     org-startup-folded 是设置打开org之后默认显示状态,默认是概览  
     如果针对单独文件设置,在最开始加
-    #+begin_src org
+    ```org
     *+STAARTUP: overview
     可选有
     content
     overview
     shwoall
-    #+end_src
+    ```
 - 移动相关
   | 命令    | 作用           |
-  |---------+----------------|
+  |---------|----------------|
   | C-c C-n | 下一个标题     |
   | C-c C-p | 上一个标题     |
   | C-c C-f | 下一个同级标题 |
@@ -145,7 +146,7 @@
   | C-c C-u | 跳转到父级目录 |
 - 结构编辑  
   | 命令         | 作用                           |
-  |--------------+--------------------------------|
+  |--------------|--------------------------------|
   | M-RET        | 创建同级别标题                 |
   | M-S-RET      | 创建同级别todo条目             |
   | TAB          | 循环改变未指定标题名的标题等级 |
@@ -165,7 +166,7 @@
     | C-c _       | 循环修改当前项目条目   |
 - 表格
   | 命令                 | 作用                         |            |
-  |----------------------+------------------------------+------------|
+  |----------------------|------------------------------|------------|
   | \                    | - TAB                        | 创建分割符 |
   | 创建第一行之后按TAB  | 创建表格                     |            |
   | C-c C-c              | 重新对齐表格                 |            |
@@ -182,7 +183,7 @@
   | C-c RET              | 在当前行下方加入分割线       |            |
   | C-x ^                | 根据当前列给表格排序         |            |
 - 超链接
-  #+begin_src org
+  ```org
   两种定义方式
     带说明的超链接
     [[https://www.baidu.com][百度]]
@@ -199,10 +200,10 @@
     [[file:~/.emacs.d/init.el::15][打开init.el的第15行]]
     指定特殊目标
     [[file:~/.emacs.d/test.el::Teat Target][打开test.el的Test Target标记]]
-  #+end_src
+  ```
   - 处理超链接
     | 命令    | 作用                               |
-    |---------+------------------------------------|
+    |---------|------------------------------------|
     | C-c C-l | 插入链接                           |
     | C-c C-l | 当光标在一个超链接上面时编辑超链接 |
     | C-c C-o | 打开超链接                         |
@@ -212,16 +213,16 @@
 
 - 图片
   - 创建图片
-    #+begin_src org
+    ```org
     [[file:~/a.png]]
-    #+end_src
+    ```
   - 用C-c C-x C-v 的方式让图片显示出来
 
     [[file:~/a.png][图片]]
 
 - 字体
   | 符号  | 描述   | 展示     |
-  |-------+--------+----------|
+  |-------|--------|----------|
   | 两边* | 粗体   | *粗体*   |
   | 两边/ | 斜体   | /斜体/   |
   | 两边+ | 删除线 | +删除线+ |
@@ -231,30 +232,34 @@
   - 自带导出功能
 
     导出时数据设置
-    #+begin_src org
+    ```org
     #+TITLE:
     #+AUTHOR:
     #+EMAIL:
     #+KEYWORDS:
-    #+end_src
+    ```
   - 导出为markdown
     M-x org-md-export-as-markdown
 - 区块
   - 居中区块CENTER
+
     #+begin_center
     大卫奖
 阿对外交流
     #+end_center
   - 例子EXAMPLE
+
     #+begin_example
     这是一个例子
     #+end_example
   - 注释COMMENT
+
     #+begin_center
     大卫的理解
     达到节能
     #+end_center
   - HTML区块HTML
+
     #+begin_export html
     嵌入的
     #+end_export
@@ -266,13 +271,14 @@
     
     
   - 按键
-| 按键      | 作用           |
-|-----------+----------------|
-| C-c C-t   | 选择代办状态   |
-| C-c ,     | 选择优先级     |
-| S-UP/DOWN | 提升降低优先级 |
-| [/]或[%]     | 显示进度       |
-| C-c C-c   | 刷新进度       |
+  
+  | 按键      | 作用           |
+  |-----------|----------------|
+  | C-c C-t   | 选择代办状态   |
+  | C-c ,     | 选择优先级     |
+  | S-UP/DOWN | 提升降低优先级 |
+  | [/]或[%]     | 显示进度       |
+  | C-c C-c   | 刷新进度       |
 
 - 标签 
 
@@ -282,14 +288,14 @@
 
   也可以在文件开头写下面这段话,让当前文件的所有标签继承与他
 
-  #+begin_src org
+  ```org
   *+FILETAGS: :EvanMeek:
-  #+end_src
+  ```
   
   在文件开头指定该文件的标签
-  #+begin_src org
+  ```org
   *+TAGS: @work(w) @home(h)
-  #+end_src
+  ```
 
   - 标签组
 
@@ -300,35 +306,36 @@
   
   - 按键
 | 按键    | 作用                              |
-|---------+-----------------------------------|
+|---------|-----------------------------------|
 | C-c C-q | 为当前标题创建新的标签            |
 | C-c C-c | 同上,不过只有光标在标签上面才有效 |
 
 - 属性
   属性是包含在
-  #+begin_src org
-:PROPERTIES:...
-  #+end_src
+
+  ```org
+  :PROPERTIES:...
+  ```
   之间的
 
   - 按键
   
-| 按键      | 作用         |
-|-----------+--------------|
-| C-c C-x p | 设置属性     |
-| C-c C-c d | 删除当前属性 |
+  | 按键      | 作用         |
+  |-----------|--------------|
+  | C-c C-x p | 设置属性     |
+  | C-c C-c d | 删除当前属性 |
 
 - 时间和日期
   - 时间缀
     - 基本时间缀
-      #+begin_src org
+      ```org
       <2020-05-19 一>
-      #+end_src
+      ```
       
     - 有规律的时间缀
-      #+begin_src org
+      ```org
       <2020-05-19 一 +1y>
-      #+end_src
+      ```
 
       每年都会提醒
 
@@ -339,16 +346,15 @@
       两个时间厝之间用--连接
 
     - 非活动时间错
-      #+begin_src org
+    ```org
     [2020-05-18 一]
-      #+end_src
-
+    ```
     不会被agenda管理
 
   - 创建时间错
     - 键位
 | 键位         | 作用                   |
-|--------------+------------------------|
+|--------------|------------------------|
 | C-c .        | 插入时间厝             |
 | C-c !        | 插入非活动时间厝       |
 | S-LEFT/RIGHT | 将时间厝提前或后退一天 |
@@ -364,24 +370,24 @@
 
   - 截止日期和计划安排
 
-*** capture相关的内容 ***
-[[https://www.zmonster.me/2018/02/28/org-mode-capture.html][参考资料]]
+### capture相关的内容 
+[参考资料](https://www.zmonster.me/2018/02/28/org-mode-capture.html)
 
 一个模板主要有5个部分构成
 | 模板组成    | 描述               |
-|-------------+--------------------|
+|-------------|--------------------|
 | key         | 选择模板的字符     |
 | description | 展示模板的描述     |
 | type        | 新增内容的类型     |
 | target      | 新增内容的存储位置 |
 | template    | 新增内容的模板     |
 
-#+begin_src org
-例子:
-'("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a")
-#+end_src
+  ```org
+  例子:
+  '("t" "Task" entry (file+headline "" "Tasks") "* TODO %?\n  %u\n  %a")
+  ```
 
-    - 新增内容类型type
+  - 新增内容类型type
 | type      | description            |
 |-----------+------------------------|
 | entry     | 带有headline的一个节点 |
@@ -389,111 +395,116 @@
 | checkitem | 一个checkbox列表项     |
 | plain     | 普通文本               |
 
-*** agenda
-[[https://grass.show/omegat/target/Org%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C(%E5%AE%8C%E6%95%B4%E7%89%88).html][org使用手册]]
-*** latex公式 
-    参考资料:[[https://blog.csdn.net/csfreebird/article/details/43636615][org mode 使用latex]]
-    - 希腊字母等特殊字符
-      #+begin_src org
+### agenda
+[org使用手册](https://grass.show/omegat/target/Org%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C(%E5%AE%8C%E6%95%B4%E7%89%88).html)
+### latex公式 
+  参考资料:[org mode 使用latex](https://blog.csdn.net/csfreebird/article/details/43636615)
+
+  - 希腊字母等特殊字符
+    ```org
+    \alpha \beta \gamma  
+    \times    //乘号
+    ```
+    - 实例:
       \alpha \beta \gamma  
-      \times    //乘号
-      #+end_src
-      - 实例:
-        \alpha \beta \gamma  
 
-        \times
-      - 用 $M-x\ \ org-entities-help$ 可以察看所有entitles
-    - 上下标
-      #+begin_src org
-      a_1   a_{1}   //下标
-      b^5   b^{5}   //上标签
-      #+end_src
-      - 实例:
+      \times
+    - 用 $M-x\ \ org-entities-help$ 可以察看所有entitles
+  - 上下标
+    ```org
+    a_1   a_{1}   //下标
+    b^5   b^{5}   //上标签
+    ```
+    - 实例:
 
-        a_1   a_{1}   
+      a_1   a_{1}   
 
-        b^5   b^{5}   
-    - 求和符号
-      #+begin_src org
+      b^5   b^{5}   
+  - 求和符号
+    ```org
+    \begin{equation}
+    \sum_{i=1}^n(单项评分_i*权重)    //求和符号
+    \end{equation}
+    ```
+    - 实例:
       \begin{equation}
-      \sum_{i=1}^n(单项评分_i*权重)    //求和符号
+      \sum_{i=1}^n(单项评分_i*权重)    
       \end{equation}
-      #+end_src
-      - 实例:
-        \begin{equation}
-        \sum_{i=1}^n(单项评分_i*权重)    
-        \end{equation}
-      - *注:equation和$$的区别是后面会不会有一个数字标签*
-    - 分式
-      #+begin_src org
-      \begin{equation}
-      \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  //分式
-      \end{equation}
-      #+end_src
-      - 实例:
-      \begin{equation}
-      \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  
-      \end{equation}                               
-    - 箭头上面数字
-      #+begin_src org
-      $$\stackrel{abc}{\longrightarrow}$$   //箭头上有abc
-      #+end_src
-      - 实例:
-        $$\stackrel{abc}{\longrightarrow}$$   
-    - 分段函数
-      #+begin_src org
+    - *注:equation和$$的区别是后面会不会有一个数字标签*
+  - 分式
+    ```org
+    \begin{equation}
+    \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  //分式
+    \end{equation}
+    ```
+    - 实例:
+
+    \begin{equation}
+    \frac{1^p+2^p+\cdot\cdot\cdot+n^p}{n^{1+p}}  
+    \end{equation}                               
+  - 箭头上面数字
+    ```org
+    $$\stackrel{abc}{\longrightarrow}$$   //箭头上有abc
+    ```
+    - 实例:
+      $$\stackrel{abc}{\longrightarrow}$$   
+  - 分段函数
+    ```org
+    \begin{equation}
+    Y=\left\{
+    \begin{aligned}
+    +1 & , & if &&X \geq \theta \\     
+    -1 & , & if && X < \theta           //分段函数
+    \end{aligned}
+    \right.
+    \end{equation}
+    ```
+    - 实例:
       \begin{equation}
       Y=\left\{
       \begin{aligned}
       +1 & , & if &&X \geq \theta \\     
-      -1 & , & if && X < \theta           //分段函数
+      -1 & , & if && X < \theta           
       \end{aligned}
       \right.
       \end{equation}
-      #+end_src
-      - 实例:
-        \begin{equation}
-        Y=\left\{
-        \begin{aligned}
-        +1 & , & if &&X \geq \theta \\     
-        -1 & , & if && X < \theta           
-        \end{aligned}
-        \right.
-        \end{equation}
-      - 解释:
-        - $反斜杆$ 是换行的意思
-        - $&&$ 之间可以夹一些如逗号什么的东西
-** 文件管理
-** eaf
+    - 解释:
+      - $反斜杆$ 是换行的意思
+      - $&&$ 之间可以夹一些如逗号什么的东西
+## 文件管理
+## eaf
 - 浏览器
+
 | 命令 | 作用     |
-|------+----------|
+|------|----------|
 | m    | 设置书签 |
 | f    | 跳转     |
-** ledger
-   参考资料:[[https://segmentfault.com/a/1190000022077344][程序员的记账工具]],[[https://c-tan.com/zh/post/ledger-org-babel-example/][使用Ledger来记账]]
+
+## ledger
+   参考资料:[程序员的记账工具](https://segmentfault.com/a/1190000022077344),[使用Ledger来记账](https://c-tan.com/zh/post/ledger-org-babel-example/)
 
    - 账户划分方法
      | *Assets*              | *表示用户的资产* |
-     |-----------------------+------------------|
+     |-----------------------|------------------|
      | Assets:Checking       | 表示消费账户     |
      | Assets:Investment     | 表示投资的账户   |
-     |-----------------------+------------------|
+     |
      | *Expense*             | *用户的支出*     |
-     |-----------------------+------------------|
+     |
      | Expense:Clothes       | 衣物             |
      | Expense:Education     | 书籍文具等       |
      | Expense:Entertainment | 电影游戏等       |
      | Expense:Food          | 买菜就餐等       |
      | Expense:Work          | 工作方面的            |
-     |-----------------------+------------------|
+     |
      | *Equity*              | *初始化账户余额* |
      | *Income*              | *收入*           |
     
 
-* 常用的命令
+# 常用的命令
+
 | 命令                                    | 作用               |
-|-----------------------------------------+--------------------|
+|-----------------------------------------|------------------|
 | replace-string                          | 替换字符串         |
 | recover file                            | 恢复自动保存文件   |
 | fundamental-mode                        | 切换模式           |

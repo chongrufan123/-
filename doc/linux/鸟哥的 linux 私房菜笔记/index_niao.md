@@ -1,5 +1,5 @@
 ---
-title: emacs笔记
+title: 鸟哥的Linux私房菜
 author: FAN Chongru
 email: chongrufan@nuaa.edu.cn
 ---
